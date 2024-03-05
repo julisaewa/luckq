@@ -1,0 +1,21 @@
+.topic{
+  text-transform: uppercase;
+  font-size: 12px;
+  font-family: Helvetica, Serif;
+}
+.article-header{
+  font-size: 30px;
+}
+.aside{
+  float: right;
+  width: 300px;
+}
+.sticky-banner{
+  position: sticky;
+  top: 70px;
+  z-index: 2;
+}
+.article{
+  font-size: 20px;
+  line-height: 28px;
+}

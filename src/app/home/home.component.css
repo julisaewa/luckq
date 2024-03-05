@@ -1,0 +1,109 @@
+/deep/mark {
+  background-color: transparent !important;
+}
+.max-w-1000{
+  max-width: 1000px;
+}
+.header-body {
+  margin-left: 64px;
+  margin-right: 64px;
+  background-color: white;
+}
+.logo{
+  height: 70px;
+  font-size: 50px;
+}
+.header-inner{
+  width: 100%;
+  max-width: 1330px;
+  min-width: 1000px;
+}
+.menu{
+  text-transform: uppercase;
+  font-size: 13px;
+}
+.menu-hover:hover{
+  border-bottom: 1px solid;
+  transition: 0.3s;
+}
+.article-header{
+  font-size: 30px;
+}
+.article{
+  font-size: 18px;
+  line-height: 20px;
+}
+.article-big{
+  font-size: 22px;
+  line-height: 25px;
+}
+.article-main{
+  font-size: 18px;
+  text-align: justify;
+}
+.head-art{
+  font-size: 30px;
+}
+.topic{
+  text-transform: uppercase;
+  font-size: 12px;
+  font-family: Helvetica;
+}
+.main-topic{
+  font-size: 30px;
+  text-transform: uppercase;
+}
+.news{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.news-head{
+  height: 100px;
+}
+.circle{
+  overflow: hidden;
+  border-radius: 50%;
+}
+.footer{
+  padding: 90px 0;
+  background: #232323;
+  width: 100%;
+}
+.footer-topic{
+  font-size: 12px;
+}
+.text-link{
+  text-decoration: none;
+  color: black;
+}
+.aside{
+  float: right;
+  width: 300px;
+}
+.sticky-banner{
+  position: sticky;
+  top: 70px;
+  z-index: 2;
+}
+.line{
+  margin-bottom: 22px;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+.red-border{
+  border: 1px solid #c1415730;
+}
+.marquee{
+  width: 100%;
+  color: black !important;
+  --marktext: black;
+}
+.marquee-mark{
+  padding: 0 10px;
+  color: black !important;
+  font-size: 30px;
+}
+.run-stroke{
+  position: absolute;
+  bottom: -200px;
+}

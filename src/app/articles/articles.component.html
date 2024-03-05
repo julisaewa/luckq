@@ -1,0 +1,9 @@
+<div
+  infinite-scroll
+  (scrolled)="onScrollDown()"
+  (scrolledUp)="onScrollUp()"
+>
+  <div *ngFor="let a of articlesShown">
+    <div *ngComponentOutlet="a.component"></div>
+  </div>
+</div>
