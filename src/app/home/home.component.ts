@@ -150,4 +150,26 @@ export class HomeComponent implements OnInit {
   urlOpen(url: string) {
     window.open(url)
   }
+
+  getDate() {
+    let d = new Date();
+    let day = this.alz(d.getDate());
+    let month = this.formatMonth(d.getMonth());
+    let year = this.alz(d.getFullYear());
+    let sep = ' ';
+    return [day, month, year].join(sep);
+  }
+
+  formatMonth(monthNumber: number){
+    let monthes: string[] = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+    return monthes[monthNumber];
+  }
+  alz(input: any, length: number = 2){
+    let res = input.toString();
+    while (res.length < length){
+      res = '0' + res;
+    }
+    return res;
+  }
+
 }
