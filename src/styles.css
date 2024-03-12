@@ -774,6 +774,14 @@ html,head,body{
   margin-left: 1rem;
   margin-right: 1rem;
 }
+.mx-1px{
+  margin-left: 1px;
+  margin-right: 1px;
+}
+.mx-2px{
+  margin-left: 2px;
+  margin-right: 2px;
+}
 .mx-5{
   margin-left: 5px;
   margin-right: 5px;
