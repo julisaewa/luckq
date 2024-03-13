@@ -165,9 +165,8 @@
 }
 .back-narod{
   background: url("../../assets/narod.png");
-  height: 400px;
+  height: fit-content;
 }
 .date{
   font-size: xxx-large;
-
 }
