@@ -177,4 +177,8 @@ export class HomeComponent implements OnInit {
     return res;
   }
 
+  getEvents(kind: string = ''): CalendarEvent[] {
+    let d = new Date();
+    return this.events.filter(x => x.day == d.getDate() && x.month == (d.getMonth() + 1) && x.year == d.getFullYear()).filter(x => x.kind == kind || kind == '');
+  }
 }

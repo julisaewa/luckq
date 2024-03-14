@@ -167,6 +167,10 @@
   background: url("../../assets/narod.png");
   height: fit-content;
 }
+.back-recipe{
+  background: url("../../assets/recipe.png");
+  height: fit-content;
+}
 .date{
   font-size: xxx-large;
 }

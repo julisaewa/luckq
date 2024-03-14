@@ -347,8 +347,24 @@
         <img src="assets/r-arrow.svg" height="24">
       </div>
     </div>
-
   </div>
+
+  <div class="mx-auto max-w-1300 mt-90">
+    <div class="df mb-30 pt-50">
+      <div class="main-topic mr-10">рецепт дня</div>
+      <div class="line"></div>
+    </div>
+  </div>
+  <div class="back-recipe">
+    <div class="mx-auto max-w-1300">
+      <div class="pt-20 pb-30 text-justify" *ngFor="let e of getEvents('sun')">
+        <div class="article-header">{{e.header}}</div>
+        <div class="article" [innerHTML]="e.text"></div>
+      </div>
+    </div>
+  </div>
+
+
   <div class="mx-auto max-w-1300">
     <div class="df mt-50">
       <div class="main-topic mr-10">новости</div>
@@ -413,6 +429,12 @@
       </div>
     </div>
 
+
+<!--    <div *ngFor="let e of getEvents('sun')">-->
+<!--      <h1>{{e.header}}</h1>-->
+<!--      <h1>{{e.text}}</h1>-->
+<!--    </div>-->
+
     <div class="df space-between">
       <div class="aside">
         <div class="sticky-banner">
@@ -466,13 +488,9 @@
       <div class="cx pt-20">
         <div class="date">{{getDate()}}</div>
       </div>
-      <div class="pb-30 text-justify">
-        <div class="article-header">Евдокия Свистунья, Авдотья Плющиха</div>
-        <div class="article">На Евдокию женщины, девицы и дети залезали на крыши амбаров или просто на пригорки и пели: «Весна красна! Что ты нам принесла? Красное летичко!».
-          <br>Крестьяне уже всерьез задумывались о будущем урожае, подыскивали работников. Именно в этот день оканчивались сроки зимнего найма и начинались наймы весенние.
-          <br>Для этого дня существовало множество погодных примет. Например, такие: «На Евдокию теплый ветер — лето мокрое»; «Откуда на Евдокию повеет ветер, оттуда он подует весной и летом»; «С Евдокией погоже — все лето пригоже».
-<!--          <br>Существовали и другие приметы. Если шел дождь — лето должно было быть добрым. Наблюдали также, как тают круги вокруг деревьев: если края круты — то и весна будет крута, если пологи — то и весна протяжна.-->
-        </div>
+      <div class="pb-30 text-justify" *ngFor="let e of getEvents('moon')">
+        <div class="article-header">{{e.header}}</div>
+        <div class="article" [innerHTML]="e.text"></div>
       </div>
     </div>
   </div>
