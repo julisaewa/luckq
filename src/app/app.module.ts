@@ -14,6 +14,7 @@ import { SubnaviComponent } from './navi/subnavi/subnavi.component';
 import { FooterComponent } from './footer/footer.component';
 import {NgMarqueeModule} from "ng-marquee";
 import { FasionWeekMoscowComponent } from './articles/fasion-week-moscow/fasion-week-moscow.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { FasionWeekMoscowComponent } from './articles/fasion-week-moscow/fasion-
     GalleriaModule,
     InfiniteScrollModule,
     NgMarqueeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

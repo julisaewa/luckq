@@ -4,6 +4,8 @@ import {Router} from "@angular/router";
 import {ShopImage} from "../interfaces/shop-image";
 import {ChangeDetection} from "@angular/cli/lib/config/workspace-schema";
 import * as url from "url";
+import {EventManagerService} from "../event-manager.service";
+import {CalendarEvent} from "../interfaces/calendar-event";
 
 @Component({
   selector: 'app-home',
@@ -80,10 +82,9 @@ export class HomeComponent implements OnInit {
   animationDuration = 800;
   animationTimeout = 100;
   imageHover = -1;
+  events: CalendarEvent[] = [];
 
-
-
-  constructor(private router: Router, public cd: ChangeDetectorRef) {
+  constructor(private router: Router, public eventsManager: EventManagerService) {
     this.imgsSrc.push(new ShopImage(this.dir + '0.png', this.dir + '0-1.png', 'СУМКА BUMPER-31 TERRY JW ANDERSON', 'https://svg.moda/womens/sumki-dlya-zhenshin/sumki-tout-dlya-zhenshin/sumka-bumper-31-terry-jw-anderson-ja-2367010'));
     this.imgsSrc.push(new ShopImage(this.dir + '1.png', this.dir + '0-1.png', 'СУМКА SOFT MARGAUX 17 THE ROW', 'https://svg.moda/womens/sumki-dlya-zhenshin/sumki-tout-dlya-zhenshin/sumka-soft-margaux-17-the-row-tr-2360096'));
     this.imgsSrc.push(new ShopImage(this.dir + '2.png', this.dir + '0-1.png', 'БАЛЕТКИ PUNTERA HEREU КОРИЧНЕВЫЕ', 'https://svg.moda/womens/obuv-dlya-zhenshin/baletki-dlya-zhenshin/baletki-puntera-hereu-hereu-2362435'));
@@ -119,6 +120,10 @@ export class HomeComponent implements OnInit {
     setTimeout(() => {
       AOS.refresh();
     }, 100);
+    this.eventsManager.getEvents().subscribe(res => {
+      console.log(res);
+      this.events = res;
+    });
   }
   openArticle(article: string): void {
     this.router.navigate(['articles'], { queryParams: {article}});
