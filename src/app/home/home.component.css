@@ -171,6 +171,9 @@
   background: url("../../assets/recipe.png");
   height: fit-content;
 }
+.back-sky{
+  background: url("../../assets/sky.png");
+}
 .date{
   font-size: xxx-large;
 }
