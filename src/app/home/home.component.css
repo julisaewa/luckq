@@ -177,3 +177,10 @@
 .date{
   font-size: xxx-large;
 }
+.woman{
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  color: white;
+  font-size: 50px;
+}
