@@ -28,6 +28,7 @@ import {MegaMenuModule} from "primeng/megamenu";
 import {MenubarModule} from "primeng/menubar";
 import {PanelMenuModule} from "primeng/panelmenu";
 import {VirtualScrollerModule} from "primeng/virtualscroller";
+import {DialogModule} from "primeng/dialog";
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import {VirtualScrollerModule} from "primeng/virtualscroller";
     MenubarModule,
     PanelMenuModule,
     VirtualScrollerModule,
+    DialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

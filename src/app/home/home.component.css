@@ -390,10 +390,10 @@ video::cue {
   z-index: 1;
 }
 .footer-img{
-  background-image: url("../../assets/pc_background.png");
+  background-image: url("../../assets/bigest-banner.png");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 200px;
+  height: 230px;
 }
 .video-list-toggle{
   position: absolute;

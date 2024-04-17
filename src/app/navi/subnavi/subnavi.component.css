@@ -8,7 +8,10 @@
   font-size: 13px;
 }
 .header-body {
-  background-color: white;
+  background-image: url("../../../assets/pc_background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 70px;
   padding-left: 50px;
   padding-right: 20px;
 }
@@ -24,27 +27,29 @@
 .menu-search{
   text-transform: uppercase;
   font-size: 13px;
+  color: white;
 }
 .menu-search:hover{
-  color: #6B6B6B;
+  color: #ffffff;
   transition: 0.3s;
 }
 .menu{
   text-transform: uppercase;
   font-size: 13px;
+  color: white;
 }
 .menu:hover{
-  color: #6B6B6B;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.76);
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.76);
   transition: 0.3s;
 }
 .menu-hover:hover{
-  color: #6B6B6B;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.76);
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.76);
   transition: 0.3s;
 }
 .heart-hover:hover{
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #ffffff;
   transition: 0.3s;
 }
 .menu-item{

@@ -148,7 +148,7 @@ export class HomeComponent implements OnInit {
   ];
   rightSliderArticlesAutoplayInterval = 18 * 1000;
 
-  menWomenTimeout = 1;
+  menWomenTimeout = 17;
   showMenWomen = true;
 
   videoListShow = false;
@@ -164,6 +164,30 @@ export class HomeComponent implements OnInit {
   ];
   selectedCalendarNews: CalendarEvent | null = null;
 
+  calendarPages = [
+    'assets/calendar1.png',
+    'assets/calendar2.png',
+    'assets/calendar3.png',
+    'assets/calendar4.png',
+    'assets/calendar5.png',
+    'assets/calendar6.png',
+    'assets/calendar7.png',
+    'assets/calendar8.png',
+    'assets/calendar9.png',
+    'assets/calendar10.png',
+    'assets/calendar11.png',
+    'assets/calendar12.png',
+    'assets/calendar13.png',
+    'assets/calendar14.png',
+    'assets/calendar15.png',
+    'assets/calendar16.png',
+    'assets/calendar17.png',
+    'assets/calendar18.png',
+    'assets/calendar19.png',
+    'assets/calendar20.png'
+  ];
+  selectedCalendarPage = '';
+  selectedCalendarPageVisislbe = false;
   today = new Date();
   currentMonth = this.today.getMonth();
 
@@ -329,4 +353,5 @@ export class HomeComponent implements OnInit {
       default: return this.currentMonth;
     }
   }
+
 }

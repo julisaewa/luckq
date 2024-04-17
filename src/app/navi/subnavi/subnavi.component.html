@@ -1,7 +1,7 @@
 <div class="header-body sticky cxy" (click)="pageClick($event)">
   <div class="header-inner space-between">
     <a class="logo cxy cursor-pointer" routerLink="">
-      <img src="assets/logo-b.png" height="50">
+      <img src="assets/logo-w.png" height="50">
     </a>
     <div class="df">
       <div class="menu-item ml-30 cy" (mouseenter)="hoverMenu('market')" (mouseleave)="unHoverMenu('market')">
@@ -126,7 +126,7 @@
         </div>
       </div>
       <div class="menu-item ml-30 cy" (mouseenter)="hoverMenu('news')" (mouseleave)="unHoverMenu('news')">
-        <div class="menu cursor-pointer" >Новости</div>
+        <div class="menu cursor-pointer">Новости</div>
         <div class="s-menu menu-overlay" *ngIf="isHover('news')">
           <div class="sub-menu height-40 df">
             <div class="mr-10">
@@ -139,6 +139,23 @@
               <img src="assets/ticket.svg" height="18">
             </div>
             <div>Выставки</div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item ml-30 cy" (mouseenter)="hoverMenu('playlist')" (mouseleave)="unHoverMenu('playlist')">
+        <div class="menu cursor-pointer">Плейлисты</div>
+        <div class="s-menu menu-overlay" *ngIf="isHover('playlist')">
+          <div class="sub-menu height-40 df" (click)="openUrl('https://music.yandex.ru/tag/top')">
+            <div class="mr-10">
+              <img src="assets/music.png" height="18">
+            </div>
+            <div>Яндекс. Музыка</div>
+          </div>
+          <div class="sub-menu height-40 df" (click)="openUrl('https://zvuk.com/playlists')">
+            <div class="mr-10">
+              <img src="assets/zvuk.png" height="18">
+            </div>
+            <div>Звук</div>
           </div>
         </div>
       </div>
@@ -198,8 +215,8 @@
         </div>
         <div class="ml-25 df heart-hover">
           <div class="cursor-pointer">
-            <svg stroke-width="2"  stroke-linecap="round" stroke-linejoin="round" id="Capa_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                 width="16" height="16" viewBox="0 0 612 612" style="enable-background:new 0 0 612 612;" xml:space="preserve"><g><g id="_x31__39_"><g><path d="M459,18.075c-63.743,0-111.977,37.409-153,76.5c-39.091-41.482-89.256-76.5-153-76.5c-89.773,0-153,77.188-153,161.358
+            <svg  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="Capa_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                 width="16" height="16" viewBox="0 0 612 612" style="fill:#ffffff;" xml:space="preserve"><g><g id="_x31__39_"><g><path d="M459,18.075c-63.743,0-111.977,37.409-153,76.5c-39.091-41.482-89.256-76.5-153-76.5c-89.773,0-153,77.188-153,161.358
 				c0,45.154,18.494,77.686,38.747,108.228l237.781,285.077c26.699,28.248,31.729,28.248,58.427,0l238.316-285.077
 				C597.082,257.119,612,224.587,612,179.433C612,95.264,548.772,18.075,459,18.075z M535.5,279.744L306,553.575L76.5,278.615
 				c-27.444-38.154-38.25-63.896-38.25-99.182c0-65.752,46.952-124.944,114.75-125.499c55.769-0.459,118.977,56.495,153,99.431
