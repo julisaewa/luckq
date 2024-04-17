@@ -29,6 +29,7 @@
               "src/assets/fonts/Rubik.css",
               "src/assets/fonts/Nunito-Regular.css",
               "src/assets/fonts/Nunito-Light.css",
+              "src/assets/fonts/Sensal Regular.css",
               "node_modules/primeicons/primeicons.css",
               "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
@@ -49,7 +50,7 @@
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumError": "20kb"
                 }
               ],
               "fileReplacements": [

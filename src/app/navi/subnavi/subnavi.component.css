@@ -1,3 +1,12 @@
+/deep/.p-menu.p-menu-overlay {
+  top: 70px!important;
+}
+/deep/.p-menu {
+  border-radius: unset;
+}
+/deep/.p-menu .p-menuitem-link {
+  font-size: 13px;
+}
 .header-body {
   background-color: white;
   padding-left: 50px;
@@ -12,15 +21,59 @@
 .header-inner{
   width: 100%;
 }
+.menu-search{
+  text-transform: uppercase;
+  font-size: 13px;
+}
+.menu-search:hover{
+  color: #6B6B6B;
+  transition: 0.3s;
+}
 .menu{
   text-transform: uppercase;
   font-size: 13px;
 }
+.menu:hover{
+  color: #6B6B6B;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.76);
+  transition: 0.3s;
+}
 .menu-hover:hover{
   color: #6B6B6B;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.76);
   transition: 0.3s;
 }
 .heart-hover:hover{
   border-bottom: 1px solid black;
   transition: 0.3s;
+}
+.menu-item{
+  position: relative;
+}
+.s-menu{
+  position: absolute;
+  left: 0;
+  top: 70px;
+}
+.menu-overlay{
+  padding: 0.25rem 0;
+  background: #ffffff;
+  color: #495057;
+  border: 0 none;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  width: 12.5rem;
+}
+.sub-menu{
+  padding: 0.75rem 1.25rem;
+  color: #495057;
+  border-radius: 0;
+  transition: box-shadow 0.2s;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+.sub-menu:hover{
+  background-color: #E9ECEF;
 }

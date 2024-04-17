@@ -3,6 +3,11 @@ import {ArtNewsComponent} from "./art-news/art-news.component";
 import {ActivatedRoute} from "@angular/router";
 import {ChineseNewYearComponent} from "./chinese-new-year/chinese-new-year.component";
 import {FasionWeekMoscowComponent} from "./fasion-week-moscow/fasion-week-moscow.component";
+import {FuzhouComponent} from "./fuzhou/fuzhou.component";
+import {ChinaFasionComponent} from "./china-fasion/china-fasion.component";
+import {RussianStyleComponent} from "./russian-style/russian-style.component";
+import {FendiComponent} from "./fendi/fendi.component";
+import {IntelligenceComponent} from "./intelligence/intelligence.component";
 
 
 @Component({
@@ -13,10 +18,14 @@ import {FasionWeekMoscowComponent} from "./fasion-week-moscow/fasion-week-moscow
 export class ArticlesComponent implements OnInit {
 
   articles: any[] = [
-    {name: 'Article1', component: ArtNewsComponent},
     {name: 'chineseNewYear', component: ChineseNewYearComponent},
     {name: 'fasionWeekMoscow', component: FasionWeekMoscowComponent},
-  ];
+    {name: 'fuzhou', component: FuzhouComponent},
+    {name: 'china-fasion', component: ChinaFasionComponent},
+    {name: 'russian-style', component: RussianStyleComponent},
+    {name: 'intelligence', component: IntelligenceComponent},
+    {name: 'fendi', component: FendiComponent},
+  ].reverse();
   articlesShown: any[] = [];
   latestShown = 0;
 
@@ -36,6 +45,9 @@ export class ArticlesComponent implements OnInit {
         else{
           this.addArticle();
         }
+      }
+      else{
+        this.addArticle();
       }
     });
   }

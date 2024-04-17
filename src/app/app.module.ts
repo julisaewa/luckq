@@ -11,10 +11,23 @@ import { ArtNewsComponent } from './articles/art-news/art-news.component';
 import { ChineseNewYearComponent } from './articles/chinese-new-year/chinese-new-year.component';
 import { NaviComponent } from './navi/navi.component';
 import { SubnaviComponent } from './navi/subnavi/subnavi.component';
-import { FooterComponent } from './footer/footer.component';
 import {NgMarqueeModule} from "ng-marquee";
 import { FasionWeekMoscowComponent } from './articles/fasion-week-moscow/fasion-week-moscow.component';
 import {HttpClientModule} from "@angular/common/http";
+import {MenuModule} from "primeng/menu";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { FuzhouComponent } from './articles/fuzhou/fuzhou.component';
+import { ChinaFasionComponent } from './articles/china-fasion/china-fasion.component';
+import { RussianStyleComponent } from './articles/russian-style/russian-style.component';
+import { FendiComponent } from './articles/fendi/fendi.component';
+import { IntelligenceComponent } from './articles/intelligence/intelligence.component';
+import {ProgressSpinnerModule} from "primeng/progressspinner";
+import {FormsModule} from "@angular/forms";
+import {CarouselModule} from "primeng/carousel";
+import {MegaMenuModule} from "primeng/megamenu";
+import {MenubarModule} from "primeng/menubar";
+import {PanelMenuModule} from "primeng/panelmenu";
+import {VirtualScrollerModule} from "primeng/virtualscroller";
 
 @NgModule({
   declarations: [
@@ -25,16 +38,29 @@ import {HttpClientModule} from "@angular/common/http";
     ChineseNewYearComponent,
     NaviComponent,
     SubnaviComponent,
-    FooterComponent,
-    FasionWeekMoscowComponent
+    FasionWeekMoscowComponent,
+    FuzhouComponent,
+    ChinaFasionComponent,
+    RussianStyleComponent,
+    FendiComponent,
+    IntelligenceComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     GalleriaModule,
     InfiniteScrollModule,
     NgMarqueeModule,
-    HttpClientModule
+    HttpClientModule,
+    MenuModule,
+    ProgressSpinnerModule,
+    FormsModule,
+    CarouselModule,
+    MegaMenuModule,
+    MenubarModule,
+    PanelMenuModule,
+    VirtualScrollerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

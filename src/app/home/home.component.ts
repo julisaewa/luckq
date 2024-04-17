@@ -1,16 +1,34 @@
 import {ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
 import * as AOS from 'aos';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {ShopImage} from "../interfaces/shop-image";
 import {ChangeDetection} from "@angular/cli/lib/config/workspace-schema";
 import * as url from "url";
 import {EventManagerService} from "../event-manager.service";
 import {CalendarEvent} from "../interfaces/calendar-event";
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  animations: [
+    trigger('openClose', [
+      state('open', style({
+        opacity: 1,
+      })),
+      state('closed', style({
+        opacity: 0,
+      })),
+      transition('open => closed', [
+        animate('0.5s')
+      ]),
+      transition('closed => open', [
+        animate('0.5s')
+      ]),
+    ]),
+  ],
+
 })
 export class HomeComponent implements OnInit {
 
@@ -83,8 +101,79 @@ export class HomeComponent implements OnInit {
   animationTimeout = 100;
   imageHover = -1;
   events: CalendarEvent[] = [];
+  loading = true;
+  videoTime = 0;
+  newsVideos: any[] = [];
+  playingVideo = -1;
+  volume = 0;
+  uiHover = false;
+  touched = false;
+  pipActive = false;
+
+  leftSliderImages: any[] = [
+    {src: '/assets/banner/1.png', url: 'https://thedubaimall.com/'},
+    {src: '/assets/banner/2.png', url: 'https://dubaioutletmall.com/'},
+    {src: '/assets/banner/3.png', url: 'https://vnukovo-outlet.com/'},
+    {src: '/assets/banner/4.png', url: 'https://www.mallofantalya.com.tr/'},
+    {src: '/assets/banner/5.png', url: 'https://fashionweekonline.com/'},
+    {src: '/assets/banner/6.png', url: 'https://vnukovo-outlet.com/post/mesyacz-lyubvi-vo-vnukovo-outlet-village.html'},
+    {src: '/assets/banner/7.png', url: 'https://www.malloftheemirates.com/en'},
+    {src: '/assets/banner/8.png', url: 'https://ovbelayadacha.com/'},
+    {src: '/assets/banner/9.png', url: 'https://www.dubaimarinamall.com/'},
+    {src: '/assets/banner/10.png', url: 'https://www.dubaihillsmall.ae/'},
+  ];
+  leftSliderImagesAutoplayInterval = 12 * 1000;
+
+  rightSliderImages: any[] = [
+    {src: '/assets/exhibition/beauty.png', url: 'https://expoposition.com/beautyexpo/information-2/'},
+    {src: '/assets/exhibition/beautyexpo.png', url: 'https://www.probeauty.co.za/johannesburgexpo'},
+    {src: '/assets/exhibition/bridal.png', url: 'https://www.qatarbridalshow.com/en/home/'},
+    {src: '/assets/exhibition/bti.png', url: 'https://bti.by/'},
+    {src: '/assets/exhibition/lady.png', url: 'https://ladyexpo.by/'},
+    {src: '/assets/exhibition/leshow.png', url: 'https://leshow.ru/'},
+    {src: '/assets/exhibition/loveme.png', url: 'https://iloveme.messukeskus.com/'},
+    {src: '/assets/exhibition/moda-fest.png', url: 'https://moda-fest.ru/ru-RU/'},
+    {src: '/assets/exhibition/textile.png', url: 'https://www.internationalapparelandtextilefair.com/'},
+  ];
+  rightSliderImagesAutoplayInterval = 16 * 1000;
+
+  rightSliderArticles: any[] = [
+    {src: '/assets/articles/fendi-thumb.png', url: '/articles?article=fendi'},
+    {src: '/assets/articles/ai-thumb.png', url: '/articles?article=intelligence'},
+    {src: '/assets/articles/russian-style-thumb.png', url: '/articles?article=russian-style'},
+    {src: '/assets/articles/china-fashion-thumb.png', url: '/articles?article=china-fasion'},
+    {src: '/assets/articles/fuzhou-thumb.png', url: '/articles?article=fuzhou'},
+    {src: '/assets/articles/week-thumb.png', url: '/articles?article=fasionWeekMoscow'},
+
+  ];
+  rightSliderArticlesAutoplayInterval = 18 * 1000;
+
+  menWomenTimeout = 1;
+  showMenWomen = true;
+
+  videoListShow = false;
+  calendarBackground = '';
+
+  calendarNews = [
+    new CalendarEvent(0, 16, 4, 2024, 'Лунный', 'Название 1', 'Какое-то суперважное события для кого-то особенного 1'),
+    new CalendarEvent(0, 16, 4, 2024, 'Лунный', 'Название 2', 'Какое-то суперважное события для кого-то особенного 2'),
+    new CalendarEvent(0, 16, 4, 2024, 'Лунный', 'Название 3', 'Какое-то суперважное события для кого-то особенного 3'),
+    new CalendarEvent(0, 16, 4, 2024, 'Лунный', 'Название 4', 'Какое-то суперважное события для кого-то особенного 4'),
+    new CalendarEvent(0, 16, 4, 2024, 'Лунный', 'Название 5', 'Какое-то суперважное события для кого-то особенного 5'),
+    new CalendarEvent(0, 16, 4, 2024, 'Лунный', 'Название 6', 'Какое-то суперважное события для кого-то особенного 6')
+  ];
+  selectedCalendarNews: CalendarEvent | null = null;
+
+  today = new Date();
+  currentMonth = this.today.getMonth();
 
   constructor(private router: Router, public eventsManager: EventManagerService) {
+    for (let x = 1; x < 99; x ++){
+      this.newsVideos.push('/assets/video/' + x + '.mp4');
+    }
+    setTimeout(() => {
+      this.showMenWomen = false;
+    }, this.menWomenTimeout * 1000);
     this.imgsSrc.push(new ShopImage(this.dir + '0.png', this.dir + '0-1.png', 'СУМКА BUMPER-31 TERRY JW ANDERSON', 'https://svg.moda/womens/sumki-dlya-zhenshin/sumki-tout-dlya-zhenshin/sumka-bumper-31-terry-jw-anderson-ja-2367010'));
     this.imgsSrc.push(new ShopImage(this.dir + '1.png', this.dir + '0-1.png', 'СУМКА SOFT MARGAUX 17 THE ROW', 'https://svg.moda/womens/sumki-dlya-zhenshin/sumki-tout-dlya-zhenshin/sumka-soft-margaux-17-the-row-tr-2360096'));
     this.imgsSrc.push(new ShopImage(this.dir + '2.png', this.dir + '0-1.png', 'БАЛЕТКИ PUNTERA HEREU КОРИЧНЕВЫЕ', 'https://svg.moda/womens/obuv-dlya-zhenshin/baletki-dlya-zhenshin/baletki-puntera-hereu-hereu-2362435'));
@@ -124,6 +213,7 @@ export class HomeComponent implements OnInit {
       console.log(res);
       this.events = res;
     });
+    this.playingVideo = 0;
   }
   openArticle(article: string): void {
     this.router.navigate(['articles'], { queryParams: {article}});
@@ -180,5 +270,63 @@ export class HomeComponent implements OnInit {
   getEvents(kind: string = ''): CalendarEvent[] {
     let d = new Date();
     return this.events.filter(x => x.day == d.getDate() && x.month == (d.getMonth() + 1) && x.year == d.getFullYear()).filter(x => x.kind == kind || kind == '');
+  }
+
+
+  getProgressSize(videoTime: number, duration: number) {
+    return{
+      'background-size': (videoTime / duration * 100) + '%' + ' 100%'
+    }
+  }
+  getVideoTime(secondsTotal: number){
+    let minutes = Math.floor(secondsTotal / 60);
+    let seconds = Math.round(secondsTotal % 60);
+    return (' ' + '0' + minutes).slice(-2) + ':' + ('0' + seconds).slice(-2) + ' ';
+  }
+  playNextClassic() {
+    this.pipActive = document.pictureInPictureElement != null;
+    this.playingVideo = (this.playingVideo + 1) % this.newsVideos.length;
+    this.touched = true;
+  }
+  playPrevClassic() {
+    this.pipActive = document.pictureInPictureElement != null;
+    if (this.playingVideo == 0){
+      this.playingVideo = this.newsVideos.length - 1;
+    }
+    else{
+      this.playingVideo = (this.playingVideo - 1) % this.newsVideos.length;
+    }
+    this.touched = true;
+  }
+  videoLoaded(event: Event, videoPlayer: HTMLVideoElement) {
+    this.loading = false;
+    videoPlayer.volume = this.volume;
+    if (this.pipActive){
+      videoPlayer.requestPictureInPicture();
+    }
+  }
+
+  protected readonly open = open;
+
+  openUrl(url: string) {
+    open(url, '_blank')
+  }
+
+  getMonth() {
+    switch (this.currentMonth){
+      case 0: return 'Январь';
+      case 1: return 'Февраль';
+      case 2: return 'Март';
+      case 3: return 'Апрель';
+      case 4: return 'Май';
+      case 5: return 'Июнь';
+      case 6: return 'Июль';
+      case 7: return 'Август';
+      case 8: return 'Сентябрь';
+      case 9: return 'Октябрь';
+      case 10: return 'Ноябрь';
+      case 11: return 'Декабрь';
+      default: return this.currentMonth;
+    }
   }
 }

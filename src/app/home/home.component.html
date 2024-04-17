@@ -1,572 +1,699 @@
-<div class="df" xmlns="http://www.w3.org/1999/html">
-  <a href="https://svg.moda/womens" target="_blank" class="w-50 position-relative cursor-pointer">
-    <div class="h-100">
-      <img src="assets/woman.png" width="100%" height="100%">
-    </div>
-    <div class="woman ">Для женщин</div>
-  </a>
-  <a href="https://svg.moda/mens" target="_blank" class="w-50 position-relative cursor-pointer">
-    <div class="h-100">
-      <img src="assets/man.png" width="100%" height="100%">
-    </div>
-    <div class="woman ">Для мужчин</div>
-  </a>
-</div>
-
-
-<div class="mb-90">
-  <a href="https://svg.moda/?fbclid=PAAaZsz97h4nHINMGiFrABfd0MK_6zonnC_2DXvkeGlx7kjorwk0jSRX2zOBk_aem_AaRZGR4Ud58t7UKFwYRPFW-8o3pgSZXrxrjRP9-T1JSDCx5P-aHQz_LbbG4iad76xF0" target="_blank" class="text-link">
-    <video [muted]="'muted'" class="w-100 mb-20" muted autoplay loop src="assets/rax.mp4"></video>
-  </a>
-  <div class="ml-50 mb-10 df topic">
-    <div>мода</div>
-    <div class="mx-10">|</div>
-    <div>вещи</div>
-  </div>
-  <a href="https://svg.moda/?fbclid=PAAaZsz97h4nHINMGiFrABfd0MK_6zonnC_2DXvkeGlx7kjorwk0jSRX2zOBk_aem_AaRZGR4Ud58t7UKFwYRPFW-8o3pgSZXrxrjRP9-T1JSDCx5P-aHQz_LbbG4iad76xF0" target="_blank" class="text-link">
-    <div class="ml-50 mr-20 text-justify text-link article">Sauvage group – это мультибрендовые бутики класса люкс. На сегодняшний день является крупнейшим дистрибьютором всемирно-известных модных домов, эксклюзивных коллекций одежды, обуви, аксессуаров и нишевой парфюмерии в Казахстане. Это бренды со всего мира – от Америки до Азии, от классики до авангарда. Мы предлагаем клиентам от ультрамодных брендов до таких диктаторов моды как:</div>
-  </a>
-</div>
-
-
-<div class="">
-  <div class="mx-auto max-w-1300">
-    <div class="mb-90 cursor-pointer" (click)="openArticle('fasionWeekMoscow')">
-      <div class="cx mb-20">
-        <img src="assets/photo/012.png" height="100%" width="100%">
-      </div>
-      <div class="mb-10 df topic ml-50">
-        <div>мода</div>
-        <div class="mx-10">|</div>
-        <div>события</div>
-      </div>
-      <div class="ml-50">
-        <div class="article-header">Мировые и российские звезды на Московской неделе моды</div>
-        <div class="article-big mt-15">Специальным гостьей Московской недели моды стала итальянская кинодива Орнелла Мути, которая в рамках масштабного модного мероприятия дала публичное интервью для журнала «Москвичка». На этой открытой беседе актриса рассказала о своих жизненных ценностях, благотворительности, модных фаворитах и впечатлениях о визитах в Россию: «Мне нравится атмосфера в Москве, красота города и симпатия, которую люди проявляют ко мне. Это огромный подарок!».</div>
-      </div>
-    </div>
-    <div class="df space-between">
-      <div class="w-85 mr-50">
-        <div class="mb-70">
-          <a href="https://ovbelayadacha.com/?ysclid=lt6ww9f9wb663014534" target="_blank" class="text-link">
-            <img class="mb-20" src="assets/Outlet.png" width="100%" height="100%">
-          </a>
-          <div class="ml-50 mb-10 df topic">
-            <div>мода</div>
-            <div class="mx-10">|</div>
-            <div>вещи</div>
+<div class="height-vh">
+  <div class="df height-619">
+    <div class="w-18 ml-30">
+      <p-carousel class="cursor-pointer" [verticalViewPortHeight]="'619px'" [circular]="true" [value]="leftSliderImages" [numVisible]="1" [showNavigators]="false" [showIndicators]="false" [autoplayInterval]="leftSliderImagesAutoplayInterval" orientation="vertical">
+        <ng-template let-image pTemplate="item">
+          <div class="df cx">
+            <img (click)="openUrl(image.url)" [src]="image.src"/>
           </div>
-          <a href="https://ovbelayadacha.com/?ysclid=lt6ww9f9wb663014534" target="_blank" class="text-link">
-            <div class="ml-50 text-justify text-link article">В Outlet Village Белая Дача работают около 180 моно- и мультибрендовых магазинов таких всемирно известных торговых марок, как Tommy Hilfiger, Michael Kors, Furla, Coccinelle, Sandro, New Balance, Hugo Boss, Pinko, Patrizia Pepe, и многих других. </div>
-          </a>
+        </ng-template>
+      </p-carousel>
+    </div>
+    <div class="cxy df w-64" *ngIf="showMenWomen">
+      <a href="https://svg.moda/womens" target="_blank" class="w-50 df justify-content-end cursor-pointer">
+        <div class="position-relative">
+          <img src="assets/woman.png" width="100%">
+          <div class="woman">Для женщин</div>
         </div>
-        <div class="mb-90">
-          <div class="">
-            <a href="https://fashionweekonline.com/" target="_blank">
-              <img class="mb-30" src="assets/RNWY-1.png" width="100%" height="100%">
-            </a>
-            <div class="ml-50 mb-10 df topic">
-              <div>мода</div>
-              <div class="mx-10">|</div>
-              <div>вещи</div>
+      </a>
+      <a href="https://svg.moda/mens" target="_blank" class="w-50 df cursor-pointer">
+        <div class="position-relative">
+          <img src="assets/man.png" width="100%">
+          <div class="woman">Для мужчин</div>
+        </div>
+      </a>
+    </div>
+    <div class="df w-64 cxy" *ngIf="!showMenWomen">
+      <div class="cx" [class.yt-player]="playingVideo == i" *ngFor="let video of newsVideos; let i = index">
+        <div class="cx" (mouseenter)="uiHover = true" (mouseleave)="uiHover = false" *ngIf="playingVideo == i">
+          <video class="yt-player" [autoplay]="true" [muted]="i == 0 && !touched" [volume]="volume" [src]="video" (timeupdate)="videoTime = videoPlayer.currentTime" #videoPlayer (canplay)="videoLoaded($event, videoPlayer)" (ended)="playNextClassic()">
+          </video>
+          <div class="player-ui" [@openClose]="uiHover ? 'open' : 'closed'">
+            <div class="video-list">
+              <div class="video-list-toggle" (click)="videoListShow = !videoListShow">
+                <i class="pi pi-bars" style="color: white; font-size: 2rem"></i>
+              </div>
+              <div class="video-list-videos" *ngIf="videoListShow">
+                <p-virtualScroller [value]="newsVideos" scrollHeight="500px" style="width: 250px" [itemSize]="135">
+                  <ng-template pTemplate="item" let-v>
+                    <div class="cxy" (mouseenter)="thumb.play(); thumb.currentTime = thumb.currentTime + 20" (mouseleave)="thumb.pause()" (click)="playingVideo = newsVideos.indexOf(v)">
+                      <video [muted]="true" #thumb class="video-list-video" [src]="v"></video>
+                    </div>
+                  </ng-template>
+                </p-virtualScroller>
+              </div>
             </div>
-            <a href="https://fashionweekonline.com/" class="text-link" target="_blank">
-              <div class="ml-50 text-justify text-link article">Когда неделя моды? Сегодня вы можете сказать: «Где-то всегда неделя моды».</div>
-            </a>
+            <div>
+              <div class="player-button play-pause-button cxy" *ngIf="!videoPlayer.paused" (click)="videoPlayer.pause()">
+                <i class="pi pi-pause" style="font-size: 2rem"></i>
+              </div>
+              <div class="player-button play-pause-button cxy" *ngIf="videoPlayer.paused" (click)="videoPlayer.play()">
+                <i class="pi pi-play" style="font-size: 2rem"></i>
+              </div>
+            </div>
+            <div class="player-background">
+              <div class="all-player">
+                <div class="video-progress w200px cp">
+                  <input [ngStyle]="getProgressSize(videoTime, videoPlayer.duration)" class="player-ui-seek ml-20" [(ngModel)]="videoTime" (ngModelChange)="videoPlayer.currentTime = videoTime" [max]="videoPlayer.duration" type="range" step="0.1" [min]="0">
+                </div>
+                <div class="df space-between">
+                  <div class="df cxy w140px ml-10">
+                    <div class="seek-tooltip time-text">{{getVideoTime(videoTime) + ' ' + '/'}}</div><div class="seek-tooltip time-text">{{getVideoTime(videoPlayer.duration)}}</div>
+                  </div>
+                  <div class="df mr-20">
+                    <div class="sound-icon cxy mr-10">
+                      <div class="cp cxy" (click)="volume = 0" *ngIf="volume >= 0.5">
+                        <img src="assets/player/sound2.svg" height="24">
+                      </div>
+                      <div class="cp cxy" (click)="volume = 0" *ngIf="volume < 0.5 && volume != 0">
+                        <img src="assets/player/sound1.svg" height="24">
+                      </div>
+                      <div class="cp cxy" (click)="volume = 0.5" *ngIf="volume == 0">
+                        <img src="assets/player/sound0.svg" height="24">
+                      </div>
+                    </div>
+                    <div class="mr-10 cxy w100px">
+                      <input [ngStyle]="getProgressSize(volume, 1)" class="vol" id="vol-control"  type="range" min="0" max="1" step="0.05" [(ngModel)]="volume" (ngModelChange)="videoPlayer.muted = false"/>
+                    </div>
+                    <div class="player-pic cxy mx-2px" (click)="videoPlayer.requestPictureInPicture()">
+                      <img src="assets/player/pip.svg" height="24">
+                    </div>
+                    <div class="player-pic cxy mx-2px" (click)="videoPlayer.requestFullscreen()">
+                      <img src="assets/player/full.svg" height="24">
+                    </div>
+                    <div class="player-pic cxy mx-2px" (click)="playPrevClassic()">
+                      <img src="assets/player/prev-vi.svg" height="24">
+                    </div>
+                    <div class="player-pic cxy mx-2px" (click)="playNextClassic()">
+                      <img src="assets/player/next-vi.svg" height="24">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-<!--        <div>-->
-<!--          <div class="df mb-60">-->
-<!--            <div class="width-200 mr-40">-->
-<!--              <div class="mb-20">-->
-<!--                <img src="assets/photo/005.png">-->
-<!--              </div>-->
-<!--              <div class="mb-10 df topic">-->
-<!--                <div>красота</div>-->
-<!--                <div class="mx-10">|</div>-->
-<!--                <div>здоровье</div>-->
-<!--              </div>-->
-<!--              <div class="article">Реально ли построить счастливые отношения с бывшим? Отвечает эксперт</div>-->
-<!--            </div>-->
-<!--            <div class="width-430">-->
-<!--              <div class="mb-20">-->
-<!--                <img src="assets/photo/1000_15.gif">-->
-<!--              </div>-->
-<!--              <div class="mb-10 df topic">-->
-<!--                <div>культура</div>-->
-<!--                <div class="mx-10">|</div>-->
-<!--                <div>кино</div>-->
-<!--              </div>-->
-<!--              <div class="article-big">«Мастер и Маргарита», «Дюна» и «Джокер». Какие кинопремьеры мы ждем в первой половине 2024 года</div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="df mb-60">-->
-<!--            <div class="width-200 mr-40">-->
-<!--              <div class="mb-20">-->
-<!--                <img src="assets/photo/game.png">-->
-<!--              </div>-->
-<!--              <div class="mb-10 df topic">-->
-<!--                <div>новости</div>-->
-<!--                <div class="mx-10">|</div>-->
-<!--                <div>технологии</div>-->
-<!--              </div>-->
-<!--              <div class="article">Амбиции российских разработчиков: какой будет игровая индустрия через 5 лет</div>-->
-<!--            </div>-->
-<!--            <div class="width-430">-->
-<!--              <div class="mb-20">-->
-<!--                <img src="assets/photo/106.png">-->
-<!--              </div>-->
-<!--              <div class="mb-10 df topic">-->
-<!--                <div>комьюнити</div>-->
-<!--                <div class="mx-10">|</div>-->
-<!--                <div>индустрия</div>-->
-<!--              </div>-->
-<!--              <div class="article-big">Как инфлюенс маркетинг устроен на российском фэшн-рынке? Спросили у экспертов</div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="df mb-60">-->
-<!--            <div class="width-200 mr-40">-->
-<!--              <div class="mb-20">-->
-<!--                <img src="assets/photo/006.png">-->
-<!--              </div>-->
-<!--              <div class="mb-10 df topic">-->
-<!--                <div>комьюнити</div>-->
-<!--                <div class="mx-10">|</div>-->
-<!--                <div>индустрия</div>-->
-<!--              </div>-->
-<!--              <div class="article">Саша Сахарная, Надя Ли Коэн и еще 9 женщин-фотографов, на которых стоит подписаться прямо сейчас</div>-->
-<!--            </div>-->
-<!--            <div class="width-430">-->
-<!--              <div class="mb-20">-->
-<!--                <img src="assets/photo/120.png">-->
-<!--              </div>-->
-<!--              <div class="mb-10 df topic">-->
-<!--                <div>мода</div>-->
-<!--                <div class="mx-10">|</div>-->
-<!--                <div>герои</div>-->
-<!--              </div>-->
-<!--              <div class="article-big">Поэт женственности: Кристиан Диор в 10 фотографиях</div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
       </div>
-      <div class="aside">
-        <div class="sticky-banner">
-          <img src="assets/optimize.png">
-        </div>
-      </div>
+    </div>
+    <div class="w-18 df space-between flex-column mr-30 height-619">
+      <p-carousel [verticalViewPortHeight]="'300px'" [circular]="true" [value]="rightSliderImages" [numVisible]="1" [showNavigators]="false" [showIndicators]="false" [autoplayInterval]="rightSliderImagesAutoplayInterval" orientation="vertical">
+        <ng-template let-image pTemplate="item">
+          <div class="df cxy">
+            <img class="cursor-pointer" [style]="'max-width: 300px'" width="100%" (click)="openUrl(image.url)" [src]="image.src"/>
+          </div>
+        </ng-template>
+      </p-carousel>
+      <p-carousel [verticalViewPortHeight]="'300px'" [circular]="true" [value]="rightSliderArticles" [numVisible]="1" [showNavigators]="false" [showIndicators]="false" [autoplayInterval]="rightSliderArticlesAutoplayInterval" orientation="vertical">
+        <ng-template let-image pTemplate="item">
+          <div class="df cxy">
+            <img class="cursor-pointer" [style]="'max-width: 300px'" width="100%" (click)="openUrl(image.url)" [src]="image.src"/>
+          </div>
+        </ng-template>
+      </p-carousel>
     </div>
   </div>
-
-<!--  <div class="back-sky mt-50">-->
-<!--    <div class="mx-auto max-w-1300">-->
-<!--      <div class="pt-20 pb-30 text-justify" *ngFor="let e of getEvents('star')">-->
-<!--        <div class="article-header">{{e.header}}</div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-
-
-  <div class="mx-auto">
-    <div class="df mt-50 ml-50">
-      <div class="main-topic mr-10">события</div>
-      <div class="line"></div>
-    </div>
-    <div class="mt-50 mx-auto width-1300 mb-90">
-      <div class="df space-between">
-        <div class="width-300">
-          <a href="https://wedding-fashion.ru/" class="text-link" target="_blank">
-            <div class="circle red-border mb-20 cxy">
-              <img src="assets/photo/exhibition/wedding.png">
-            </div>
-          </a>
-          <div class="mb-10 df topic">
-            <div>мода</div>
-            <div class="mx-10">|</div>
-            <div>вещи</div>
-          </div>
-          <a href="https://wedding-fashion.ru/" class="text-link" target="_blank">
-            <div class="article-big">41-ая международная выставка в Москве 21-23 марта 2024</div>
-          </a>
-        </div>
-        <div class="width-300">
-          <a href="https://styhome.ru/" class="text-link" target="_blank">
-            <div class="circle mb-20 cxy">
-              <img src="assets/photo/exhibition/Stylish.png">
-            </div>
-          </a>
-          <div class="mb-10 df topic">
-            <div>мода</div>
-            <div class="mx-10">|</div>
-            <div>события</div>
-          </div>
-          <a href="https://styhome.ru/" class="text-link" target="_blank">
-            <div class="article-big">22-я Международная промышленная выставка в Москве 27-29 марта 2024</div>
-          </a>
-        </div>
-        <div class="width-300">
-          <a href="https://ladyexpo.by/" class="text-link" target="_blank">
-            <div class="circle mb-20 cxy">
-              <img src="assets/photo/exhibition/lady.png">
-            </div>
-          </a>
-          <div class="mb-10 df topic">
-            <div>мода</div>
-            <div class="mx-10">|</div>
-            <div>вещи</div>
-          </div>
-          <a href="https://ladyexpo.by/" class="text-link" target="_blank">
-            <div class="article-big">Выставка-ярмарка товаров и услуг для женщин в Минске 16-18 мая 2024</div>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="mt-35 mx-auto width-1300 mb-90">
-      <div class="df space-between">
-
-        <div class="width-300">
-          <a href="https://www.internationalapparelandtextilefair.com/" class="text-link" target="_blank">
-            <div class="circle mb-20 cxy">
-              <img src="assets/photo/exhibition/textile.png">
-            </div>
-          </a>
-          <div class="mb-10 df topic">
-            <div>мода</div>
-            <div class="mx-10">|</div>
-            <div>вещи</div>
-          </div>
-          <a href="https://www.internationalapparelandtextilefair.com/" class="text-link" target="_blank">
-            <div class="article-big">17-я Международная выставка одежды и текстиля в Дубае 20-22 мая 2024</div>
-          </a>
-        </div>
-
-        <div class="width-300">
-          <a href="https://expoposition.com/beautyexpo/information-2/" class="text-link" target="_blank">
-            <div class="circle mb-20 cxy">
-              <img src="assets/photo/exhibition/beauty.png">
-            </div>
-          </a>
-          <div class="mb-10 df topic">
-            <div>мода</div>
-            <div class="mx-10">|</div>
-            <div>вещи</div>
-          </div>
-          <a href="https://expoposition.com/beautyexpo/information-2/" class="text-link" target="_blank">
-            <div class="article-big">Международная выставка индустрии красоты в Ташкенте 14-16 июня 2024</div>
-          </a>
-        </div>
-
-        <div class="width-300">
-          <a href="https://www.probeauty.co.za/johannesburgexpo" class="text-link" target="_blank">
-            <div class="circle mb-20 cxy">
-              <img src="assets/photo/exhibition/beautyexpo.png">
-            </div>
-          </a>
-          <div class="mb-10 df topic">
-            <div>мода</div>
-            <div class="mx-10">|</div>
-            <div>вещи</div>
-          </div>
-          <a href="https://www.probeauty.co.za/johannesburgexpo" class="text-link" target="_blank">
-            <div class="article-big">Международная выставка индустрии красоты в Йоханнесбурге 1-2 сентября 2024</div>
-          </a>
-        </div>
-
-      </div>
-    </div>
-    <div class="mt-35 mx-auto width-1300 mb-90">
-      <div class="df space-between">
-        <div class="width-300">
-          <a href="https://bti.by/" class="text-link" target="_blank">
-            <div class="circle mb-20 cxy">
-              <img src="assets/photo/exhibition/bti.png">
-            </div>
-          </a>
-          <div class="mb-10 df topic">
-            <div>мода</div>
-            <div class="mx-10">|</div>
-            <div>вещи</div>
-          </div>
-          <a href="https://bti.by/" class="text-link" target="_blank">
-            <div class="article-big">48-я международная выставка-ярмарка товаров легкой промышленности 2-4 октября 2024</div>
-          </a>
-        </div>
-
-        <div class="width-300">
-          <a href="https://iloveme.messukeskus.com/" class="text-link" target="_blank">
-            <div class="circle mb-20 cxy">
-              <img src="assets/photo/exhibition/loveme.png">
-            </div>
-          </a>
-          <div class="mb-10 df topic">
-            <div>мода</div>
-            <div class="mx-10">|</div>
-            <div>вещи</div>
-          </div>
-          <a href="https://iloveme.messukeskus.com/" class="text-link" target="_blank">
-            <div class="article-big">Международная выставка индустрии красоты в Хельсинки 29 ноября-1 декабря 2024</div>
-          </a>
-        </div>
-        <div class="width-300">
-          <a href="https://www.qatarbridalshow.com/en/home/" class="text-link" target="_blank">
-            <div class="circle mb-20 cxy">
-              <img src="assets/photo/exhibition/bridal.png">
-            </div>
-          </a>
-          <div class="mb-10 df topic">
-            <div>мода</div>
-            <div class="mx-10">|</div>
-            <div>вещи</div>
-          </div>
-          <a href="https://www.qatarbridalshow.com/en/home/" class="text-link" target="_blank">
-            <div class="article-big">Катарское свадебное шоу в Дохе 14-16 января 2024</div>
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </div>
-  <div class="">
+  <div class="footer">
     <div class="position-relative">
-      <img src="assets/bigest-banner.png" width="100%" >
-      <div class="run-stroke w-100 h-100">
-        <ng-marquee duration="1200s" [stopOnHover]="true" class="marquee">
-          <span *ngFor="let mark of marksArray" class="marquee-mark" [innerHTML]="marks"></span>
-        </ng-marquee>
-      </div>
-    </div>
+      <div class="footer-img">
+        <ng-marquee [stopOnHover]="true" class="marquee cursor-pointer h-100" speed="slow">
+          <mark *ngFor="let cal of calendarNews" class="marquee-mark position-relative" (click)="selectedCalendarNews = cal">
+            <div class="inline-block position-relative">
+              <div class="calendar-page-img">
+                <img class="mx-30" src="assets/calendar1.png" height="180">
+              </div>
+              <div class="calendar-page-header">{{cal.header}}</div>
+              <div class="calendar-page-text">{{cal.text}}</div>
+              <div class="calendar-page-day">{{cal.day}}</div>
+              <div class="calendar-page-month">{{getMonth()}}</div>
+              <div class="calendar-page-year">{{cal.year}}</div>
 
-  </div>
-  <div class="mx-auto max-w-1300">
-    <div class="mb-90 mt-90 cursor-pointer" (click)="openArticle('chineseNewYear')">
-      <div>
-        <div class="mb-20">
-          <img src="assets/articles/china.jpg" width="100%" height="100%">
-        </div>
-        <div class="ml-50 mb-10 df topic">
-          <div>культура</div>
-          <div class="mx-10">|</div>
-          <div>события</div>
-        </div>
-      </div>
-      <div class="ml-50">
-        <div class="article-header mb-10 ">
-          Китайский Новый год в России
-        </div>
-        <div class="article text-justify">
-          В 2024 году впервые в России масштабно отмечается известный во всем мире праздник – Китайский Новый год
-        </div>
-      </div>
-    </div>
-
-
-  </div>
-  <div class="cx">
-    <div class="cx position-relative">
-      <div class="images-window">
-        <div class="images" #carousel>
-          <div (click)="urlOpen(img.url)" class="img cursor-pointer" *ngFor="let img of imgs; let i = index" (mouseenter)="imageHover = i" (mouseleave)="imageHover = -1">
-            <img [src]="img.image"/>
-            <div class="price mx-2px cxy">{{img.name}}</div>
-<!--            <img *ngIf="imageHover == i" [src]="img.imageHover"/>-->
-          </div>
-        </div>
-      </div>
-      <div class="left-arrow cxy cursor-pointer"  (click)="move(carousel, -1)" [class.disabled]="animation">
-        <img src="assets/l-arrow.svg" height="24">
-      </div>
-      <div class="right-arrow cxy cursor-pointer"  (click)="move(carousel, 1)" [class.disabled]="animation">
-        <img src="assets/r-arrow.svg" height="24">
-      </div>
-    </div>
-  </div>
-
-<!--  <div class="mx-auto max-w-1300 mt-90">-->
-<!--    <div class="df mb-30 pt-50">-->
-<!--      <div class="main-topic mr-10">рецепт дня</div>-->
-<!--      <div class="line"></div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  -->
-<!--  -->
-<!--  <div class="back-recipe">-->
-<!--    <div class="mx-auto max-w-1300">-->
-<!--      <div class="pt-20 pb-30 text-justify" *ngFor="let e of getEvents('sun')">-->
-<!--        <div class="article-header">{{e.header}}</div>-->
-<!--        <div class="article" [innerHTML]="e.text"></div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-
-
-  <div class="mx-auto ">
-    <div class="ml-50 df mt-50">
-      <div class="main-topic mr-10">новости</div>
-      <div class="line"></div>
-    </div>
-    <div class="ml-50 news mt-30">
-      <div class="mb-50">
-        <div class="mb-10 df topic">
-          <div>новости</div>
-          <div class="mx-10">|</div>
-          <div>культура</div>
-        </div>
-        <div class="article news-head mb-20">Сериал о «Гарри Поттере» выйдет в 2026 году</div>
-        <div>25.02.24</div>
-      </div>
-      <div class="mb-50">
-        <div class="mb-10 df topic">
-          <div>новости</div>
-          <div class="mx-10">|</div>
-          <div>жизнь</div>
-        </div>
-        <div class="article news-head mb-20">Активисты вывесили баннеры на бутике Louis Vuitton на Елисейских полях</div>
-        <div>25.02.24</div>
-      </div>
-      <div class="mb-50">
-        <div class="mb-10 df topic">
-          <div>новости</div>
-          <div class="mx-10">|</div>
-          <div>культура</div>
-        </div>
-        <div class="article news-head mb-20">Фаррелл Уильямс анонсировал новый трек с Майли Сайрус</div>
-        <div>25.02.24</div>
-      </div>
-    </div>
-    <div class="ml-50 news">
-      <div class="mb-50">
-        <div class="mb-10 df topic">
-          <div>новости</div>
-          <div class="mx-10">|</div>
-          <div>культура</div>
-        </div>
-        <div class="article news-head mb-20">Netflix выпустил официальный трейлер «Джентльменов» Гая Ричи</div>
-        <div>23.02.24</div>
-      </div>
-      <div class="mb-50">
-        <div class="mb-10 df topic">
-          <div>новости</div>
-          <div class="mx-10">|</div>
-          <div>культура</div>
-        </div>
-        <div class="article news-head mb-20">Ferragamo откроет флагманский магазин в Милане после ремонта</div>
-        <div>25.02.24</div>
-      </div>
-      <div class="mb-50">
-        <div class="mb-10 df topic">
-          <div>новости</div>
-          <div class="mx-10">|</div>
-          <div>жизнь</div>
-        </div>
-        <div class="article news-head mb-20">Белла Хадид анонсирует запуск собственного бренда</div>
-        <div>25.02.24</div>
-      </div>
-    </div>
-
-
-<!--    <div *ngFor="let e of getEvents('sun')">-->
-<!--      <h1>{{e.header}}</h1>-->
-<!--      <h1>{{e.text}}</h1>-->
-<!--    </div>-->
-
-    <div class="df space-between">
-<!--      <div class="aside">-->
-<!--        <div class="sticky-banner">-->
-<!--          <img src="assets/optimize.png">-->
-<!--        </div>-->
-<!--      </div>-->
-      <div class="">
-        <div class="mb-70">
-          <div class="">
-            <a href="https://vnukovo-outlet.com/" target="_blank">
-              <img class="mb-30" src="assets/vnukovo.png" width="100%" height="100%">
-            </a>
-            <div class="ml-50 mb-10 df topic">
-              <div>мода</div>
-              <div class="mx-10">|</div>
-              <div>вещи</div>
             </div>
-            <a href="https://vnukovo-outlet.com/" class="text-link" target="_blank">
-              <div class="ml-50 text-justify text-link article">Шопинг европейского уровня в Новой Москве
-                Vnukovo Outlet Village — один из первых и самых масштабных аутлетов в России. Здесь представлены бутики всемирно известных брендов со скидками до 70% на коллекции прошлых сезонов.
 
-                В отличие от привычных распродаж в монобрендовых магазинах, одежда, обувь, аксессуары и другие товары по самым выгодным ценам представлены в аутлете круглый год, независимо от сезона.</div>
-            </a>
-          </div>
-        </div>
-        <div class="">
-          <a href="https://www.deepo.com.tr/" target="_blank" class="text-link">
-            <img class="mb-20" src="assets/Outlet_tr.png" width="100%" height="100%">
-          </a>
-          <div class="ml-50 mb-10 df topic">
-            <div>мода</div>
-            <div class="mx-10">|</div>
-            <div>вещи</div>
-          </div>
-          <a href="https://www.deepo.com.tr/" target="_blank" class="text-link">
-            <div class="ml-50 text-justify text-link article">ТЦ Mall of Antalya собрал под своей крышей 144 магазина, представляющих сотни местных и зарубежных брендов, точки общественного питания на площади в 4 000 м2и самую большую крытую детскую игровую площадку в Анталье площадью в 1 600 м2. Большую популярность получил этаж общественного питания ТЦ Mall of Antalya, обладающий горизонтальной двухъярусной архитектурой, просторными помещениями, выполненными по всем канонам современного дизайна и предлагающий посетителям богатое разнообразие вкусов. Торговый Комплекс обладает парковкой на 3 000 автомобильных мест, также посетители могут легко добраться до него из различных точек города, воспользовавшись автобусами или трамваем. В ТЦ Mall of Antalya находятся самые большие в Анталье магазины марок H&M, LCW и De Facto.</div>
-          </a>
-        </div>
-
+          </mark>
+        </ng-marquee>
+<!--        <div class="run-stroke cxy space-between w-100">-->
+<!--          <img class="mx-10" src="assets/calendar1.png" height="150">-->
+<!--          <img class="mx-10" src="assets/calendar2.png" height="150">-->
+<!--          <img class="mx-10" src="assets/calendar3.png" height="150">-->
+<!--          <img class="mx-10" src="assets/calendar4.png" height="150">-->
+<!--          <img class="mx-10" src="assets/calendar5.png" height="150">-->
+<!--          <img class="mx-10" src="assets/calendar6.png" height="150">-->
+<!--        </div>-->
       </div>
-    </div>
-  </div>
-<!--  <div class="mx-auto max-w-1300 mt-90">-->
-<!--    <div class="df mb-30 pt-50">-->
-<!--      <div class="main-topic mr-10">народные приметы</div>-->
-<!--      <div class="line"></div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <div class="back-narod">-->
-<!--    <div class="mx-auto max-w-1300">-->
-<!--      <div class="cx pt-20">-->
-<!--        <div class="date">{{getDate()}}</div>-->
-<!--      </div>-->
-<!--      <div class="pb-30 text-justify" *ngFor="let e of getEvents('moon')">-->
-<!--        <div class="article-header">{{e.header}}</div>-->
-<!--        <div class="article" [innerHTML]="e.text"></div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-
-  <div class="mx-auto">
-    <div class="mt-90 mx-auto width-1300 mb-90">
-      <div class="df space-between">
-        <div class="width-300">
-          <div class="circle cxy">
-            <img src="assets/photo/600600.png">
-          </div>
-          <div class="mb-10 df topic">
-            <div>мода</div>
-            <div class="mx-10">|</div>
-            <div>вещи</div>
-          </div>
-          <div class="article-big">Gucci, коллекция осень-зима 2024</div>
-        </div>
-        <div class="width-300">
-          <div class="circle cxy">
-            <img src="assets/photo/600600_356.png">
-          </div>
-          <div class="mb-10 df topic">
-            <div>мода</div>
-            <div class="mx-10">|</div>
-            <div>вещи</div>
-          </div>
-          <div class="article-big">Ferragamo, коллекция осень-зима 2024</div>
-        </div>
-        <div class="width-300">
-          <div class="circle cxy">
-            <img src="assets/photo/600.png">
-          </div>
-          <div class="mb-10 df topic">
-            <div>мода</div>
-            <div class="mx-10">|</div>
-            <div>вещи</div>
-          </div>
-          <div class="article-big">Versace, коллекция осень-зима 2024</div>
-        </div>
-      </div>
+<!--      <img class="footer" src="assets/logo.png" width="100%">-->
     </div>
   </div>
 </div>
+
+<div class="calendar-page-preview" *ngIf="selectedCalendarNews != null">
+  <div>{{selectedCalendarNews.header}}</div>
+  <button (click)="selectedCalendarNews = null">CLOSE</button>
+</div>
+
+
+<!--<div class="">-->
+<!--  <div class="mx-auto">-->
+<!--    <div class="mb-90 cursor-pointer" (click)="openArticle('fendi')">-->
+<!--      <div class="cx mb-20">-->
+<!--        <img src="assets/articles/fendi.png" height="100%" width="100%">-->
+<!--      </div>-->
+<!--      <div class="mb-10 df topic ml-50">-->
+<!--        <div>мода</div>-->
+<!--        <div class="mx-10">|</div>-->
+<!--        <div>новости</div>-->
+<!--      </div>-->
+<!--      <div class="ml-50">-->
+<!--        <div class="article-header">Hermès и Fendi окончательно закрыли бутики в ГУМе</div>-->
+<!--        <div class="article-big mt-15">Итальянский Fendi в 2024 году откажется от аренды последнего магазина в России, а у французского Hermès закончилась аренда бутика в ГУМе. Но в целом люксовые бренды не спешат освобождать помещения, надеясь возобновить работу</div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="mb-90 cursor-pointer" (click)="openArticle('intelligence')">-->
+<!--      <div class="cx mb-20">-->
+<!--        <img src="assets/articles/ii.jpg" height="100%" width="100%">-->
+<!--      </div>-->
+<!--      <div class="mb-10 df topic ml-50">-->
+<!--        <div>мода</div>-->
+<!--        <div class="mx-10">|</div>-->
+<!--        <div>новости</div>-->
+<!--      </div>-->
+<!--      <div class="ml-50">-->
+<!--        <div class="article-header">В Китае ИИ шьет одежду по индивидуальному заказу на расстоянии и за один день</div>-->
+<!--        <div class="article-big mt-15">Готовая одежда по индивидуальному заказу всего за один день. В Китае это уже реальность. Благодаря внедрению искусственного интеллекта в производство клиент может снять мерку самостоятельно, не выходя из дома. Как говорят сотрудники швейной фабрики в провинции Чжэцзян, новые технологии позволяют выполнить заказ не только быстро, но и более качественно. Наш корреспондент Ван Шици решила лично проверить, как это работает.</div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="mb-90 cursor-pointer" (click)="openArticle('china-fasion')">-->
+<!--      <div class="cx mb-20">-->
+<!--        <img src="assets/articles/china-fasion.jpg" height="100%" width="100%">-->
+<!--      </div>-->
+<!--      <div class="mb-10 df topic ml-50">-->
+<!--        <div>мир</div>-->
+<!--        <div class="mx-10">|</div>-->
+<!--        <div>события</div>-->
+<!--      </div>-->
+<!--      <div class="ml-50">-->
+<!--        <div class="article-header">В Пекине открылась Китайская международная неделя моды сезона осень-зима 2024 </div>-->
+<!--&lt;!&ndash;        <div class="article-big mt-15">В Фучжоу провинции Фуцзянь на юго-востоке открылась четвертая Китайская ярмарка трансграничной электронной коммерции. В ней участвуют более 30 платформ трансграничной электронной коммерции со всего мира и более 1500 экспонентов из Китая.</div>&ndash;&gt;-->
+<!--      </div>-->
+<!--    </div>-->
+
+
+<!--    <div class="mb-90 cursor-pointer" (click)="openArticle('fuzhou')">-->
+<!--      <div class="cx mb-20">-->
+<!--        <img src="assets/articles/fuzhou.jpg" height="100%" width="100%">-->
+<!--      </div>-->
+<!--      <div class="mb-10 df topic ml-50">-->
+<!--        <div>мир</div>-->
+<!--        <div class="mx-10">|</div>-->
+<!--        <div>события</div>-->
+<!--      </div>-->
+<!--      <div class="ml-50">-->
+<!--        <div class="article-header">В Фучжоу открылась 4-ая Международная выставка электронной коммерции Китая</div>-->
+<!--        <div class="article-big mt-15">В Фучжоу провинции Фуцзянь на юго-востоке открылась четвертая Китайская ярмарка трансграничной электронной коммерции. В ней участвуют более 30 платформ трансграничной электронной коммерции со всего мира и более 1500 экспонентов из Китая.</div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="mb-90 cursor-pointer" (click)="openArticle('fasionWeekMoscow')">-->
+<!--      <div class="cx mb-20">-->
+<!--        <img src="assets/photo/012.png" height="100%" width="100%">-->
+<!--      </div>-->
+<!--      <div class="mb-10 df topic ml-50">-->
+<!--        <div>мода</div>-->
+<!--        <div class="mx-10">|</div>-->
+<!--        <div>события</div>-->
+<!--      </div>-->
+<!--      <div class="ml-50">-->
+<!--        <div class="article-header">Мировые и российские звезды на Московской неделе моды</div>-->
+<!--        <div class="article-big mt-15">Специальным гостьей Московской недели моды стала итальянская кинодива Орнелла Мути, которая в рамках масштабного модного мероприятия дала публичное интервью для журнала «Москвичка». На этой открытой беседе актриса рассказала о своих жизненных ценностях, благотворительности, модных фаворитах и впечатлениях о визитах в Россию: «Мне нравится атмосфера в Москве, красота города и симпатия, которую люди проявляют ко мне. Это огромный подарок!».</div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="df space-between">-->
+<!--      <div class="">-->
+<!--        <div class="mb-70">-->
+<!--          <a href="https://ovbelayadacha.com/?ysclid=lt6ww9f9wb663014534" target="_blank" class="text-link">-->
+<!--            <img class="mb-20" src="assets/Outlet.png" width="100%" height="100%">-->
+<!--          </a>-->
+<!--          <div class="ml-50 mb-10 df topic">-->
+<!--            <div>мода</div>-->
+<!--            <div class="mx-10">|</div>-->
+<!--            <div>вещи</div>-->
+<!--          </div>-->
+<!--          <a href="https://ovbelayadacha.com/?ysclid=lt6ww9f9wb663014534" target="_blank" class="text-link">-->
+<!--            <div class="ml-50 text-justify text-link article">В Outlet Village Белая Дача работают около 180 моно- и мультибрендовых магазинов таких всемирно известных торговых марок, как Tommy Hilfiger, Michael Kors, Furla, Coccinelle, Sandro, New Balance, Hugo Boss, Pinko, Patrizia Pepe, и многих других. </div>-->
+<!--          </a>-->
+<!--        </div>-->
+<!--        <div class="mb-90">-->
+<!--          <div class="">-->
+<!--            <a href="https://fashionweekonline.com/" target="_blank">-->
+<!--              <img class="mb-30" src="assets/RNWY-1.png" width="100%" height="100%">-->
+<!--            </a>-->
+<!--            <div class="ml-50 mb-10 df topic">-->
+<!--              <div>мода</div>-->
+<!--              <div class="mx-10">|</div>-->
+<!--              <div>вещи</div>-->
+<!--            </div>-->
+<!--            <a href="https://fashionweekonline.com/" class="text-link" target="_blank">-->
+<!--              <div class="ml-50 text-justify text-link article">Когда неделя моды? Сегодня вы можете сказать: «Где-то всегда неделя моды».</div>-->
+<!--            </a>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--&lt;!&ndash;      <div class="aside">&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="sticky-banner">&ndash;&gt;-->
+<!--&lt;!&ndash;          <img src="assets/optimize.png">&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--    </div>-->
+<!--  </div>-->
+
+
+
+<!--  <div class="mx-auto" id="exhibitions" #exhibitions>-->
+<!--    <div class="df mt-50 ml-50">-->
+<!--      <div class="main-topic mr-10">события</div>-->
+<!--      <div class="line"></div>-->
+<!--    </div>-->
+<!--    <div class="mt-50 mx-auto width-1300 mb-90">-->
+<!--      <div class="df space-between">-->
+<!--        <div class="width-300">-->
+<!--          <a href="https://ladyexpo.by/" class="text-link" target="_blank">-->
+<!--            <div class="circle mb-20 cxy">-->
+<!--              <img src="assets/photo/exhibition/lady.png">-->
+<!--            </div>-->
+<!--          </a>-->
+<!--          <div class="mb-10 df topic">-->
+<!--            <div>мода</div>-->
+<!--            <div class="mx-10">|</div>-->
+<!--            <div>вещи</div>-->
+<!--          </div>-->
+<!--          <a href="https://ladyexpo.by/" class="text-link" target="_blank">-->
+<!--            <div class="article-big">Выставка-ярмарка товаров и услуг для женщин в Минске 16-18 мая 2024</div>-->
+<!--          </a>-->
+<!--        </div>-->
+
+<!--        <div class="width-300">-->
+<!--          <a href="https://www.internationalapparelandtextilefair.com/" class="text-link" target="_blank">-->
+<!--            <div class="circle mb-20 cxy">-->
+<!--              <img src="assets/photo/exhibition/textile.png">-->
+<!--            </div>-->
+<!--          </a>-->
+<!--          <div class="mb-10 df topic">-->
+<!--            <div>мода</div>-->
+<!--            <div class="mx-10">|</div>-->
+<!--            <div>вещи</div>-->
+<!--          </div>-->
+<!--          <a href="https://www.internationalapparelandtextilefair.com/" class="text-link" target="_blank">-->
+<!--            <div class="article-big">17-я Международная выставка одежды и текстиля в Дубае 20-22 мая 2024</div>-->
+<!--          </a>-->
+<!--        </div>-->
+
+<!--        <div class="width-300">-->
+<!--          <a href="https://moda-fest.ru/ru-RU/" class="text-link" target="_blank">-->
+<!--            <div class="circle mb-20 cxy">-->
+<!--              <img src="assets/photo/exhibition/moda-fest.png">-->
+<!--            </div>-->
+<!--          </a>-->
+<!--          <div class="mb-10 df topic">-->
+<!--            <div>мода</div>-->
+<!--            <div class="mx-10">|</div>-->
+<!--            <div>вещи</div>-->
+<!--          </div>-->
+<!--          <a href="https://moda-fest.ru/ru-RU/" class="text-link" target="_blank">-->
+<!--            <div class="article-big">Международная выставка индустрии моды в Краснодаре 22-24 мая 2024</div>-->
+<!--          </a>-->
+<!--        </div>-->
+
+
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="mt-35 mx-auto width-1300 mb-90">-->
+<!--      <div class="df space-between">-->
+
+<!--        <div class="width-300">-->
+<!--          <a href="https://leshow.ru/" class="text-link" target="_blank">-->
+<!--            <div class="circle mb-20 cxy">-->
+<!--              <img src="assets/photo/exhibition/leshow.png">-->
+<!--            </div>-->
+<!--          </a>-->
+<!--          <div class="mb-10 df topic">-->
+<!--            <div>мода</div>-->
+<!--            <div class="mx-10">|</div>-->
+<!--            <div>вещи</div>-->
+<!--          </div>-->
+<!--          <a href="https://leshow.ru/" class="text-link" target="_blank">-->
+<!--            <div class="article-big">27-я Международная выставка зимней моды в Москве 4-6 июня 2024</div>-->
+<!--          </a>-->
+<!--        </div>-->
+
+<!--        <div class="width-300">-->
+<!--          <a href="https://expoposition.com/beautyexpo/information-2/" class="text-link" target="_blank">-->
+<!--            <div class="circle mb-20 cxy">-->
+<!--              <img src="assets/photo/exhibition/beauty.png">-->
+<!--            </div>-->
+<!--          </a>-->
+<!--          <div class="mb-10 df topic">-->
+<!--            <div>мода</div>-->
+<!--            <div class="mx-10">|</div>-->
+<!--            <div>вещи</div>-->
+<!--          </div>-->
+<!--          <a href="https://expoposition.com/beautyexpo/information-2/" class="text-link" target="_blank">-->
+<!--            <div class="article-big">Международная выставка индустрии красоты в Ташкенте 14-16 июня 2024</div>-->
+<!--          </a>-->
+<!--        </div>-->
+
+<!--        <div class="width-300">-->
+<!--          <a href="https://www.probeauty.co.za/johannesburgexpo" class="text-link" target="_blank">-->
+<!--            <div class="circle mb-20 cxy">-->
+<!--              <img src="assets/photo/exhibition/beautyexpo.png">-->
+<!--            </div>-->
+<!--          </a>-->
+<!--          <div class="mb-10 df topic">-->
+<!--            <div>мода</div>-->
+<!--            <div class="mx-10">|</div>-->
+<!--            <div>вещи</div>-->
+<!--          </div>-->
+<!--          <a href="https://www.probeauty.co.za/johannesburgexpo" class="text-link" target="_blank">-->
+<!--            <div class="article-big">Международная выставка индустрии красоты в Йоханнесбурге 1-2 сентября 2024</div>-->
+<!--          </a>-->
+<!--        </div>-->
+
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="mt-35 mx-auto width-1300 mb-90">-->
+<!--      <div class="df space-between">-->
+<!--        <div class="width-300">-->
+<!--          <a href="https://bti.by/" class="text-link" target="_blank">-->
+<!--            <div class="circle mb-20 cxy">-->
+<!--              <img src="assets/photo/exhibition/bti.png">-->
+<!--            </div>-->
+<!--          </a>-->
+<!--          <div class="mb-10 df topic">-->
+<!--            <div>мода</div>-->
+<!--            <div class="mx-10">|</div>-->
+<!--            <div>вещи</div>-->
+<!--          </div>-->
+<!--          <a href="https://bti.by/" class="text-link" target="_blank">-->
+<!--            <div class="article-big">48-я международная выставка-ярмарка товаров легкой промышленности 2-4 октября 2024</div>-->
+<!--          </a>-->
+<!--        </div>-->
+
+<!--        <div class="width-300">-->
+<!--          <a href="https://iloveme.messukeskus.com/" class="text-link" target="_blank">-->
+<!--            <div class="circle mb-20 cxy">-->
+<!--              <img src="assets/photo/exhibition/loveme.png">-->
+<!--            </div>-->
+<!--          </a>-->
+<!--          <div class="mb-10 df topic">-->
+<!--            <div>мода</div>-->
+<!--            <div class="mx-10">|</div>-->
+<!--            <div>вещи</div>-->
+<!--          </div>-->
+<!--          <a href="https://iloveme.messukeskus.com/" class="text-link" target="_blank">-->
+<!--            <div class="article-big">Международная выставка индустрии красоты в Хельсинки 29 ноября-1 декабря 2024</div>-->
+<!--          </a>-->
+<!--        </div>-->
+<!--        <div class="width-300">-->
+<!--          <a href="https://www.qatarbridalshow.com/en/home/" class="text-link" target="_blank">-->
+<!--            <div class="circle mb-20 cxy">-->
+<!--              <img src="assets/photo/exhibition/bridal.png">-->
+<!--            </div>-->
+<!--          </a>-->
+<!--          <div class="mb-10 df topic">-->
+<!--            <div>мода</div>-->
+<!--            <div class="mx-10">|</div>-->
+<!--            <div>вещи</div>-->
+<!--          </div>-->
+<!--          <a href="https://www.qatarbridalshow.com/en/home/" class="text-link" target="_blank">-->
+<!--            <div class="article-big">Катарское свадебное шоу в Дохе 14-16 января 2024</div>-->
+<!--          </a>-->
+<!--        </div>-->
+
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="">-->
+<!--    <div class="position-relative">-->
+<!--      <img src="assets/bigest-banner.png" width="100%" >-->
+<!--      <div class="run-stroke w-100 h-100">-->
+<!--        <ng-marquee duration="1200s" [stopOnHover]="true" class="marquee">-->
+<!--          <span *ngFor="let mark of marksArray" class="marquee-mark" [innerHTML]="marks"></span>-->
+<!--        </ng-marquee>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--  </div>-->
+<!--  <div class="mx-auto">-->
+<!--    <div class="mb-90 mt-90 cursor-pointer" (click)="openArticle('russian-style')">-->
+<!--      <div>-->
+<!--        <div class="mb-20">-->
+<!--          <img src="assets/articles/russian-style.jpg" width="100%" height="100%">-->
+<!--        </div>-->
+<!--        <div class="ml-50 mb-10 df topic">-->
+<!--          <div>культура</div>-->
+<!--          <div class="mx-10">|</div>-->
+<!--          <div>мода</div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="ml-50">-->
+<!--        <div class="article-header mb-10 ">-->
+<!--          В мире вырос спрос на русскую эстетику в одежде-->
+<!--        </div>-->
+<!--        <div class="article text-justify">-->
+<!--          В мире вновь вырос спрос на традиционный русский стиль в одежде после спада в 2022 году.-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+
+<!--    <div class="mb-90 mt-90 cursor-pointer" (click)="openArticle('chineseNewYear')">-->
+<!--      <div>-->
+<!--        <div class="mb-20">-->
+<!--          <img src="assets/articles/china.jpg" width="100%" height="100%">-->
+<!--        </div>-->
+<!--        <div class="ml-50 mb-10 df topic">-->
+<!--          <div>культура</div>-->
+<!--          <div class="mx-10">|</div>-->
+<!--          <div>события</div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="ml-50">-->
+<!--        <div class="article-header mb-10 ">-->
+<!--          Китайский Новый год в России-->
+<!--        </div>-->
+<!--        <div class="article text-justify">-->
+<!--          В 2024 году впервые в России масштабно отмечается известный во всем мире праздник – Китайский Новый год-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+
+<!--  </div>-->
+<!--  <div class="cx">-->
+<!--    <div class="cx position-relative">-->
+<!--      <div class="images-window">-->
+<!--        <div class="images" #carousel>-->
+<!--          <div (click)="urlOpen(img.url)" class="img cursor-pointer" *ngFor="let img of imgs; let i = index" (mouseenter)="imageHover = i" (mouseleave)="imageHover = -1">-->
+<!--            <img [src]="img.image"/>-->
+<!--            <div class="price mx-2px cxy">{{img.name}}</div>-->
+<!--&lt;!&ndash;            <img *ngIf="imageHover == i" [src]="img.imageHover"/>&ndash;&gt;-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="left-arrow cxy cursor-pointer"  (click)="move(carousel, -1)" [class.disabled]="animation">-->
+<!--        <img src="assets/l-arrow.svg" height="24">-->
+<!--      </div>-->
+<!--      <div class="right-arrow cxy cursor-pointer"  (click)="move(carousel, 1)" [class.disabled]="animation">-->
+<!--        <img src="assets/r-arrow.svg" height="24">-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--&lt;!&ndash;  <div class="mx-auto max-w-1300 mt-90">&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="df mb-30 pt-50">&ndash;&gt;-->
+<!--&lt;!&ndash;      <div class="main-topic mr-10">рецепт дня</div>&ndash;&gt;-->
+<!--&lt;!&ndash;      <div class="line"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;  &ndash;&gt;-->
+<!--&lt;!&ndash;  &ndash;&gt;-->
+<!--&lt;!&ndash;  <div class="back-recipe">&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="mx-auto max-w-1300">&ndash;&gt;-->
+<!--&lt;!&ndash;      <div class="pt-20 pb-30 text-justify" *ngFor="let e of getEvents('sun')">&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="article-header">{{e.header}}</div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="article" [innerHTML]="e.text"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;  </div>&ndash;&gt;-->
+
+
+<!--  <div class="mx-auto ">-->
+<!--    <div class="ml-50 df mt-50">-->
+<!--      <div class="main-topic mr-10">новости</div>-->
+<!--      <div class="line"></div>-->
+<!--    </div>-->
+<!--    <div class="ml-50 news mt-30">-->
+<!--      <div class="mb-50">-->
+<!--        <div class="mb-10 df topic">-->
+<!--          <div>новости</div>-->
+<!--          <div class="mx-10">|</div>-->
+<!--          <div>культура</div>-->
+<!--        </div>-->
+<!--        <div class="article news-head mb-20">Сериал о «Гарри Поттере» выйдет в 2026 году</div>-->
+<!--&lt;!&ndash;        <div>25.02.24</div>&ndash;&gt;-->
+<!--      </div>-->
+<!--      <div class="mb-50">-->
+<!--        <div class="mb-10 df topic">-->
+<!--          <div>новости</div>-->
+<!--          <div class="mx-10">|</div>-->
+<!--          <div>жизнь</div>-->
+<!--        </div>-->
+<!--        <div class="article news-head mb-20">Активисты вывесили баннеры на бутике Louis Vuitton на Елисейских полях</div>-->
+<!--&lt;!&ndash;        <div>25.02.24</div>&ndash;&gt;-->
+<!--      </div>-->
+<!--      <div class="mb-50">-->
+<!--        <div class="mb-10 df topic">-->
+<!--          <div>новости</div>-->
+<!--          <div class="mx-10">|</div>-->
+<!--          <div>культура</div>-->
+<!--        </div>-->
+<!--        <div class="article news-head mb-20">Фаррелл Уильямс анонсировал новый трек с Майли Сайрус</div>-->
+<!--&lt;!&ndash;        <div>25.02.24</div>&ndash;&gt;-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="ml-50 news">-->
+<!--      <div class="mb-50">-->
+<!--        <div class="mb-10 df topic">-->
+<!--          <div>новости</div>-->
+<!--          <div class="mx-10">|</div>-->
+<!--          <div>культура</div>-->
+<!--        </div>-->
+<!--        <div class="article news-head mb-20">Netflix выпустил официальный трейлер «Джентльменов» Гая Ричи</div>-->
+<!--&lt;!&ndash;        <div>23.02.24</div>&ndash;&gt;-->
+<!--      </div>-->
+<!--      <div class="mb-50">-->
+<!--        <div class="mb-10 df topic">-->
+<!--          <div>новости</div>-->
+<!--          <div class="mx-10">|</div>-->
+<!--          <div>культура</div>-->
+<!--        </div>-->
+<!--        <div class="article news-head mb-20">Ferragamo откроет флагманский магазин в Милане после ремонта</div>-->
+<!--&lt;!&ndash;        <div>25.02.24</div>&ndash;&gt;-->
+<!--      </div>-->
+<!--      <div class="mb-50">-->
+<!--        <div class="mb-10 df topic">-->
+<!--          <div>новости</div>-->
+<!--          <div class="mx-10">|</div>-->
+<!--          <div>жизнь</div>-->
+<!--        </div>-->
+<!--        <div class="article news-head mb-20">Белла Хадид анонсирует запуск собственного бренда</div>-->
+<!--&lt;!&ndash;        <div>25.02.24</div>&ndash;&gt;-->
+<!--      </div>-->
+<!--    </div>-->
+
+
+<!--&lt;!&ndash;    <div *ngFor="let e of getEvents('sun')">&ndash;&gt;-->
+<!--&lt;!&ndash;      <h1>{{e.header}}</h1>&ndash;&gt;-->
+<!--&lt;!&ndash;      <h1>{{e.text}}</h1>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+
+<!--    <div class="df space-between">-->
+<!--&lt;!&ndash;      <div class="aside">&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="sticky-banner">&ndash;&gt;-->
+<!--&lt;!&ndash;          <img src="assets/optimize.png">&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--      <div class="">-->
+<!--        <div class="mb-70">-->
+<!--          <div class="">-->
+<!--            <a href="https://vnukovo-outlet.com/" target="_blank">-->
+<!--              <img class="mb-30" src="assets/vnukovo.png" width="100%" height="100%">-->
+<!--            </a>-->
+<!--            <div class="ml-50 mb-10 df topic">-->
+<!--              <div>мода</div>-->
+<!--              <div class="mx-10">|</div>-->
+<!--              <div>вещи</div>-->
+<!--            </div>-->
+<!--            <a href="https://vnukovo-outlet.com/" class="text-link" target="_blank">-->
+<!--              <div class="ml-50 text-justify text-link article">Шопинг европейского уровня в Новой Москве-->
+<!--                Vnukovo Outlet Village — один из первых и самых масштабных аутлетов в России. Здесь представлены бутики всемирно известных брендов со скидками до 70% на коллекции прошлых сезонов.-->
+
+<!--                В отличие от привычных распродаж в монобрендовых магазинах, одежда, обувь, аксессуары и другие товары по самым выгодным ценам представлены в аутлете круглый год, независимо от сезона.</div>-->
+<!--            </a>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="">-->
+<!--          <a href="https://www.deepo.com.tr/" target="_blank" class="text-link">-->
+<!--            <img class="mb-20" src="assets/Outlet_tr.png" width="100%" height="100%">-->
+<!--          </a>-->
+<!--          <div class="ml-50 mb-10 df topic">-->
+<!--            <div>мода</div>-->
+<!--            <div class="mx-10">|</div>-->
+<!--            <div>вещи</div>-->
+<!--          </div>-->
+<!--          <a href="https://www.deepo.com.tr/" target="_blank" class="text-link">-->
+<!--            <div class="ml-50 text-justify text-link article">ТЦ Mall of Antalya собрал под своей крышей 144 магазина, представляющих сотни местных и зарубежных брендов, точки общественного питания на площади в 4 000 м2и самую большую крытую детскую игровую площадку в Анталье площадью в 1 600 м2. Большую популярность получил этаж общественного питания ТЦ Mall of Antalya, обладающий горизонтальной двухъярусной архитектурой, просторными помещениями, выполненными по всем канонам современного дизайна и предлагающий посетителям богатое разнообразие вкусов. Торговый Комплекс обладает парковкой на 3 000 автомобильных мест, также посетители могут легко добраться до него из различных точек города, воспользовавшись автобусами или трамваем. В ТЦ Mall of Antalya находятся самые большие в Анталье магазины марок H&M, LCW и De Facto.</div>-->
+<!--          </a>-->
+<!--        </div>-->
+
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--&lt;!&ndash;  <div class="mx-auto max-w-1300 mt-90">&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="df mb-30 pt-50">&ndash;&gt;-->
+<!--&lt;!&ndash;      <div class="main-topic mr-10">народные приметы</div>&ndash;&gt;-->
+<!--&lt;!&ndash;      <div class="line"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;  <div class="back-narod">&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="mx-auto max-w-1300">&ndash;&gt;-->
+<!--&lt;!&ndash;      <div class="cx pt-20">&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="date">{{getDate()}}</div>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--&lt;!&ndash;      <div class="pb-30 text-justify" *ngFor="let e of getEvents('moon')">&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="article-header">{{e.header}}</div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="article" [innerHTML]="e.text"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;  </div>&ndash;&gt;-->
+
+<!--  <div class="mx-auto">-->
+<!--    <div class="mt-90 mx-auto width-1300 mb-90">-->
+<!--      <div class="df space-between">-->
+<!--        <div class="width-300">-->
+<!--          <div class="circle cxy">-->
+<!--            <img src="assets/photo/600600.png">-->
+<!--          </div>-->
+<!--          <div class="mb-10 df topic">-->
+<!--            <div>мода</div>-->
+<!--            <div class="mx-10">|</div>-->
+<!--            <div>вещи</div>-->
+<!--          </div>-->
+<!--          <div class="article-big">Gucci, коллекция осень-зима 2024</div>-->
+<!--        </div>-->
+<!--        <div class="width-300">-->
+<!--          <div class="circle cxy">-->
+<!--            <img src="assets/photo/600600_356.png">-->
+<!--          </div>-->
+<!--          <div class="mb-10 df topic">-->
+<!--            <div>мода</div>-->
+<!--            <div class="mx-10">|</div>-->
+<!--            <div>вещи</div>-->
+<!--          </div>-->
+<!--          <div class="article-big">Ferragamo, коллекция осень-зима 2024</div>-->
+<!--        </div>-->
+<!--        <div class="width-300">-->
+<!--          <div class="circle cxy">-->
+<!--            <img src="assets/photo/600.png">-->
+<!--          </div>-->
+<!--          <div class="mb-10 df topic">-->
+<!--            <div>мода</div>-->
+<!--            <div class="mx-10">|</div>-->
+<!--            <div>вещи</div>-->
+<!--          </div>-->
+<!--          <div class="article-big">Versace, коллекция осень-зима 2024</div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
 
