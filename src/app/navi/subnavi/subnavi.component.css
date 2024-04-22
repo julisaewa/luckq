@@ -10,6 +10,7 @@
 /deep/mark {
   color: white !important;
   font-size: 16px;
+  background-color: transparent;
 }
 .header-body {
   background-image: url("../../../assets/back1.png");

@@ -1,0 +1,72 @@
+/deep/.p-inputtext{
+  font-size: 13px!important;
+  padding: 8px 10px 8px 10px;
+}
+.video{
+  display: flex;
+  flex-wrap: wrap;
+  height: 450px;
+}
+.cal-button{
+  width: fit-content;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background-color: #EF5A3F;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.cal-button:hover{
+  background-color: #D53E38;
+}
+.save-b{
+  width: fit-content;
+  height: 30px;
+  padding: 0 10px;
+  border-radius: 8px;
+  background-color: #90B198;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.save-b:hover{
+  background-color: #2E5E6B;
+}
+.del-b{
+  width: fit-content;
+  height: 30px;
+  padding: 0 10px;
+  border-radius: 8px;
+  background-color: #B92635;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.del-b:hover{
+  background-color: #7F212C;
+}
+.calendar-delete{
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 5px;
+}
+.video-cont{
+  border: 1px solid #efefef;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  border-radius: 8px;
+}
+.video-shadow{
+  box-shadow: 2px 3px 9px 0px rgba(0,0,0,0.75);
+}

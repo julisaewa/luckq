@@ -22,6 +22,7 @@
 }
 /deep/.p-megamenu .p-megamenu-panel {
   background-color: rgba(0, 0, 0, 0.52);
+  z-index: 15;
 }
 /deep/.p-megamenu .p-menuitem-link .p-menuitem-text {
   color: #ffffff;
@@ -223,8 +224,9 @@
   height: 170px;
 }
 .left-banner{
-  width: 350px;
+  width: 400px;
   height: 650px;
+  object-fit: cover;
 }
 
 
@@ -551,7 +553,6 @@ video::cue {
 }
 * {
   margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
@@ -579,7 +580,7 @@ body {
 .logos:after {
   position: absolute;
   top: 0;
-  width: 250px;
+  /*width: 250px;*/
   height: 100%;
   content: "";
   z-index: 2;
@@ -605,4 +606,7 @@ body {
 .logos-slide img {
   height: 120px;
   margin: 0 40px;
+}
+.calendar-page{
+  z-index: 200;
 }

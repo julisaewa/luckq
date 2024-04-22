@@ -4,7 +4,7 @@
       <p-carousel class="cursor-pointer" [verticalViewPortHeight]="'calc(100vh - 200px)'" [circular]="true" [value]="leftSliderImages" [numVisible]="1" [showNavigators]="false" [showIndicators]="false" [autoplayInterval]="leftSliderImagesAutoplayInterval" orientation="vertical">
         <ng-template let-image pTemplate="item">
           <div class="df">
-            <img class="left-banner"  (click)="openUrl(image.url)" [src]="image.src"/>
+            <img class="left-banner" (click)="openUrl(image.url)" [src]="image.src"/>
           </div>
         </ng-template>
       </p-carousel>
@@ -25,14 +25,14 @@
     </div>
     <div class="df cx w-64" *ngIf="!showMenWomen">
       <div class="cx" [class.yt-player]="playingVideo == i" *ngFor="let video of newsVideos; let i = index">
-        <div class="cx" (mouseenter)="uiHover = true" (mouseleave)="uiHover = true" *ngIf="playingVideo == i">
+        <div class="cx" (mouseenter)="uiHover = true" (mouseleave)="uiHover = false" *ngIf="playingVideo == i">
           <video class="yt-player" [autoplay]="true" [muted]="i == 0 && !touched" [volume]="volume" [src]="video" (timeupdate)="videoTime = videoPlayer.currentTime" #videoPlayer (canplay)="videoLoaded($event, videoPlayer)" (ended)="playNextClassic()">
           </video>
           <div class="player-ui" [@openClose]="uiHover ? 'open' : 'closed'">
             <div class="video-list">
               <div class="video-list-toggle" (click)="videoListShow = !videoListShow">
 <!--                <i class="pi pi-bars" style="color: white; font-size: 2rem"></i>-->
-                <p-megaMenu [model]="items"></p-megaMenu>
+                <p-megaMenu [model]="moviesMenu"></p-megaMenu>
               </div>
               <div class="video-list-videos" *ngIf="videoListShow && false">
                 <p-virtualScroller [value]="newsVideos" scrollHeight="500px" style="width: 250px" [itemSize]="135">
@@ -57,7 +57,7 @@
                 <div class="video-progress w200px cp">
                   <input [ngStyle]="getProgressSize(videoTime, videoPlayer.duration)" class="player-ui-seek ml-20" [(ngModel)]="videoTime" (ngModelChange)="videoPlayer.currentTime = videoTime" [max]="videoPlayer.duration" type="range" step="0.1" [min]="0">
                 </div>
-                <div class="df space-between">
+                <div class="df space-between px-10">
                   <div class="df cxy w140px ml-10">
                     <div class="seek-tooltip time-text">{{getVideoTime(videoTime) + ' ' + '/'}}</div><div class="seek-tooltip time-text">{{getVideoTime(videoPlayer.duration)}}</div>
                   </div>
@@ -99,15 +99,15 @@
     <div class="w-18 df space-between flex-column mr-30 height-619">
       <p-carousel [verticalViewPortHeight]="'300px'" [circular]="true" [value]="rightSliderImages" [numVisible]="1" [showNavigators]="false" [showIndicators]="false" [autoplayInterval]="rightSliderImagesAutoplayInterval" orientation="vertical">
         <ng-template let-image pTemplate="item">
-          <div class="df cxy">
+          <div class="cxy">
             <img class="cursor-pointer" [style]="'max-width: 300px'" width="100%" (click)="openUrl(image.url)" [src]="image.src"/>
           </div>
         </ng-template>
       </p-carousel>
       <p-carousel [verticalViewPortHeight]="'350px'" [circular]="true" [value]="rightSliderArticles" [numVisible]="1" [showNavigators]="false" [showIndicators]="false" [autoplayInterval]="rightSliderArticlesAutoplayInterval" orientation="vertical">
         <ng-template let-image pTemplate="item">
-          <div class="df cxy">
-            <img class="cursor-pointer" [style]="'max-width: 350px'" width="100%" (click)="openUrl(image.url)" [src]="image.src"/>
+          <div class="cxy">
+            <img class="cursor-pointer" [style]="'max-width: 350px'" (click)="openUrl(image.url)" [src]="image.src"/>
           </div>
         </ng-template>
       </p-carousel>

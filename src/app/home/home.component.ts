@@ -7,6 +7,8 @@ import * as url from "url";
 import {EventManagerService} from "../event-manager.service";
 import {CalendarEvent} from "../interfaces/calendar-event";
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import * as _ from 'underscore';
+import {MegaMenuItem} from "primeng/api";
 
 @Component({
   selector: 'app-home',
@@ -172,56 +174,11 @@ export class HomeComponent implements OnInit {
   selectedCalendarPageVisislbe = false;
   today = new Date();
   currentMonth = this.today.getMonth();
-  items = [
-    {
-      label: '',
-      icon: 'pi pi-fw pi-bars',
-      items: [
-        [
-          {
-            label: 'Paris Fashion Week',
-            items: [
-              { label: 'Lacoste', command: () => { this.playingVideo = 0 } },
-              { label: 'Miu Miu', command: () => { this.playingVideo = 1 } },
-              { label: 'Rochas', command: () => { this.playingVideo = 2 } },
-              { label: 'sacai', command: () => { this.playingVideo = 3 } }
-            ]
-          },
-          {
-            label: 'Haute Couture Week',
-            items: [
-              { label: 'CHANEL', command: () => { this.playingVideo = 4 } },
-              { label: 'Valentino', command: () => { this.playingVideo = 5 } }
-            ]
-          }
-        ],
-        [
-          {
-            label: 'Menswear Paris Fashion Week',
-            items: [
-              { label: 'WINTER', command: () => { this.playingVideo = 6 } },
-              { label: 'MENS PORTERVILLE', command: () => { this.playingVideo = 7 } }
-            ]
-          },
-          {
-            label: 'The Collections',
-            items: [
-              { label: 'Miu Miu', command: () => { this.playingVideo = 8 } },
-              { label: 'CHANEL', command: () => { this.playingVideo = 9 } },
-              { label: '2024 Collection', command: () => { this.playingVideo = 10 } },
-              { label: 'SCHIAPARELLI', command: () => { this.playingVideo = 11 } }
-            ]
-          }
-        ]
-      ]
-    },
-  ];
+  moviesMenu: any[] = [];
 
   constructor(private router: Router, public eventsManager: EventManagerService) {
     this.fillCalendarPages();
-    for (let x = 1; x < 99; x ++){
-      this.newsVideos.push('/assets/video/' + x + '.mp4');
-    }
+    this.fillMovies();
     setTimeout(() => {
       this.showMenWomen = false;
     }, this.menWomenTimeout * 1000);
@@ -372,10 +329,10 @@ export class HomeComponent implements OnInit {
   private fillCalendarPages() {
     this.eventsManager.getCalendarPages().subscribe(res => {
       let date = new Date();
-      let d = date.getDay();
+      let d = date.getDate();
       let m = date.getMonth() + 1;
       let y = date.getFullYear();
-      this.calendarPages = res.filter((x: any) => x.day == d && x.month == m && x.year == y);
+      this.calendarPages = _.sortBy(res.filter((x: any) => x.day == d && x.month == m && x.year == y), x => x.id);
     });
   }
 
@@ -393,6 +350,15 @@ export class HomeComponent implements OnInit {
     this.selectedCalendarPage = url;
 
     this.previewPoint.x = event.clientX - 173;
+    if (this.previewPoint.x < 0){
+      this.previewPoint.x = 15;
+    }
+
+    if (window.innerWidth - this.previewPoint.x - 200 < 100){
+      this.previewPoint.x -= 100;
+    }
+
+
     this.previewPoint.y = event.clientY - 510;
   }
 
@@ -400,4 +366,95 @@ export class HomeComponent implements OnInit {
     this.selectedCalendarPageVisislbe = false;
     this.selectedCalendarPage = '';
   }
+
+  private fillMovies() {
+    this.eventsManager.getMovies().subscribe(res => {
+      this.newsVideos = res.map(x => x.url);
+      this.moviesMenu = this.fillMoviesMenu(res);
+    });
+  }
+  private fillMoviesMenu(videos: any[]) {
+    let res: MegaMenuItem[] = [];
+    let groupOfGroups: any[] = [];
+    let groups: any[] = [];
+    _.forEach(_.groupBy(videos, x => x.kind), gr => {
+      let videos = gr.map(x => ({
+        label: x.name,
+        command: () => {
+          let findVideo = this.newsVideos.find(y => y == x.url);
+          this.playingVideo = this.newsVideos.indexOf(findVideo);
+        }
+      }));
+      let newGroup: any[] = [];
+      newGroup.push(({
+        label: gr[0].kind,
+        items: videos
+      }));
+      if (groups.concat(newGroup).flatMap(x => x.items).length > 14){
+        groupOfGroups.push([...groups]);
+        groups.splice(0, groups.length);
+        newGroup.forEach(g => groups.push(g));
+      }
+      else{
+        newGroup.forEach(g => groups.push(g));
+      }
+    });
+    groupOfGroups.push(groups);
+    res.push(({
+      label: '',
+      icon: 'pi pi-fw pi-bars',
+      items: groupOfGroups,
+    }));
+    return res;
+  }
+
+  items = [
+    {
+      label: '',
+      icon: 'pi pi-fw pi-bars',
+      items: [
+        [
+          {
+            label: 'Paris Fashion Week',
+            items: [
+              { label: 'Lacoste', command: () => { this.playingVideo = 0 } },
+              { label: 'Miu Miu', command: () => { this.playingVideo = 1 } },
+              { label: 'Rochas', command: () => { this.playingVideo = 2 } },
+              { label: 'sacai', command: () => { this.playingVideo = 3 } }
+            ]
+          },
+          {
+            label: 'Paris Fashion Week',
+            items: [
+              { label: 'Lacoste', command: () => { this.playingVideo = 0 } },
+              { label: 'Miu Miu', command: () => { this.playingVideo = 1 } },
+              { label: 'Rochas', command: () => { this.playingVideo = 2 } },
+              { label: 'sacai', command: () => { this.playingVideo = 3 } }
+            ]
+          },
+          {
+            label: 'Paris Fashion Week',
+            items: [
+              { label: 'Lacoste', command: () => { this.playingVideo = 0 } },
+              { label: 'Miu Miu', command: () => { this.playingVideo = 1 } },
+              { label: 'Rochas', command: () => { this.playingVideo = 2 } },
+              { label: 'sacai', command: () => { this.playingVideo = 3 } }
+            ]
+          },
+        ],
+        [
+          {
+            label: 'Paris Fashion Week',
+            items: [
+              { label: 'Lacoste', command: () => { this.playingVideo = 0 } },
+              { label: 'Miu Miu', command: () => { this.playingVideo = 1 } },
+              { label: 'Rochas', command: () => { this.playingVideo = 2 } },
+              { label: 'sacai', command: () => { this.playingVideo = 3 } }
+            ]
+          },
+        ],
+      ]
+    },
+  ];
+
 }

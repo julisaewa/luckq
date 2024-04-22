@@ -122,7 +122,7 @@
       <div class="menu-item ml-30 cy" (mouseenter)="hoverMenu('news')" (mouseleave)="unHoverMenu('news')">
         <div class="menu cursor-pointer">Новости</div>
         <div class="s-menu menu-overlay" *ngIf="isHover('news')">
-          <div class="sub-menu height-40 df">
+          <div class="sub-menu height-40 df" (click)="openUrl('/articles/')">
             <div class="mr-10">
               <img src="assets/icons/news.svg" height="16">
             </div>

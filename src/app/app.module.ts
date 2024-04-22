@@ -31,6 +31,7 @@ import {VirtualScrollerModule} from "primeng/virtualscroller";
 import {DialogModule} from "primeng/dialog";
 import { AdminComponent } from './admin/admin.component';
 import {CalendarModule} from "primeng/calendar";
+import {InputTextModule} from "primeng/inputtext";
 
 @NgModule({
   declarations: [
@@ -49,25 +50,26 @@ import {CalendarModule} from "primeng/calendar";
     IntelligenceComponent,
     AdminComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    GalleriaModule,
-    InfiniteScrollModule,
-    NgMarqueeModule,
-    HttpClientModule,
-    MenuModule,
-    ProgressSpinnerModule,
-    FormsModule,
-    CarouselModule,
-    MegaMenuModule,
-    MenubarModule,
-    PanelMenuModule,
-    VirtualScrollerModule,
-    DialogModule,
-    CalendarModule,
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        GalleriaModule,
+        InfiniteScrollModule,
+        NgMarqueeModule,
+        HttpClientModule,
+        MenuModule,
+        ProgressSpinnerModule,
+        FormsModule,
+        CarouselModule,
+        MegaMenuModule,
+        MenubarModule,
+        PanelMenuModule,
+        VirtualScrollerModule,
+        DialogModule,
+        CalendarModule,
+        InputTextModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

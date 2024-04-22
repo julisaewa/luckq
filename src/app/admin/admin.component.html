@@ -1,0 +1,52 @@
+<div class="padding-10" *ngIf="authorized">
+  <div class="df my-10">
+    <div class="df mr-20">
+      <span class="mr-5 text-center-y">Дата: </span>
+      <p-calendar [showWeek]="true" [firstDayOfWeek]="1" [minDate]="minDate" appendTo = "body" [(ngModel)]="selectedDate" dateFormat="dd.mm.yy" styleClass="width-270"></p-calendar>
+    </div>
+    <div class="cxy">
+      <div class="cal-button cxy" (click)="selectCalendarPages.click()">Добавить календари ({{getCalendarPages().length}})</div>
+      <input hidden #selectCalendarPages type="file" accept="image/*" (change)="handleFileInputCalendarPage(selectCalendarPages.files)" multiple>
+    </div>
+  </div>
+  <div>
+    <div class="df ovf-auto">
+      <div class="position-relative" *ngFor="let c of getCalendarPages()">
+        <img [src]="c.url" class="position-relative" height="200px">
+        <div class="calendar-delete cxy" (click)="deleteCalendarPage(c)">
+          <img src="assets/icons/trash-1.svg" height="20">
+        </div>
+      </div>
+    </div>
+    <div class="df my-10">
+      <div class="cal-button cxy mr-10" (click)="selectMovies.click()">Добавить видео ({{movies.length}})</div>
+      <div><input pInputText (change)="setMovieKind()" [(ngModel)]="movieKind"></div>
+      <input hidden #selectMovies type="file" accept="video/mp4" (change)="handleFileInputMovie(selectMovies.files)" multiple>
+    </div>
+    <div class="df ovf-auto video">
+      <div class="position-relative" *ngFor="let m of movies.reverse()">
+        <div class="video-cont">
+          <video class="video-shadow" controls [src]="m.url" height="130px">
+          </video>
+          <div class="df mb-5 mt-10">
+            <span class="width-70">Name</span>
+            <input pInputText [(ngModel)]="m.name"/>
+          </div>
+          <div class="df">
+            <span class="width-70">Kind</span>
+            <input pInputText [(ngModel)]="m.kind"/>
+          </div>
+          <div class="df space-between mt-10">
+            <div class="save-b cxy cursor-pointer" (click)="saveMovie(m)">Save</div>
+            <div class="cxy cursor-pointer del-b" (click)="deleteMovie(m)">Delete</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="!authorized">
+  <div><input pInputText [(ngModel)]="loginName"></div>
+  <div><input pInputText [(ngModel)]="password"></div>
+  <div><button (click)="login()">LOGIN</button></div>
+</div>
