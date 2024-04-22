@@ -1,4 +1,4 @@
-<div class="header-body sticky cxy" (click)="pageClick($event)">
+<div class="header-body sticky" (click)="pageClick($event)">
   <div class="header-inner space-between">
     <a class="logo cxy cursor-pointer" routerLink="">
       <img src="assets/logo-w.png" height="50">
@@ -9,37 +9,37 @@
         <div class="s-menu menu-overlay" *ngIf="isHover('market')">
           <div class="sub-menu height-40 df" (click)="openUrl('https://www.ozon.ru/')">
             <div class="mr-10">
-              <img src="assets/ozon.png" height="18">
+              <img src="assets/icons/ozon.png" height="18">
             </div>
             <div>Ozon</div>
           </div>
           <div class="sub-menu height-40 df" (click)="openUrl('https://www.wildberries.ru/')">
             <div class="mr-10">
-              <img src="assets/wb.png" height="18">
+              <img src="assets/icons/wb.png" height="18">
             </div>
             <div>Wildberries</div>
           </div>
           <div class="sub-menu height-40 df" (click)="openUrl('https://market.yandex.ru/')">
             <div class="mr-10">
-              <img src="assets/ya.png" height="18">
+              <img src="assets/icons/ya.png" height="18">
             </div>
             <div>Яндекс. Маркет</div>
           </div>
           <div class="sub-menu height-40 df" (click)="openUrl('https://www.lamoda.ru/')">
             <div class="mr-10">
-              <img src="assets/lamoda.png" height="18">
+              <img src="assets/icons/lamoda.png" height="18">
             </div>
             <div>Lamoda</div>
           </div>
           <div class="sub-menu height-40 df" (click)="openUrl('https://www.cdek.ru/ru/')">
             <div class="mr-10">
-              <img src="assets/cdek.png" height="18">
+              <img src="assets/icons/cdek.png" height="18">
             </div>
             <div>Cdek</div>
           </div>
           <div class="sub-menu height-40 df" (click)="openUrl('https://aliexpress.ru/')">
             <div class="mr-10">
-              <img src="assets/ali.svg" height="18">
+              <img src="assets/icons/ali.svg" height="18">
             </div>
             <div>Aliexpress</div>
           </div>
@@ -50,7 +50,7 @@
         <div class="s-menu menu-overlay" *ngIf="isHover('fitting')">
           <div class="sub-menu height-40 df" (click)="openUrl('https://ecco.ru/fitting-promo/')">
             <div class="mr-10">
-              <img src="assets/ecco.svg" height="18">
+              <img src="assets/icons/ecco.svg" height="18">
             </div>
           </div>
         </div>
@@ -60,33 +60,27 @@
         <div class="s-menu menu-overlay" *ngIf="isHover('social')">
           <div class="sub-menu height-40 df" (click)="openUrl('https://vk.com/')">
             <div class="mr-10">
-              <img src="assets/vk.svg" height="18">
+              <img src="assets/icons/vk.svg" height="18">
             </div>
             <div>Вконтакте</div>
           </div>
           <div class="sub-menu height-40 df" (click)="openUrl('https://instagram.com/')">
             <div class="mr-10">
-              <img src="assets/instagram.svg" height="18">
+              <img src="assets/icons/instagram.svg" height="18">
             </div>
             <div>Instagram</div>
           </div>
           <div class="sub-menu height-40 df" (click)="openUrl('https://facebook.com')">
             <div class="mr-10">
-              <img src="assets/facebook.svg" height="18">
+              <img src="assets/icons/facebook.svg" height="18">
             </div>
             <div>Facebook</div>
           </div>
           <div class="sub-menu height-40 df" (click)="openUrl('https://www.youtube.com/')">
             <div class="mr-10">
-              <img src="assets/youtube.svg" height="18">
+              <img src="assets/icons/youtube.svg" height="18">
             </div>
             <div>YouTube</div>
-          </div>
-          <div class="sub-menu height-40 df" (click)="openUrl('https://ru.pinterest.com/')">
-            <div class="mr-10">
-              <img src="assets/pinterest.svg" height="18">
-            </div>
-            <div>Pinterest</div>
           </div>
         </div>
       </div>
@@ -95,31 +89,31 @@
         <div class="s-menu menu-overlay" *ngIf="isHover('traver')">
           <div class="sub-menu height-40 df" (click)="openUrl('https://www.aviasales.ru/')">
             <div class="mr-10">
-              <img src="assets/aviasales.svg" height="18">
+              <img src="assets/icons/aviasales.svg" height="18">
             </div>
             <div>Авиасейлс</div>
           </div>
           <div class="sub-menu height-40 df" (click)="openUrl('https://ru.skyscanner.com/')">
             <div class="mr-10">
-              <img src="assets/skyscanner.png" height="16">
+              <img src="assets/icons/skyscanner.png" height="16">
             </div>
             <div>Скайсканнер</div>
           </div>
           <div class="sub-menu height-40 df" (click)="openUrl('https://www.onetwotrip.com/')">
             <div class="mr-10">
-              <img src="assets/onetwotrip.svg" height="18">
+              <img src="assets/icons/onetwotrip.svg" height="18">
             </div>
             <div>OneTwoTrip</div>
           </div>
           <div class="sub-menu height-40 df" (click)="openUrl('https://www.rzd.ru/')">
             <div class="mr-10">
-              <img src="assets/rzd.png" height="18">
+              <img src="assets/icons/rzd.png" height="18">
             </div>
             <div>РЖД</div>
           </div>
           <div class="sub-menu height-40 df" (click)="openUrl('https://www.booking.com/')">
             <div class="mr-10">
-              <img src="assets/booking.svg" height="18">
+              <img src="assets/icons/booking.svg" height="18">
             </div>
             <div>Booking</div>
           </div>
@@ -130,13 +124,13 @@
         <div class="s-menu menu-overlay" *ngIf="isHover('news')">
           <div class="sub-menu height-40 df">
             <div class="mr-10">
-              <img src="assets/news.svg" height="16">
+              <img src="assets/icons/news.svg" height="16">
             </div>
             <div>Статьи</div>
           </div>
           <div class="sub-menu height-40 df" (click)="openUrl('https://www.expoclub.ru/')">
             <div class="mr-10">
-              <img src="assets/ticket.svg" height="18">
+              <img src="assets/icons/ticket.svg" height="18">
             </div>
             <div>Выставки</div>
           </div>
@@ -147,30 +141,107 @@
         <div class="s-menu menu-overlay" *ngIf="isHover('playlist')">
           <div class="sub-menu height-40 df" (click)="openUrl('https://music.yandex.ru/tag/top')">
             <div class="mr-10">
-              <img src="assets/music.png" height="18">
+              <img src="assets/icons/music.png" height="18">
             </div>
             <div>Яндекс. Музыка</div>
           </div>
           <div class="sub-menu height-40 df" (click)="openUrl('https://zvuk.com/playlists')">
             <div class="mr-10">
-              <img src="assets/zvuk.png" height="18">
+              <img src="assets/icons/zvuk.png" height="18">
             </div>
             <div>Звук</div>
           </div>
         </div>
       </div>
+
+      <div class="menu-item ml-30 cy" (mouseenter)="hoverMenu('interior')" (mouseleave)="unHoverMenu('interior')">
+        <div class="menu cursor-pointer">Интерьер</div>
+        <div class="s-menu menu-overlay" *ngIf="isHover('interior')">
+          <div class="sub-menu height-40 df" (click)="openUrl('https://ru.pinterest.com/')">
+            <div class="mr-10">
+              <img src="assets/icons/pinterest.svg" height="18">
+            </div>
+            <div>Pinterest</div>
+          </div>
+          <div class="sub-menu height-40 df" (click)="openUrl('https://hoff.ru/')">
+            <div class="mr-10">
+              <img src="assets/icons/hoff.svg" height="18">
+            </div>
+            <div>Hoff</div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="menu-item ml-30 cy" (mouseenter)="hoverMenu('realty')" (mouseleave)="unHoverMenu('realty')">
+        <div class="menu cursor-pointer">Недвижимость</div>
+        <div class="s-menu menu-overlay" *ngIf="isHover('realty')">
+          <div class="sub-menu height-40 df" (click)="openUrl('https://spb.cian.ru/')">
+            <div class="mr-10">
+              <img src="assets/icons/cian.png" height="18">
+            </div>
+            <div>Циан</div>
+          </div>
+          <div class="sub-menu height-40 df" (click)="openUrl('https://www.avito.ru/')">
+            <div class="mr-10">
+              <img src="assets/icons/avito.png" height="18">
+            </div>
+            <div>Авито</div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="menu-item ml-30 cy" (mouseenter)="hoverMenu('perfume')" (mouseleave)="unHoverMenu('perfume')">
+        <div class="menu cursor-pointer">Per fumum</div>
+        <div class="s-menu menu-overlay" *ngIf="isHover('perfume')">
+          <div class="sub-menu height-40 df" (click)="openUrl('https://goldapple.ru/')">
+            <div class="mr-10">
+              <img src="assets/icons/goldenapple.png" height="18">
+            </div>
+            <div>Золотое яблоко</div>
+          </div>
+          <div class="sub-menu height-40 df" (click)="openUrl('https://rivegauche.ru/')">
+            <div class="mr-10">
+              <img src="assets/icons/rivgos.png" height="18">
+            </div>
+            <div>Рив гош</div>
+          </div>
+          <div class="sub-menu height-40 df" (click)="openUrl('https://www.letu.ru/')">
+            <div class="mr-10">
+              <img src="assets/icons/letu.png" height="18">
+            </div>
+            <div>Л'этуаль</div>
+          </div>
+          <div class="sub-menu height-40 df" (click)="openUrl('https://iledebeaute.ru/')">
+            <div class="mr-10">
+              <img src="assets/icons/ile.png" height="18">
+            </div>
+            <div>Иль де ботэ</div>
+          </div>
+          <div class="sub-menu height-40 df" (click)="openUrl('https://www.yves-rocher.ru/')">
+            <div class="mr-10">
+              <img src="assets/icons/yves.png" height="18">
+            </div>
+            <div>Yves rocher</div>
+          </div>
+        </div>
+      </div>
+
+
       <div class="menu-item ml-30 cy" (mouseenter)="hoverMenu('vpn')" (mouseleave)="unHoverMenu('vpn')">
         <div class="menu cursor-pointer" >VPN сервисы</div>
         <div class="s-menu menu-overlay" *ngIf="isHover('vpn')">
           <div class="sub-menu height-40 df" (click)="openUrl('https://www.wireguard.com/')">
             <div class="mr-10">
-              <img src="assets/wireguard.png" height="18">
+              <img src="assets/icons/wireguard.png" height="18">
             </div>
             <div>VPN WireGuard</div>
           </div>
           <div class="sub-menu height-40 df" (click)="openUrl('https://freevpnplanet.com/ru/')">
             <div class="mr-10">
-              <img src="assets/planet.png" height="18">
+              <img src="assets/icons/planet.png" height="18">
             </div>
             <div>Planet VPN</div>
           </div>
@@ -181,27 +252,27 @@
         <div class="s-menu menu-overlay" *ngIf="isHover('kitchen')">
           <div class="sub-menu height-40 df" (click)="openUrl('https://www.edimdoma.ru/')">
             <div class="mr-10">
-              <img src="assets/eating.png" height="18">
+              <img src="assets/icons/eating.png" height="18">
             </div>
           </div>
           <div class="sub-menu height-40 df" (click)="openUrl('https://www.gastronom.ru/')">
             <div class="mr-10">
-              <img src="assets/gastronom.svg" height="18">
+              <img src="assets/icons/gastronom.svg" height="18">
             </div>
           </div>
           <div class="sub-menu height-40 df" (click)="openUrl('https://eda.ru/')">
             <div class="mr-10">
-              <img src="assets/eat.png" height="18">
+              <img src="assets/icons/eat.png" height="18">
             </div>
           </div>
           <div class="sub-menu height-40 df" (click)="openUrl('https://www.chefmarket.ru/')">
             <div class="mr-10">
-              <img src="assets/chef.svg" height="18">
+              <img src="assets/icons/chef.svg" height="18">
             </div>
           </div>
           <div class="sub-menu height-40 df" (click)="openUrl('https://jaymi-oliver.ru/recepty')">
             <div class="mr-10">
-              <img src="assets/jamie.png" height="18">
+              <img src="assets/icons/jamie.png" height="18">
             </div>
           </div>
         </div>
@@ -227,4 +298,7 @@
     </div>
 
   </div>
+  <ng-marquee duration="3000s" [stopOnHover]="true" class="marquee">
+    <span *ngFor="let mark of marksArray" class="marquee-mark" [innerHTML]="marks"></span>
+  </ng-marquee>
 </div>

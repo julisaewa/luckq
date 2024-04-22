@@ -1,6 +1,6 @@
 .app-header{
-  height: 70px;
-  min-height: 70px;
+  height: 100px;
+  min-height: 100px;
   position: sticky;
   top: 0;
   z-index: 10;

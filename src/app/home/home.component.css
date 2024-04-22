@@ -1,6 +1,37 @@
 /deep/mark {
   background-color: transparent !important;
 }
+/deep/.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link {
+
+}
+/deep/.p-megamenu .p-megamenu-submenu-header {
+  padding: 0;
+}
+/deep/.p-megamenu {
+  padding: .5rem;
+}
+/deep/.p-megamenu .p-menuitem-link {
+   padding: 6px;
+ }
+/deep/.p-component {
+  font-size: 13px;
+}
+/deep/.p-megamenu{
+  border: none;
+  background-color: rgba(0, 0, 0, 0.52);
+}
+/deep/.p-megamenu .p-megamenu-panel {
+  background-color: rgba(0, 0, 0, 0.52);
+}
+/deep/.p-megamenu .p-menuitem-link .p-menuitem-text {
+  color: #ffffff;
+}
+/deep/.p-megamenu .p-megamenu-submenu-header {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+  background-color: transparent;
+}
 :host ::ng-deep.p-scroller {
   overflow-x: hidden;
 }
@@ -71,6 +102,7 @@
   position: absolute;
   bottom: 0;
   width: -webkit-fill-available;
+  z-index: 20;
 }
 .footer-topic{
   font-size: 12px;
@@ -98,12 +130,12 @@
 }
 .marquee{
   width: 100%;
-  color: black !important;
-  --marktext: black;
+  color: white !important;
+  --marktext: #ffffff;
 }
 .marquee-mark{
   padding: 0 10px;
-  color: black !important;
+  color: #ffffff !important;
   font-size: 30px;
 }
 .run-stroke{
@@ -174,8 +206,16 @@
   color: white;
   font-size: 2.5em;
 }
-
-
+.footer-img{
+  background-image: url("../../assets/bigest-banner.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 170px;
+}
+.left-banner{
+  width: 350px;
+  height: 650px;
+}
 
 
 
@@ -240,20 +280,52 @@
   }
 }
 .yt-player{
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
   z-index: 5;
   position: relative;
+  width: 1230px;
+  height: 691px;
+}
+.calendar-page{
+  height: 150px;
+}
+.all-player{
+  position: absolute;
+  bottom: 55px;
+  width: 100%;
+}
+.woman-img{
+  height: 691px;
+  width: 100%;
+}
+@media screen and (min-width: 2400px) {
+  .yt-player{
+    width: 1750px;
+    height: 985px;
+  }
+  .footer-img {
+    height: 195px;
+  }
+  .calendar-page{
+    height: 320px;
+  }
+  .left-banner{
+    height: 984px;
+    width: 405px;
+  }
+  .all-player{
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+  }
 }
 .player-ui{
   position: absolute;
-  left: 40px;
+  left: 0px;
   top: 0;
-  width: 93%;
-  height: 100%;
   overflow: hidden;
   z-index: 6;
+  width: 100%;
+  height: 100%;
 }
 .loading-video{
   position: absolute;
@@ -364,11 +436,7 @@ input[type="range"]::-webkit-slider-thumb {
   background: linear-gradient(0deg, rgba(0,0,0,0.773546918767507) 0%, rgba(0,0,0,0) 86%);
   z-index: 100;
 }
-.all-player{
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
-}
+
 .time-text{
   font-size: 12px;
   color: white;
@@ -378,23 +446,18 @@ video::cue {
   text-align: center;
 }
 .height-vh{
-  height: calc(100vh - 70px);
+  height: calc(100vh - 100px);
 }
 .height-218{
   height: 224px;
 }
-.height-619{
-  height: 619px;
+.height-650{
+  height: 650px;
 }
 .calendar{
   z-index: 1;
 }
-.footer-img{
-  background-image: url("../../assets/bigest-banner.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 230px;
-}
+
 .video-list-toggle{
   position: absolute;
   left: 10px;
@@ -409,10 +472,6 @@ video::cue {
 }
 .video-list-video{
   width: 225px;
-}
-.calendar-page{
-  height: 150px;
-  width: 105px;
 }
 .calendar-page-header{
   position: absolute;
@@ -479,4 +538,61 @@ video::cue {
   transform: translate(-50%, -50%);
   height: 400px;
   width: 200px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f2f2f2;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.logos {
+  overflow: hidden;
+  padding-top: 25px;
+  white-space: nowrap;
+  position: relative;
+}
+
+.logos:before,
+.logos:after {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+.logos:before {
+  left: 0;
+}
+
+.logos:after {
+  right: 0;
+}
+
+.logos:hover .logos-slide {
+  animation-play-state: paused;
+}
+
+.logos-slide {
+  display: inline-block;
+  animation: 100s slide infinite linear;
+}
+
+.logos-slide img {
+  height: 120px;
+  margin: 0 40px;
 }

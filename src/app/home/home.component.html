@@ -1,10 +1,10 @@
 <div class="height-vh">
-  <div class="df height-619">
+  <div class="df height-650">
     <div class="w-18 ml-30">
-      <p-carousel class="cursor-pointer" [verticalViewPortHeight]="'619px'" [circular]="true" [value]="leftSliderImages" [numVisible]="1" [showNavigators]="false" [showIndicators]="false" [autoplayInterval]="leftSliderImagesAutoplayInterval" orientation="vertical">
+      <p-carousel class="cursor-pointer" [verticalViewPortHeight]="'calc(100vh - 200px)'" [circular]="true" [value]="leftSliderImages" [numVisible]="1" [showNavigators]="false" [showIndicators]="false" [autoplayInterval]="leftSliderImagesAutoplayInterval" orientation="vertical">
         <ng-template let-image pTemplate="item">
-          <div class="df cx">
-            <img (click)="openUrl(image.url)" [src]="image.src"/>
+          <div class="df">
+            <img class="left-banner"  (click)="openUrl(image.url)" [src]="image.src"/>
           </div>
         </ng-template>
       </p-carousel>
@@ -12,28 +12,29 @@
     <div class="cxy df w-64" *ngIf="showMenWomen">
       <a href="https://svg.moda/womens" target="_blank" class="w-50 df justify-content-end cursor-pointer">
         <div class="position-relative">
-          <img src="assets/woman.png" width="100%">
+          <img src="assets/woman.png" class="woman-img">
           <div class="woman">Для женщин</div>
         </div>
       </a>
       <a href="https://svg.moda/mens" target="_blank" class="w-50 df cursor-pointer">
         <div class="position-relative">
-          <img src="assets/man.png" width="100%">
+          <img src="assets/man.png" class="woman-img">
           <div class="woman">Для мужчин</div>
         </div>
       </a>
     </div>
-    <div class="df w-64 cxy" *ngIf="!showMenWomen">
+    <div class="df cx w-64" *ngIf="!showMenWomen">
       <div class="cx" [class.yt-player]="playingVideo == i" *ngFor="let video of newsVideos; let i = index">
-        <div class="cx" (mouseenter)="uiHover = true" (mouseleave)="uiHover = false" *ngIf="playingVideo == i">
+        <div class="cx" (mouseenter)="uiHover = true" (mouseleave)="uiHover = true" *ngIf="playingVideo == i">
           <video class="yt-player" [autoplay]="true" [muted]="i == 0 && !touched" [volume]="volume" [src]="video" (timeupdate)="videoTime = videoPlayer.currentTime" #videoPlayer (canplay)="videoLoaded($event, videoPlayer)" (ended)="playNextClassic()">
           </video>
           <div class="player-ui" [@openClose]="uiHover ? 'open' : 'closed'">
             <div class="video-list">
               <div class="video-list-toggle" (click)="videoListShow = !videoListShow">
-                <i class="pi pi-bars" style="color: white; font-size: 2rem"></i>
+<!--                <i class="pi pi-bars" style="color: white; font-size: 2rem"></i>-->
+                <p-megaMenu [model]="items"></p-megaMenu>
               </div>
-              <div class="video-list-videos" *ngIf="videoListShow">
+              <div class="video-list-videos" *ngIf="videoListShow && false">
                 <p-virtualScroller [value]="newsVideos" scrollHeight="500px" style="width: 250px" [itemSize]="135">
                   <ng-template pTemplate="item" let-v>
                     <div class="cxy" (mouseenter)="thumb.play(); thumb.currentTime = thumb.currentTime + 20" (mouseleave)="thumb.pause()" (click)="playingVideo = newsVideos.indexOf(v)">
@@ -103,10 +104,10 @@
           </div>
         </ng-template>
       </p-carousel>
-      <p-carousel [verticalViewPortHeight]="'300px'" [circular]="true" [value]="rightSliderArticles" [numVisible]="1" [showNavigators]="false" [showIndicators]="false" [autoplayInterval]="rightSliderArticlesAutoplayInterval" orientation="vertical">
+      <p-carousel [verticalViewPortHeight]="'350px'" [circular]="true" [value]="rightSliderArticles" [numVisible]="1" [showNavigators]="false" [showIndicators]="false" [autoplayInterval]="rightSliderArticlesAutoplayInterval" orientation="vertical">
         <ng-template let-image pTemplate="item">
           <div class="df cxy">
-            <img class="cursor-pointer" [style]="'max-width: 300px'" width="100%" (click)="openUrl(image.url)" [src]="image.src"/>
+            <img class="cursor-pointer" [style]="'max-width: 350px'" width="100%" (click)="openUrl(image.url)" [src]="image.src"/>
           </div>
         </ng-template>
       </p-carousel>
@@ -115,28 +116,33 @@
   <div class="footer">
     <div class="position-relative">
       <div class="footer-img">
-        <ng-marquee [stopOnHover]="true" class="marquee cursor-pointer h-100" duration="60s">
-          <mark class="marquee-mark position-relative">
-            <div class="inline-block df space-between w-100 mt-25">
-              <img *ngFor="let cal of calendarPages" class="mx-120" [src]="cal" height="150" (click)="selectedCalendarPage = cal; selectedCalendarPageVisislbe = true">
+        <div class="df">
+          <div class="logos cursor-pointer">
+            <div class="logos-slide">
+              <img *ngFor="let cal of calendarPages" class="mx-120 calendar-page" [src]="cal.url" (mouseenter)="previewImage(cal.url, $event)" (mouseleave)="resetImagePreview()">
             </div>
-          </mark>
-        </ng-marquee>
+            <div class="logos-slide">
+              <img *ngFor="let cal of calendarPages" class="mx-120 calendar-page" [src]="cal.url" (mouseenter)="previewImage(cal.url, $event)" (mouseleave)="resetImagePreview()">
+            </div>
+          </div>
+          <div [ngStyle]="getImagePreviewStyle()"  [@openClose]="selectedCalendarPageVisislbe ? 'open' : 'closed'">
+            <img [src]="selectedCalendarPage" height="500px">
+          </div>
 
-        <ng-marquee duration="1200s" [stopOnHover]="true" class="marquee">
-          <span *ngFor="let mark of marksArray" class="marquee-mark" [innerHTML]="marks"></span>
-        </ng-marquee>
+        </div>
+
 
       </div>
     </div>
   </div>
 </div>
 
+
 <div class="calendar-page-preview" *ngIf="selectedCalendarNews != null">
   <div>{{selectedCalendarNews.header}}</div>
   <button (click)="selectedCalendarNews = null">CLOSE</button>
 </div>
 
-<p-dialog [(visible)]="selectedCalendarPageVisislbe" [modal]="true" [style]="{ width: 'auto' }" [draggable]="false" [resizable]="false">
-  <img [src]="selectedCalendarPage" height="500px">
-</p-dialog>
+<!--<p-dialog [(visible)]="selectedCalendarPageVisislbe" [modal]="true" [style]="{ width: 'auto' }" [draggable]="false" [resizable]="false">-->
+<!--  <img [src]="selectedCalendarPage" height="500px">-->
+<!--</p-dialog>-->

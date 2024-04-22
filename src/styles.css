@@ -626,6 +626,9 @@ html,head,body{
 .mb-minus20{
   margin-bottom: -20px;
 }
+.mt-1px{
+  margin-top: 1px;
+}
 .mt-1{
   margin-top: 1rem;
 }

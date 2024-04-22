@@ -148,6 +148,7 @@ export class HomeComponent implements OnInit {
   ];
   rightSliderArticlesAutoplayInterval = 18 * 1000;
 
+  //menWomenTimeout = 1;
   menWomenTimeout = 17;
   showMenWomen = true;
 
@@ -164,34 +165,60 @@ export class HomeComponent implements OnInit {
   ];
   selectedCalendarNews: CalendarEvent | null = null;
 
-  calendarPages = [
-    'assets/calendar1.png',
-    'assets/calendar2.png',
-    'assets/calendar3.png',
-    'assets/calendar4.png',
-    'assets/calendar5.png',
-    'assets/calendar6.png',
-    'assets/calendar7.png',
-    'assets/calendar8.png',
-    'assets/calendar9.png',
-    'assets/calendar10.png',
-    'assets/calendar11.png',
-    'assets/calendar12.png',
-    'assets/calendar13.png',
-    'assets/calendar14.png',
-    'assets/calendar15.png',
-    'assets/calendar16.png',
-    'assets/calendar17.png',
-    'assets/calendar18.png',
-    'assets/calendar19.png',
-    'assets/calendar20.png'
-  ];
+  calendarPages: any[] = [];
+  calendarPagesSplit1: any[] = [];
+  calendarPagesSplit2: any[] = [];
   selectedCalendarPage = '';
   selectedCalendarPageVisislbe = false;
   today = new Date();
   currentMonth = this.today.getMonth();
+  items = [
+    {
+      label: '',
+      icon: 'pi pi-fw pi-bars',
+      items: [
+        [
+          {
+            label: 'Paris Fashion Week',
+            items: [
+              { label: 'Lacoste', command: () => { this.playingVideo = 0 } },
+              { label: 'Miu Miu', command: () => { this.playingVideo = 1 } },
+              { label: 'Rochas', command: () => { this.playingVideo = 2 } },
+              { label: 'sacai', command: () => { this.playingVideo = 3 } }
+            ]
+          },
+          {
+            label: 'Haute Couture Week',
+            items: [
+              { label: 'CHANEL', command: () => { this.playingVideo = 4 } },
+              { label: 'Valentino', command: () => { this.playingVideo = 5 } }
+            ]
+          }
+        ],
+        [
+          {
+            label: 'Menswear Paris Fashion Week',
+            items: [
+              { label: 'WINTER', command: () => { this.playingVideo = 6 } },
+              { label: 'MENS PORTERVILLE', command: () => { this.playingVideo = 7 } }
+            ]
+          },
+          {
+            label: 'The Collections',
+            items: [
+              { label: 'Miu Miu', command: () => { this.playingVideo = 8 } },
+              { label: 'CHANEL', command: () => { this.playingVideo = 9 } },
+              { label: '2024 Collection', command: () => { this.playingVideo = 10 } },
+              { label: 'SCHIAPARELLI', command: () => { this.playingVideo = 11 } }
+            ]
+          }
+        ]
+      ]
+    },
+  ];
 
   constructor(private router: Router, public eventsManager: EventManagerService) {
+    this.fillCalendarPages();
     for (let x = 1; x < 99; x ++){
       this.newsVideos.push('/assets/video/' + x + '.mp4');
     }
@@ -214,17 +241,6 @@ export class HomeComponent implements OnInit {
   }
 
 
-  marksArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  marks = '  <mark class="marquee-mark">| Счастье зависит от нас самих. Аристотель</mark>' +
-    '        <mark class="marquee-mark">| Счастье - это состояние души. Оно зависит от твоего взгляда на вещи. Уолт Дисней</mark>\n' +
-    '        <mark class="marquee-mark">| Простота делает меня счастливой. Алисия Кис </mark>\n' +
-    '        <mark class="marquee-mark">| Счастье - секрет всей красоты. Без счастья нет красоты. Кристиан Диор </mark>\n' +
-    '        <mark class="marquee-mark">| Подумайте обо всей красоте, которая еще осталась вокруг вас, и будьте счастливы. Анна Франк </mark>\n' +
-    '        <mark class="marquee-mark">| Счастье состоит в том, чтобы проживать каждый день так, как будто это первый день вашего медового месяца и последний день вашего отпуска. Лев Толстой | </mark>\n' +
-    '        <mark class="marquee-mark">| Будьте счастливы в этот момент. Этот момент - ваша жизнь. Омар Хайям </mark>\n' +
-    '        <mark class="marquee-mark">| Истинно мудрые и счастливые никогда не спешат. Максим Лагаче </mark>\n' +
-    '        <mark class="marquee-mark">| От одной свечи можно зажечь тысячи свечей, и жизнь ее не станет короче. Счастье никогда не уменьшается от того, что им делятся. Будда </mark>\n' +
-    '        <mark class="marquee-mark">| Счастье - это не цель, это побочный продукт хорошо прожитой жизни. Чарльз М. Шульц</mark>';
   ngOnInit(): void {
     AOS.init({
       duration: 750,
@@ -353,5 +369,35 @@ export class HomeComponent implements OnInit {
       default: return this.currentMonth;
     }
   }
+  private fillCalendarPages() {
+    this.eventsManager.getCalendarPages().subscribe(res => {
+      let date = new Date();
+      let d = date.getDay();
+      let m = date.getMonth() + 1;
+      let y = date.getFullYear();
+      this.calendarPages = res.filter((x: any) => x.day == d && x.month == m && x.year == y);
+    });
+  }
 
+  previewPoint: any = Object({x: 0, y: 0});
+  getImagePreviewStyle() {
+    return {
+      position: 'fixed',
+      left: this.previewPoint.x + 'px',
+      top: this.previewPoint.y + 'px',
+    };
+  }
+
+  previewImage(url: string, event: MouseEvent) {
+    this.selectedCalendarPageVisislbe = true;
+    this.selectedCalendarPage = url;
+
+    this.previewPoint.x = event.clientX - 173;
+    this.previewPoint.y = event.clientY - 510;
+  }
+
+  resetImagePreview() {
+    this.selectedCalendarPageVisislbe = false;
+    this.selectedCalendarPage = '';
+  }
 }

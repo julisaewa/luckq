@@ -29,6 +29,8 @@ import {MenubarModule} from "primeng/menubar";
 import {PanelMenuModule} from "primeng/panelmenu";
 import {VirtualScrollerModule} from "primeng/virtualscroller";
 import {DialogModule} from "primeng/dialog";
+import { AdminComponent } from './admin/admin.component';
+import {CalendarModule} from "primeng/calendar";
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import {DialogModule} from "primeng/dialog";
     ChinaFasionComponent,
     RussianStyleComponent,
     FendiComponent,
-    IntelligenceComponent
+    IntelligenceComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +66,7 @@ import {DialogModule} from "primeng/dialog";
     PanelMenuModule,
     VirtualScrollerModule,
     DialogModule,
+    CalendarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
