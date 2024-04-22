@@ -32,6 +32,16 @@
   font-size: 14px;
   background-color: transparent;
 }
+/deep/.p-megamenu .p-megamenu-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link, .p-megamenu .p-megamenu-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover {
+  background: transparent!important;
+}
+/deep/
+.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover {
+  background: transparent!important;
+}
+/deep/.p-megamenu{
+  padding: 0;
+}
 :host ::ng-deep.p-scroller {
   overflow-x: hidden;
 }
