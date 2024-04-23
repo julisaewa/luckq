@@ -336,6 +336,47 @@
   color: white;
   font-size: 2.5em;
 }
+.logos {
+  overflow: hidden;
+  padding-top: 15px;
+  white-space: nowrap;
+  position: relative;
+}
+
+.logos:before,
+.logos:after {
+  position: absolute;
+  top: 0;
+  /*width: 250px;*/
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+.logos:before {
+  left: 0;
+}
+
+.logos:after {
+  right: 0;
+}
+
+.logos:hover .logos-slide {
+  animation-play-state: paused;
+}
+
+.logos-slide {
+  display: inline-block;
+  animation: 100s slide infinite linear;
+}
+
+.logos-slide img {
+  height: 60px;
+  margin: 0 40px;
+}
+.calendar-page{
+  z-index: 200;
+}
 @media screen and (min-width: 2048px) {
   .footer-img {
     height: 234px;
@@ -346,8 +387,8 @@
 }
 @media screen and (min-width: 2400px) {
   .yt-player{
-    width: 1750px;
-    height: 985px;
+    width: 1673px;
+    height: 941px;
   }
   .footer-img {
     height: 195px;
@@ -356,7 +397,7 @@
     height: 320px;
   }
   .left-banner{
-    height: 984px;
+    height: 941px;
     width: 100%;
   }
   .all-player{
@@ -365,10 +406,19 @@
     width: 100%;
   }
   .woman-img{
-    height: 985px;
+    height: 941px;
+  }
+  .woman{
+    bottom: 70px;
   }
   .padding-articles{
     padding-bottom: 200px;
+  }
+  .height-main-cont{
+    height: calc(100vh - 338px);
+  }
+  .logos-slide img{
+    height: 150px;
   }
 }
 .player-ui{
@@ -610,44 +660,4 @@ body {
   }
 }
 
-.logos {
-  overflow: hidden;
-  padding-top: 15px;
-  white-space: nowrap;
-  position: relative;
-}
 
-.logos:before,
-.logos:after {
-  position: absolute;
-  top: 0;
-  /*width: 250px;*/
-  height: 100%;
-  content: "";
-  z-index: 2;
-}
-
-.logos:before {
-  left: 0;
-}
-
-.logos:after {
-  right: 0;
-}
-
-.logos:hover .logos-slide {
-  animation-play-state: paused;
-}
-
-.logos-slide {
-  display: inline-block;
-  animation: 100s slide infinite linear;
-}
-
-.logos-slide img {
-  height: 60px;
-  margin: 0 40px;
-}
-.calendar-page{
-  z-index: 200;
-}

@@ -25,7 +25,7 @@
     </div>
     <div class="df cx" *ngIf="!showMenWomen">
       <div class="cx" [class.yt-player]="playingVideo == i" *ngFor="let video of newsVideos; let i = index">
-        <div class="cx" (mouseenter)="uiHover = true" (mouseleave)="uiHover = false" *ngIf="playingVideo == i">
+        <div class="cx" (mouseenter)="uiHover = true" (mouseleave)="uiHover = true" *ngIf="playingVideo == i">
           <video class="yt-player" [autoplay]="true" [muted]="i == 0 && !touched" [volume]="volume" [src]="video" (timeupdate)="videoTime = videoPlayer.currentTime" #videoPlayer (canplay)="videoLoaded($event, videoPlayer)" (ended)="playNextClassic()">
           </video>
           <div class="player-ui" [@openClose]="uiHover ? 'open' : 'closed'">
