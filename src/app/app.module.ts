@@ -32,6 +32,8 @@ import {DialogModule} from "primeng/dialog";
 import { AdminComponent } from './admin/admin.component';
 import {CalendarModule} from "primeng/calendar";
 import {InputTextModule} from "primeng/inputtext";
+import { BishkekComponent } from './articles/bishkek/bishkek.component';
+import { AiChinaComponent } from './articles/ai-china/ai-china.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import {InputTextModule} from "primeng/inputtext";
     RussianStyleComponent,
     FendiComponent,
     IntelligenceComponent,
-    AdminComponent
+    AdminComponent,
+    BishkekComponent,
+    AiChinaComponent
   ],
     imports: [
         BrowserModule,

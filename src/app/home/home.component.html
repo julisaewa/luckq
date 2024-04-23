@@ -1,7 +1,7 @@
 <div class="height-vh">
-  <div class="df height-650">
+  <div class="df height-main-cont space-between">
     <div class="w-18 ml-30">
-      <p-carousel class="cursor-pointer" [verticalViewPortHeight]="'calc(100vh - 200px)'" [circular]="true" [value]="leftSliderImages" [numVisible]="1" [showNavigators]="false" [showIndicators]="false" [autoplayInterval]="leftSliderImagesAutoplayInterval" orientation="vertical">
+      <p-carousel class="cursor-pointer" [verticalViewPortHeight]="'calc(100vh - 228px)'" [circular]="true" [value]="leftSliderImages" [numVisible]="1" [showNavigators]="false" [showIndicators]="false" [autoplayInterval]="leftSliderImagesAutoplayInterval" orientation="vertical">
         <ng-template let-image pTemplate="item">
           <div class="df">
             <img class="left-banner" (click)="openUrl(image.url)" [src]="image.src"/>
@@ -9,7 +9,7 @@
         </ng-template>
       </p-carousel>
     </div>
-    <div class="cxy df w-64" *ngIf="showMenWomen">
+    <div class="df" *ngIf="showMenWomen">
       <a href="https://svg.moda/womens" target="_blank" class="w-50 df justify-content-end cursor-pointer">
         <div class="position-relative">
           <img src="assets/woman.png" class="woman-img">
@@ -23,7 +23,7 @@
         </div>
       </a>
     </div>
-    <div class="df cx w-64" *ngIf="!showMenWomen">
+    <div class="df cx" *ngIf="!showMenWomen">
       <div class="cx" [class.yt-player]="playingVideo == i" *ngFor="let video of newsVideos; let i = index">
         <div class="cx" (mouseenter)="uiHover = true" (mouseleave)="uiHover = false" *ngIf="playingVideo == i">
           <video class="yt-player" [autoplay]="true" [muted]="i == 0 && !touched" [volume]="volume" [src]="video" (timeupdate)="videoTime = videoPlayer.currentTime" #videoPlayer (canplay)="videoLoaded($event, videoPlayer)" (ended)="playNextClassic()">
@@ -104,15 +104,18 @@
           </div>
         </ng-template>
       </p-carousel>
-      <p-carousel [verticalViewPortHeight]="'350px'" [circular]="true" [value]="rightSliderArticles" [numVisible]="1" [showNavigators]="false" [showIndicators]="false" [autoplayInterval]="rightSliderArticlesAutoplayInterval" orientation="vertical">
+      <p-carousel class="padding-articles" [verticalViewPortHeight]="'400px'" [circular]="true" [value]="rightSliderArticles" [numVisible]="1" [showNavigators]="false" [showIndicators]="false" [autoplayInterval]="rightSliderArticlesAutoplayInterval" orientation="vertical">
         <ng-template let-image pTemplate="item">
           <div class="cxy">
-            <img class="cursor-pointer" [style]="'max-width: 350px'" (click)="openUrl(image.url)" [src]="image.src"/>
+            <img class="cursor-pointer" [style]="'width: 400px'" (click)="openUrl(image.url)" [src]="image.src"/>
           </div>
         </ng-template>
       </p-carousel>
     </div>
   </div>
+  <ng-marquee duration="3000s" [stopOnHover]="true" class="marquee">
+    <span *ngFor="let mark of marksArray" class="marquee-mark" [innerHTML]="marks"></span>
+  </ng-marquee>
   <div class="footer">
     <div class="position-relative">
       <div class="footer-img">

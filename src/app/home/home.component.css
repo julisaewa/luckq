@@ -43,8 +43,27 @@
 /deep/.p-megamenu{
   padding: 0;
 }
+/deep/.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-icon {
+  color: white!important;
+}
+/deep/.p-megamenu .p-megamenu-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link .p-submenu-icon, .p-megamenu .p-megamenu-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon {
+  color: white!important;
+}
+/deep/.p-megamenu .p-megamenu-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-icon, .p-megamenu .p-megamenu-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {
+  color: white!important;
+}
+/deep/.p-megamenu .p-megamenu-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-icon, .p-megamenu .p-megamenu-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {
+  color: white!important;
+}
+/deep/.p-megamenu .p-megamenu-root-list > .p-menuitem > .p-menuitem-link .p-submenu-icon {
+  color: white!important;
+}
 :host ::ng-deep.p-scroller {
   overflow-x: hidden;
+}
+/deep/mark {
+  font-size: 16px;
+  background-color: transparent;
 }
 .max-w-1000{
   max-width: 1000px;
@@ -57,6 +76,9 @@
 .logo{
   height: 70px;
   font-size: 50px;
+}
+.height-main-cont{
+  height: calc(100vh - 228px);
 }
 .header-inner{
   width: 100%;
@@ -210,22 +232,16 @@
   margin-top: -6px;
 }
 
-.woman{
-  position: absolute;
-  bottom: 50px;
-  left: 50px;
-  color: white;
-  font-size: 2.5em;
-}
+
 .footer-img{
   background-image: url("../../assets/bigest-banner.png");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 170px;
+  height: 90px;
 }
 .left-banner{
   width: 400px;
-  height: 650px;
+  height: 691px;
   object-fit: cover;
 }
 
@@ -294,7 +310,7 @@
 .yt-player{
   z-index: 5;
   position: relative;
-  width: 1230px;
+  width: 1228px;
   height: 691px;
 }
 .calendar-page{
@@ -308,6 +324,25 @@
 .woman-img{
   height: 691px;
   width: 100%;
+  object-fit: cover;
+}
+.padding-articles{
+  padding-bottom: 10px;
+}
+.woman{
+  position: absolute;
+  bottom: 100px;
+  left: 50px;
+  color: white;
+  font-size: 2.5em;
+}
+@media screen and (min-width: 2048px) {
+  .footer-img {
+    height: 234px;
+  }
+  .woman{
+    bottom: 200px;
+  }
 }
 @media screen and (min-width: 2400px) {
   .yt-player{
@@ -322,12 +357,18 @@
   }
   .left-banner{
     height: 984px;
-    width: 405px;
+    width: 100%;
   }
   .all-player{
     position: absolute;
     bottom: 10px;
     width: 100%;
+  }
+  .woman-img{
+    height: 985px;
+  }
+  .padding-articles{
+    padding-bottom: 200px;
   }
 }
 .player-ui{
@@ -571,7 +612,7 @@ body {
 
 .logos {
   overflow: hidden;
-  padding-top: 25px;
+  padding-top: 15px;
   white-space: nowrap;
   position: relative;
 }
@@ -604,7 +645,7 @@ body {
 }
 
 .logos-slide img {
-  height: 120px;
+  height: 60px;
   margin: 0 40px;
 }
 .calendar-page{

@@ -1,5 +1,5 @@
 /deep/.p-menu.p-menu-overlay {
-  top: 100px!important;
+  top: 90px!important;
 }
 /deep/.p-menu {
   border-radius: unset;
@@ -7,21 +7,17 @@
 /deep/.p-menu .p-menuitem-link {
   font-size: 13px;
 }
-/deep/mark {
-  color: white !important;
-  font-size: 16px;
-  background-color: transparent;
-}
+
 .header-body {
   background-image: url("../../../assets/back1.png");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100px;
+  height: 90px;
   padding-left: 50px;
   padding-right: 20px;
 }
 .logo{
-  height: 70px;
+  height: 90px;
   font-size: 40px;
   text-decoration: none;
   color: black;

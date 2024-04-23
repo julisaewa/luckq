@@ -140,6 +140,8 @@ export class HomeComponent implements OnInit {
   rightSliderImagesAutoplayInterval = 16 * 1000;
 
   rightSliderArticles: any[] = [
+    {src: '/assets/articles/bishkek-thumb.png', url: '/articles?article=bishkek'},
+    {src: '/assets/articles/ai-china-thumb.png', url: '/articles?article=ai-china'},
     {src: '/assets/articles/fendi-thumb.png', url: '/articles?article=fendi'},
     {src: '/assets/articles/ai-thumb.png', url: '/articles?article=intelligence'},
     {src: '/assets/articles/russian-style-thumb.png', url: '/articles?article=russian-style'},
@@ -151,11 +153,35 @@ export class HomeComponent implements OnInit {
   rightSliderArticlesAutoplayInterval = 18 * 1000;
 
   //menWomenTimeout = 1;
-  menWomenTimeout = 17;
+  menWomenTimeout = 1;
   showMenWomen = true;
 
   videoListShow = false;
   calendarBackground = '';
+  marksArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  marks = '  <mark class="marquee-mark">| Счастье зависит от нас самих. Аристотель</mark>' +
+    '        <mark class="marquee-mark">| Счастье - это состояние души. Оно зависит от твоего взгляда на вещи. Уолт Дисней</mark>\n' +
+    '        <mark class="marquee-mark">| Простота делает меня счастливой. Алисия Кис </mark>\n' +
+    '        <mark class="marquee-mark">| Счастье - секрет всей красоты. Без счастья нет красоты. Кристиан Диор </mark>\n' +
+    '        <mark class="marquee-mark">| Подумайте обо всей красоте, которая еще осталась вокруг вас, и будьте счастливы. Анна Франк </mark>\n' +
+    '        <mark class="marquee-mark">| Счастье состоит в том, чтобы проживать каждый день так, как будто это первый день вашего медового месяца и последний день вашего отпуска. Лев Толстой | </mark>\n' +
+    '        <mark class="marquee-mark">| Будьте счастливы в этот момент. Этот момент - ваша жизнь. Омар Хайям </mark>\n' +
+    '        <mark class="marquee-mark">| Истинно мудрые и счастливые никогда не спешат. Максим Лагаче </mark>\n' +
+    '        <mark class="marquee-mark">| От одной свечи можно зажечь тысячи свечей, и жизнь ее не станет короче. Счастье никогда не уменьшается от того, что им делятся. Будда </mark>\n' +
+    '        <mark class="marquee-mark">| Счастье - это не цель, это побочный продукт хорошо прожитой жизни. Чарльз М. Шульц</mark>\n' +
+    '        <mark class="marquee-mark">| Счастье зависит от нас самих. Аристотель</mark>\n' +
+    '        <mark class="marquee-mark">| Счастье - это состояние души. Оно зависит от твоего взгляда на вещи. Уолт Дисней</mark>\n' +
+    '        <mark class="marquee-mark">| Простота делает меня счастливой. Алисия Кис </mark>\n' +
+    '        <mark class="marquee-mark">| Счастье - секрет всей красоты. Без счастья нет красоты. Кристиан Диор </mark>\n' +
+    '        <mark class="marquee-mark">| Подумайте обо всей красоте, которая еще осталась вокруг вас, и будьте счастливы. Анна Франк </mark>\n' +
+    '        <mark class="marquee-mark">| Счастье состоит в том, чтобы проживать каждый день так, как будто это первый день вашего медового месяца и последний день вашего отпуска. Лев Толстой | </mark>\n' +
+    '        <mark class="marquee-mark">| Будьте счастливы в этот момент. Этот момент - ваша жизнь. Омар Хайям </mark>\n' +
+    '        <mark class="marquee-mark">| Истинно мудрые и счастливые никогда не спешат. Максим Лагаче </mark>\n' +
+    '        <mark class="marquee-mark">| От одной свечи можно зажечь тысячи свечей, и жизнь ее не станет короче. Счастье никогда не уменьшается от того, что им делятся. Будда </mark>\n' +
+    '        <mark class="marquee-mark">| Счастье - это не цель, это побочный продукт хорошо прожитой жизни. Чарльз М. Шульц</mark>\n' +
+    '        <mark class="marquee-mark">| Счастье зависит от нас самих. Аристотель</mark>';
+
+
 
   calendarNews = [
     new CalendarEvent(0, 16, 4, 2024, 'Лунный', 'Название 1', 'Какое-то суперважное события для кого-то особенного 1'),

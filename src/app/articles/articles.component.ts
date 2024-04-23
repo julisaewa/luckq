@@ -8,6 +8,8 @@ import {ChinaFasionComponent} from "./china-fasion/china-fasion.component";
 import {RussianStyleComponent} from "./russian-style/russian-style.component";
 import {FendiComponent} from "./fendi/fendi.component";
 import {IntelligenceComponent} from "./intelligence/intelligence.component";
+import {BishkekComponent} from "./bishkek/bishkek.component";
+import {AiChinaComponent} from "./ai-china/ai-china.component";
 
 
 @Component({
@@ -25,6 +27,8 @@ export class ArticlesComponent implements OnInit {
     {name: 'russian-style', component: RussianStyleComponent},
     {name: 'intelligence', component: IntelligenceComponent},
     {name: 'fendi', component: FendiComponent},
+    {name: 'ai-china', component: AiChinaComponent},
+    {name: 'bishkek', component: BishkekComponent},
   ].reverse();
   articlesShown: any[] = [];
   latestShown = 0;
