@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {LangManagerService} from "../../lang-manager.service";
 
 @Component({
   selector: 'app-subnavi',
@@ -97,11 +98,20 @@ export class SubnaviComponent implements OnInit {
     '        <mark class="marquee-mark">| Счастье зависит от нас самих. Аристотель</mark>';
 
 
-  constructor(public router: Router) { }
+  langs = [
+    Object({code: 'en', name: 'English', icon: 'en.svg'}),
+    Object({code: 'kz', name: 'Қазақша', icon: 'kz.svg'}),
+    Object({code: 'cn', name: '中文', icon: 'cn.svg'}),
+    Object({code: 'ru', name: 'Русский', icon: 'ru.svg'}),
+  ];
+  constructor(public router: Router, public t: LangManagerService) { }
 
   ngOnInit(): void {
   }
 
+  getLangs(){
+    return this.langs.filter(x => x.code != this.t.lang);
+  }
   hoverMenu(menu: string) {
     this.hoveredMenu = menu;
   }
@@ -122,4 +132,5 @@ export class SubnaviComponent implements OnInit {
   openUrl(url: string) {
     window.open(url, '_blank');
   }
+
 }

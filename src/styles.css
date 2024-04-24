@@ -35,6 +35,9 @@ html,head,body{
 .ml-25{
   margin-left: 25px;
 }
+.ml-100{
+  margin-left: 100px;
+}
 .py-20{
   padding-top: 20px;
   padding-bottom: 20px;

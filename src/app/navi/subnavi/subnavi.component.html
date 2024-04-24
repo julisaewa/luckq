@@ -4,8 +4,8 @@
       <img src="assets/logo-w.png" height="50">
     </a>
     <div class="df">
-      <div class="menu-item ml-30 cy" (mouseenter)="hoverMenu('market')" (mouseleave)="unHoverMenu('market')">
-        <div class="menu cursor-pointer">Маркетплейсы</div>
+      <div class="menu-item ml-25 cy" (mouseenter)="hoverMenu('market')" (mouseleave)="unHoverMenu('market')">
+        <div class="menu cursor-pointer">{{t.tr('Маркетплейсы')}}</div>
         <div class="s-menu menu-overlay" *ngIf="isHover('market')">
           <div class="sub-menu height-40 df" (click)="openUrl('https://www.ozon.ru/')">
             <div class="mr-10">
@@ -45,8 +45,8 @@
           </div>
         </div>
       </div>
-      <div class="menu-item ml-30 cy" (mouseenter)="hoverMenu('fitting')" (mouseleave)="unHoverMenu('fitting')">
-        <div class="menu cursor-pointer">Онлайн примерочная</div>
+      <div class="menu-item ml-25 cy" (mouseenter)="hoverMenu('fitting')" (mouseleave)="unHoverMenu('fitting')">
+        <div class="menu cursor-pointer">{{t.tr('Онлайн примерочная')}}</div>
         <div class="s-menu menu-overlay" *ngIf="isHover('fitting')">
           <div class="sub-menu height-40 df" (click)="openUrl('https://ecco.ru/fitting-promo/')">
             <div class="mr-10">
@@ -55,8 +55,8 @@
           </div>
         </div>
       </div>
-      <div class="menu-item ml-30 cy" (mouseenter)="hoverMenu('social')" (mouseleave)="unHoverMenu('social')">
-        <div class="menu cursor-pointer" >Соцсети</div>
+      <div class="menu-item ml-25 cy" (mouseenter)="hoverMenu('social')" (mouseleave)="unHoverMenu('social')">
+        <div class="menu cursor-pointer">{{t.tr('Соцсети')}}</div>
         <div class="s-menu menu-overlay" *ngIf="isHover('social')">
           <div class="sub-menu height-40 df" (click)="openUrl('https://vk.com/')">
             <div class="mr-10">
@@ -84,20 +84,20 @@
           </div>
         </div>
       </div>
-      <div class="menu-item ml-30 cy" (mouseenter)="hoverMenu('traver')" (mouseleave)="unHoverMenu('traver')">
-        <div class="menu cursor-pointer" >Путешествия</div>
+      <div class="menu-item ml-25 cy" (mouseenter)="hoverMenu('traver')" (mouseleave)="unHoverMenu('traver')">
+        <div class="menu cursor-pointer">{{t.tr('Путешествия')}}</div>
         <div class="s-menu menu-overlay" *ngIf="isHover('traver')">
           <div class="sub-menu height-40 df" (click)="openUrl('https://www.aviasales.ru/')">
             <div class="mr-10">
               <img src="assets/icons/aviasales.svg" height="18">
             </div>
-            <div>Авиасейлс</div>
+            <div>Aviasales</div>
           </div>
           <div class="sub-menu height-40 df" (click)="openUrl('https://ru.skyscanner.com/')">
             <div class="mr-10">
               <img src="assets/icons/skyscanner.png" height="16">
             </div>
-            <div>Скайсканнер</div>
+            <div>Skescanner</div>
           </div>
           <div class="sub-menu height-40 df" (click)="openUrl('https://www.onetwotrip.com/')">
             <div class="mr-10">
@@ -119,25 +119,25 @@
           </div>
         </div>
       </div>
-      <div class="menu-item ml-30 cy" (mouseenter)="hoverMenu('news')" (mouseleave)="unHoverMenu('news')">
-        <div class="menu cursor-pointer">Новости</div>
+      <div class="menu-item ml-25 cy" (mouseenter)="hoverMenu('news')" (mouseleave)="unHoverMenu('news')">
+        <div class="menu cursor-pointer">{{t.tr('Новости')}}</div>
         <div class="s-menu menu-overlay" *ngIf="isHover('news')">
           <div class="sub-menu height-40 df" (click)="openUrl('/articles/')">
             <div class="mr-10">
               <img src="assets/icons/news.svg" height="16">
             </div>
-            <div>Статьи</div>
+            <div>{{t.tr('Статьи')}}</div>
           </div>
           <div class="sub-menu height-40 df" (click)="openUrl('https://www.expoclub.ru/')">
             <div class="mr-10">
               <img src="assets/icons/ticket.svg" height="18">
             </div>
-            <div>Выставки</div>
+            <div>{{t.tr('Выставки')}}</div>
           </div>
         </div>
       </div>
-      <div class="menu-item ml-30 cy" (mouseenter)="hoverMenu('playlist')" (mouseleave)="unHoverMenu('playlist')">
-        <div class="menu cursor-pointer">Плейлисты</div>
+      <div class="menu-item ml-25 cy" (mouseenter)="hoverMenu('playlist')" (mouseleave)="unHoverMenu('playlist')">
+        <div class="menu cursor-pointer">{{t.tr('Плейлисты')}}</div>
         <div class="s-menu menu-overlay" *ngIf="isHover('playlist')">
           <div class="sub-menu height-40 df" (click)="openUrl('https://music.yandex.ru/tag/top')">
             <div class="mr-10">
@@ -154,8 +154,8 @@
         </div>
       </div>
 
-      <div class="menu-item ml-30 cy" (mouseenter)="hoverMenu('interior')" (mouseleave)="unHoverMenu('interior')">
-        <div class="menu cursor-pointer">Интерьер</div>
+      <div class="menu-item ml-25 cy" (mouseenter)="hoverMenu('interior')" (mouseleave)="unHoverMenu('interior')">
+        <div class="menu cursor-pointer">{{t.tr('Интерьер')}}</div>
         <div class="s-menu menu-overlay" *ngIf="isHover('interior')">
           <div class="sub-menu height-40 df" (click)="openUrl('https://ru.pinterest.com/')">
             <div class="mr-10">
@@ -173,8 +173,8 @@
       </div>
 
 
-      <div class="menu-item ml-30 cy" (mouseenter)="hoverMenu('realty')" (mouseleave)="unHoverMenu('realty')">
-        <div class="menu cursor-pointer">Недвижимость</div>
+      <div class="menu-item ml-25 cy" (mouseenter)="hoverMenu('realty')" (mouseleave)="unHoverMenu('realty')">
+        <div class="menu cursor-pointer">{{t.tr('Недвижимость')}}</div>
         <div class="s-menu menu-overlay" *ngIf="isHover('realty')">
           <div class="sub-menu height-40 df" (click)="openUrl('https://spb.cian.ru/')">
             <div class="mr-10">
@@ -193,7 +193,7 @@
 
 
 
-      <div class="menu-item ml-30 cy" (mouseenter)="hoverMenu('perfume')" (mouseleave)="unHoverMenu('perfume')">
+      <div class="menu-item ml-25 cy" (mouseenter)="hoverMenu('perfume')" (mouseleave)="unHoverMenu('perfume')">
         <div class="menu cursor-pointer">Per fumum</div>
         <div class="s-menu menu-overlay" *ngIf="isHover('perfume')">
           <div class="sub-menu height-40 df" (click)="openUrl('https://goldapple.ru/')">
@@ -230,8 +230,8 @@
       </div>
 
 
-      <div class="menu-item ml-30 cy" (mouseenter)="hoverMenu('vpn')" (mouseleave)="unHoverMenu('vpn')">
-        <div class="menu cursor-pointer" >VPN сервисы</div>
+      <div class="menu-item ml-25 cy" (mouseenter)="hoverMenu('vpn')" (mouseleave)="unHoverMenu('vpn')">
+        <div class="menu cursor-pointer" >{{t.tr('VPN сервисы')}}</div>
         <div class="s-menu menu-overlay" *ngIf="isHover('vpn')">
           <div class="sub-menu height-40 df" (click)="openUrl('https://www.wireguard.com/')">
             <div class="mr-10">
@@ -247,8 +247,8 @@
           </div>
         </div>
       </div>
-      <div class="menu-item ml-30 cy" (mouseenter)="hoverMenu('kitchen')" (mouseleave)="unHoverMenu('kitchen')">
-        <div class="menu cursor-pointer" >Кухня</div>
+      <div class="menu-item ml-25 cy" (mouseenter)="hoverMenu('kitchen')" (mouseleave)="unHoverMenu('kitchen')">
+        <div class="menu cursor-pointer">{{t.tr('Кухня')}}</div>
         <div class="s-menu menu-overlay" *ngIf="isHover('kitchen')">
           <div class="sub-menu height-40 df" (click)="openUrl('https://www.edimdoma.ru/')">
             <div class="mr-10">
@@ -277,12 +277,27 @@
           </div>
         </div>
       </div>
+
+      <div class="menu-item ml-40 cy" (mouseenter)="hoverMenu('language')" (mouseleave)="unHoverMenu('language')">
+        <div class="cursor-pointer">
+          <img [src]="'assets/icons/' + t.lang + '.svg'" height="30">
+        </div>
+        <div class="s-menu menu-overlay" *ngIf="isHover('language')">
+          <div class="sub-menu height-40 df" (click)="t.setLang(l.code)" *ngFor="let l of getLangs()">
+            <div class="mr-10 cxy">
+              <img [src]="'assets/icons/' + l.icon" height="25">
+            </div>
+            <div>{{l.name}}</div>
+          </div>
+        </div>
+      </div>
+
       <div class="cxy">
-        <div class="ml-50 df menu-search">
+        <div class="ml-100 df menu-search">
           <div class="cursor-pointer">
             <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="M10.772,19.814l-7.479,7.479c-0.39,0.39 -0.39,1.024 -0,1.414c0.39,0.39 1.024,0.39 1.414,0l7.579,-7.579c1.629,1.149 3.615,1.825 5.757,1.825c5.52,-0 10,-4.481 10,-10c0,-5.52 -4.48,-10 -10,-10c-5.519,-0 -10,4.48 -10,10c0,2.655 1.038,5.07 2.729,6.861Zm7.271,-14.861c4.416,-0 8,3.584 8,8c0,4.415 -3.584,8 -8,8c-4.415,-0 -8,-3.585 -8,-8c0,-4.416 3.585,-8 8,-8Z"/></svg>
           </div>
-          <div class="ml-10 cursor-pointer">поиск</div>
+          <div class="ml-10 cursor-pointer">{{t.tr('Поиск')}}</div>
         </div>
         <div class="ml-25 df heart-hover">
           <div class="cursor-pointer">

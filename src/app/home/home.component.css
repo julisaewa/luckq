@@ -62,7 +62,7 @@
   overflow-x: hidden;
 }
 /deep/mark {
-  font-size: 16px;
+  font-size: 28px;
   background-color: transparent;
 }
 .max-w-1000{
@@ -318,7 +318,7 @@
 }
 .all-player{
   position: absolute;
-  bottom: 55px;
+  bottom: 10px;
   width: 100%;
 }
 .woman-img{
@@ -331,7 +331,7 @@
 }
 .woman{
   position: absolute;
-  bottom: 100px;
+  bottom: 20px;
   left: 50px;
   color: white;
   font-size: 2.5em;
@@ -377,6 +377,21 @@
 .calendar-page{
   z-index: 200;
 }
+@media screen and (min-height: 1000px) {
+  .footer-img {
+    height: 165px;
+  }
+  .woman{
+    bottom: 50px;
+  }
+  .height-main-cont{
+    height: calc(100vh - 302px);
+  }
+  .logos-slide img{
+    height: 120px;
+  }
+}
+
 @media screen and (min-width: 2048px) {
   .footer-img {
     height: 234px;

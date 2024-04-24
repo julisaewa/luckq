@@ -13,19 +13,19 @@
       <a href="https://svg.moda/womens" target="_blank" class="w-50 df justify-content-end cursor-pointer">
         <div class="position-relative">
           <img src="assets/woman.png" class="woman-img">
-          <div class="woman">Для женщин</div>
+          <div class="woman">{{t.tr('Для женщин')}}</div>
         </div>
       </a>
       <a href="https://svg.moda/mens" target="_blank" class="w-50 df cursor-pointer">
         <div class="position-relative">
           <img src="assets/man.png" class="woman-img">
-          <div class="woman">Для мужчин</div>
+          <div class="woman">{{t.tr('Для мужчин')}}</div>
         </div>
       </a>
     </div>
     <div class="df cx" *ngIf="!showMenWomen">
       <div class="cx" [class.yt-player]="playingVideo == i" *ngFor="let video of newsVideos; let i = index">
-        <div class="cx" (mouseenter)="uiHover = true" (mouseleave)="uiHover = true" *ngIf="playingVideo == i">
+        <div class="cx" (mouseenter)="uiHover = true" (mouseleave)="uiHover = false" *ngIf="playingVideo == i">
           <video class="yt-player" [autoplay]="true" [muted]="i == 0 && !touched" [volume]="volume" [src]="video" (timeupdate)="videoTime = videoPlayer.currentTime" #videoPlayer (canplay)="videoLoaded($event, videoPlayer)" (ended)="playNextClassic()">
           </video>
           <div class="player-ui" [@openClose]="uiHover ? 'open' : 'closed'">
