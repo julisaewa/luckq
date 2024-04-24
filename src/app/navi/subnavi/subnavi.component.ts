@@ -100,7 +100,7 @@ export class SubnaviComponent implements OnInit {
 
   langs = [
     Object({code: 'en', name: 'English', icon: 'en.svg'}),
-    Object({code: 'kz', name: 'Қазақша', icon: 'kz.svg'}),
+    Object({code: 'kz', name: 'Qazaq', icon: 'kz.svg'}),
     Object({code: 'cn', name: '中文', icon: 'cn.svg'}),
     Object({code: 'ru', name: 'Русский', icon: 'ru.svg'}),
   ];
