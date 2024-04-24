@@ -64,6 +64,7 @@
 /deep/mark {
   font-size: 28px;
   background-color: transparent;
+  font-weight: bold;
 }
 .max-w-1000{
   max-width: 1000px;
