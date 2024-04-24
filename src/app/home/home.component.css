@@ -377,6 +377,7 @@
 .calendar-page{
   z-index: 200;
 }
+
 @media screen and (min-height: 1000px) {
   .footer-img {
     height: 165px;
@@ -391,6 +392,8 @@
     height: 120px;
   }
 }
+
+
 
 @media screen and (min-width: 2048px) {
   .footer-img {
@@ -430,7 +433,7 @@
     padding-bottom: 200px;
   }
   .height-main-cont{
-    height: calc(100vh - 336px);
+    height: calc(100vh - 344px);
   }
   .logos-slide img{
     height: 150px;
