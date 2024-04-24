@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {LangManagerService} from "../../lang-manager.service";
 
 @Component({
   selector: 'app-chinese-new-year',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChineseNewYearComponent implements OnInit {
 
-  constructor() { }
+  constructor(public t: LangManagerService) { }
 
   ngOnInit(): void {
   }

@@ -140,17 +140,7 @@ export class HomeComponent implements OnInit {
   ];
   rightSliderImagesAutoplayInterval = 16 * 1000;
 
-  rightSliderArticles: any[] = [
-    {src: '/assets/articles/bishkek-thumb.png', url: '/articles?article=bishkek'},
-    {src: '/assets/articles/ai-china-thumb.png', url: '/articles?article=ai-china'},
-    {src: '/assets/articles/fendi-thumb.png', url: '/articles?article=fendi'},
-    {src: '/assets/articles/ai-thumb.png', url: '/articles?article=intelligence'},
-    {src: '/assets/articles/russian-style-thumb.png', url: '/articles?article=russian-style'},
-    {src: '/assets/articles/china-fashion-thumb.png', url: '/articles?article=china-fasion'},
-    {src: '/assets/articles/fuzhou-thumb.png', url: '/articles?article=fuzhou'},
-    {src: '/assets/articles/week-thumb.png', url: '/articles?article=fasionWeekMoscow'},
-
-  ];
+  rightSliderArticles: any[] = [];
   rightSliderArticlesAutoplayInterval = 18 * 1000;
 
   //menWomenTimeout = 1;
@@ -204,6 +194,7 @@ export class HomeComponent implements OnInit {
     }
     this.t.langChanged.subscribe(ch => {
       this.setMarks();
+      this.setRightSliderArticles();
     });
   }
 
@@ -229,6 +220,18 @@ export class HomeComponent implements OnInit {
       '        <mark class="marquee-mark">| ' + this.t.tr('От одной свечи можно зажечь тысячи свечей, и жизнь ее не станет короче. Счастье никогда не уменьшается от того, что им делятся. Будда') + '</mark>\n' +
       '        <mark class="marquee-mark">| ' + this.t.tr('Счастье - это не цель, это побочный продукт хорошо прожитой жизни. Чарльз М. Шульц') + '</mark>\n' +
       '        <mark class="marquee-mark">| ' + this.t.tr('Счастье зависит от нас самих. Аристотель') + '</mark>';
+  }
+  setRightSliderArticles(){
+    this.rightSliderArticles = [
+      {src: '/assets/articles/' + this.t.lang + '/bishkek-thumb.png', url: '/articles?article=bishkek'},
+      {src: '/assets/articles/' + this.t.lang + '/ai-china-thumb.png', url: '/articles?article=ai-china'},
+      {src: '/assets/articles/' + this.t.lang + '/fendi-thumb.png', url: '/articles?article=fendi'},
+      {src: '/assets/articles/' + this.t.lang + '/ai-thumb.png', url: '/articles?article=intelligence'},
+      {src: '/assets/articles/' + this.t.lang + '/russian-style-thumb.png', url: '/articles?article=russian-style'},
+      {src: '/assets/articles/' + this.t.lang + '/china-fashion-thumb.png', url: '/articles?article=china-fasion'},
+      {src: '/assets/articles/' + this.t.lang + '/fuzhou-thumb.png', url: '/articles?article=fuzhou'},
+      {src: '/assets/articles/' + this.t.lang + '/week-thumb.png', url: '/articles?article=fasionWeekMoscow'},
+    ];
   }
   ngOnInit(): void {
     AOS.init({
