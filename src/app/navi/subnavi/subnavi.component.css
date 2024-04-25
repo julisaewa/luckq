@@ -13,7 +13,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: 90px;
-  padding-left: 50px;
+  padding-left: 20px;
   padding-right: 20px;
 }
 .logo{
@@ -82,4 +82,7 @@
 }
 .sub-menu:hover{
   background-color: #E9ECEF;
+}
+.font-12{
+  font-size: 12px;
 }
