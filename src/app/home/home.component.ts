@@ -10,6 +10,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 import * as _ from 'underscore';
 import {MegaMenuItem} from "primeng/api";
 import {LangManagerService} from "../lang-manager.service";
+import {GeoManagerService} from "../geo-manager.service";
 
 @Component({
   selector: 'app-home',
@@ -173,7 +174,10 @@ export class HomeComponent implements OnInit {
   currentMonth = this.today.getMonth();
   moviesMenu: any[] = [];
 
-  constructor(private router: Router, public eventsManager: EventManagerService, public t: LangManagerService) {
+  weatherImage = '';
+  weatherCelsius = '';
+
+  constructor(private router: Router, public eventsManager: EventManagerService, public t: LangManagerService, private geo: GeoManagerService) {
     this.fillCalendarPages();
     this.fillMovies();
     setTimeout(() => {
@@ -246,6 +250,8 @@ export class HomeComponent implements OnInit {
       this.events = res;
     });
     this.playingVideo = 0;
+    // this.getWeather();
+    // this.getLocation();
   }
   openArticle(article: string): void {
     this.router.navigate(['articles'], { queryParams: {article}});
@@ -442,54 +448,16 @@ export class HomeComponent implements OnInit {
     }));
     return res;
   }
-
-  items = [
-    {
-      label: '',
-      icon: 'pi pi-fw pi-bars',
-      items: [
-        [
-          {
-            label: 'Paris Fashion Week',
-            items: [
-              { label: 'Lacoste', command: () => { this.playingVideo = 0 } },
-              { label: 'Miu Miu', command: () => { this.playingVideo = 1 } },
-              { label: 'Rochas', command: () => { this.playingVideo = 2 } },
-              { label: 'sacai', command: () => { this.playingVideo = 3 } }
-            ]
-          },
-          {
-            label: 'Paris Fashion Week',
-            items: [
-              { label: 'Lacoste', command: () => { this.playingVideo = 0 } },
-              { label: 'Miu Miu', command: () => { this.playingVideo = 1 } },
-              { label: 'Rochas', command: () => { this.playingVideo = 2 } },
-              { label: 'sacai', command: () => { this.playingVideo = 3 } }
-            ]
-          },
-          {
-            label: 'Paris Fashion Week',
-            items: [
-              { label: 'Lacoste', command: () => { this.playingVideo = 0 } },
-              { label: 'Miu Miu', command: () => { this.playingVideo = 1 } },
-              { label: 'Rochas', command: () => { this.playingVideo = 2 } },
-              { label: 'sacai', command: () => { this.playingVideo = 3 } }
-            ]
-          },
-        ],
-        [
-          {
-            label: 'Paris Fashion Week',
-            items: [
-              { label: 'Lacoste', command: () => { this.playingVideo = 0 } },
-              { label: 'Miu Miu', command: () => { this.playingVideo = 1 } },
-              { label: 'Rochas', command: () => { this.playingVideo = 2 } },
-              { label: 'sacai', command: () => { this.playingVideo = 3 } }
-            ]
-          },
-        ],
-      ]
-    },
-  ];
-
+  getLocation(){
+    this.geo.getLocation().subscribe(geo => {
+      console.log(geo);
+    });
+  }
+  getWeather(){
+    this.geo.getWeather().subscribe(weather => {
+      console.log(weather);
+      this.weatherImage = 'https:' + weather.current.condition.icon;
+      this.weatherCelsius = weather.current.temp_c;
+    });
+  }
 }

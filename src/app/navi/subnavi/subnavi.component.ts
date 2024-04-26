@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {LangManagerService} from "../../lang-manager.service";
+import {GeoManagerService} from "../../geo-manager.service";
 
 @Component({
   selector: 'app-subnavi',
@@ -10,6 +11,10 @@ import {LangManagerService} from "../../lang-manager.service";
 export class SubnaviComponent implements OnInit {
 
   hoveredMenu = '';
+  weatherImage = '';
+  weatherCelsius = '';
+  lat = '';
+  lon = '';
 
   itemNews = [
     {
@@ -104,9 +109,11 @@ export class SubnaviComponent implements OnInit {
     Object({code: 'cn', name: '中文', icon: 'cn.svg'}),
     Object({code: 'ru', name: 'Русский', icon: 'ru.svg'}),
   ];
-  constructor(public router: Router, public t: LangManagerService) { }
+  constructor(public router: Router, public t: LangManagerService, private geo: GeoManagerService) { }
 
   ngOnInit(): void {
+    this.getWeather();
+    this.getLocation();
   }
 
   getLangs(){
@@ -131,6 +138,27 @@ export class SubnaviComponent implements OnInit {
 
   openUrl(url: string) {
     window.open(url, '_blank');
+  }
+  getLocation(){
+    this.geo.getLocation().subscribe(geo => {
+      console.log(geo);
+      this.lon = geo.lon;
+      this.lat = geo.lat;
+    });
+  }
+  getWeather(){
+    this.geo.getWeather().subscribe(weather => {
+      console.log(weather);
+      this.weatherImage = 'https:' + weather.current.condition.icon;
+      this.weatherCelsius = weather.current.temp_c;
+    });
+  }
+
+  openWeather() {
+    window.open('https://yandex.ru/pogoda/?lat=' + this.lat + '&lon=' + this.lon);
+  }
+  openMaps() {
+    window.open('https://yandex.ru/maps/?ll=' + this.lon + ',' + this.lat + '&z=11');
   }
 
 }

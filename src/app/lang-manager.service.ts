@@ -30,8 +30,6 @@ export class LangManagerService {
       this.baseLangDict = baseRes.split('\n').map(x => x.replace('\r', '')).filter(x => x.length > 0);
       this.http.get(this.langDir + lang + '.txt', {responseType: 'text'}).subscribe(res => {
         this.langDict = res.split('\n').map(x => x.replace('\r', '')).filter(x => x.length > 0);
-        console.log(this.baseLangDict);
-        console.log(this.langDict);
         this.langChanged.next('changed');
       });
     });

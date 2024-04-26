@@ -86,3 +86,10 @@
 .font-12{
   font-size: 12px;
 }
+.degrees{
+  position: absolute;
+  top: 40px;
+  left: 10px;
+  color: white;
+  font-weight: bold;
+}
