@@ -299,7 +299,7 @@
       </div>
 
       <div class="menu-item ml-25 cy" (mouseenter)="hoverMenu('rest')" (mouseleave)="unHoverMenu('rest')">
-        <div class="menu cursor-pointer">{{t.tr('Отдых')}}</div>
+        <div class="menu cursor-pointer">{{t.tr('Досуг')}}</div>
         <div class="s-menu menu-overlay" *ngIf="isHover('rest')">
           <div class="sub-menu height-40 df cy" (click)="openMaps()">
             <div class="mr-10">
@@ -379,14 +379,13 @@
             <img [src]="weatherImage" height="50">
           </div>
           <div class="df degrees">
-            <div *ngIf="weatherCelsius >= '0'">+</div>
+            <div *ngIf="weatherCelsius > '0'">+</div>
             <div *ngIf="weatherCelsius < '0'">-</div>
             <div>{{weatherCelsius}}</div>
           </div>
         </div>
         <div class="df menu-search">
           <div class="cursor-pointer">
-            <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="M10.772,19.814l-7.479,7.479c-0.39,0.39 -0.39,1.024 -0,1.414c0.39,0.39 1.024,0.39 1.414,0l7.579,-7.579c1.629,1.149 3.615,1.825 5.757,1.825c5.52,-0 10,-4.481 10,-10c0,-5.52 -4.48,-10 -10,-10c-5.519,-0 -10,4.48 -10,10c0,2.655 1.038,5.07 2.729,6.861Zm7.271,-14.861c4.416,-0 8,3.584 8,8c0,4.415 -3.584,8 -8,8c-4.415,-0 -8,-3.585 -8,-8c0,-4.416 3.585,-8 8,-8Z"/></svg>
           </div>
           <div class="ml-10 cursor-pointer">{{t.tr('Поиск')}}</div>
         </div>
