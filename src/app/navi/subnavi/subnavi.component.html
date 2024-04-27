@@ -1,4 +1,4 @@
-<div class="header-body sticky" (click)="pageClick($event)">
+<div class="header-body sticky" (click)="pageClick($event)" *ngIf="!device.isMobile()">
   <div class="header-inner space-between">
     <a class="logo cxy cursor-pointer" routerLink="">
       <img src="assets/logo-w.png" height="40">
@@ -411,3 +411,450 @@
 
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="header-body sticky" (click)="pageClick($event)" *ngIf="device.isMobile()">
+  <div class="header-inner space-between">
+    <div class="cxy">
+      <p-button type="text" (click)="display = true" icon="pi pi-bars"></p-button>
+    </div>
+    <a class="logo cxy cursor-pointer" routerLink="">
+      <img src="assets/logo-w.png" height="40">
+    </a>
+
+
+
+
+
+  </div>
+</div>
+<p-sidebar [(visible)]="display" position="left" styleClass="p-sidebar-md" >
+  <div class="df">
+    <div class="menu-item ml-25 cy" (mouseenter)="hoverMenu('market')" (mouseleave)="unHoverMenu('market')">
+      <div class="menu cursor-pointer">{{t.tr('Маркетплейсы')}}</div>
+      <div class="s-menu menu-overlay" *ngIf="isHover('market')">
+        <div class="sub-menu height-40 df" (click)="openUrl('https://www.ozon.ru/')">
+          <div class="mr-10">
+            <img src="assets/icons/ozon.png" height="18">
+          </div>
+          <div>Ozon</div>
+        </div>
+        <div class="sub-menu height-40 df" (click)="openUrl('https://www.wildberries.ru/')">
+          <div class="mr-10">
+            <img src="assets/icons/wb.png" height="18">
+          </div>
+          <div>Wildberries</div>
+        </div>
+        <div class="sub-menu height-40 df" (click)="openUrl('https://market.yandex.ru/')">
+          <div class="mr-10">
+            <img src="assets/icons/ya.png" height="18">
+          </div>
+          <div>Яндекс. Маркет</div>
+        </div>
+        <div class="sub-menu height-40 df" (click)="openUrl('https://www.lamoda.ru/')">
+          <div class="mr-10">
+            <img src="assets/icons/lamoda.png" height="18">
+          </div>
+          <div>Lamoda</div>
+        </div>
+        <div class="sub-menu height-40 df" (click)="openUrl('https://www.cdek.ru/ru/')">
+          <div class="mr-10">
+            <img src="assets/icons/cdek.png" height="18">
+          </div>
+          <div>Cdek</div>
+        </div>
+        <div class="sub-menu height-40 df" (click)="openUrl('https://aliexpress.ru/')">
+          <div class="mr-10">
+            <img src="assets/icons/ali.svg" height="18">
+          </div>
+          <div>Aliexpress</div>
+        </div>
+      </div>
+    </div>
+    <div class="menu-item ml-25 cy" (mouseenter)="hoverMenu('fitting')" (mouseleave)="unHoverMenu('fitting')">
+      <div class="menu cursor-pointer">{{t.tr('Онлайн примерочная')}}</div>
+      <div class="s-menu menu-overlay" *ngIf="isHover('fitting')">
+        <div class="sub-menu height-40 df" (click)="openUrl('https://ecco.ru/fitting-promo/')">
+          <div class="mr-10">
+            <img src="assets/icons/ecco.svg" height="18">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="menu-item ml-25 cy" (mouseenter)="hoverMenu('social')" (mouseleave)="unHoverMenu('social')">
+      <div class="menu cursor-pointer">{{t.tr('Соцсети')}}</div>
+      <div class="s-menu menu-overlay" *ngIf="isHover('social')">
+        <div class="sub-menu height-40 df" (click)="openUrl('https://web.whatsapp.com/')">
+          <div class="mr-10">
+            <img src="assets/icons/whatsapp.svg" height="18">
+          </div>
+          <div>WhatsApp</div>
+        </div>
+        <div class="sub-menu height-40 df" (click)="openUrl('https://web.telegram.org/k/')">
+          <div class="mr-10">
+            <img src="assets/icons/telegram.svg" height="18">
+          </div>
+          <div>Telegram</div>
+        </div>
+        <div class="sub-menu height-40 df" (click)="openUrl('https://vk.com/')">
+          <div class="mr-10">
+            <img src="assets/icons/vk.svg" height="18">
+          </div>
+          <div>Вконтакте</div>
+        </div>
+        <div class="sub-menu height-40 df" (click)="openUrl('https://instagram.com/')">
+          <div class="mr-10">
+            <img src="assets/icons/instagram.svg" height="18">
+          </div>
+          <div>Instagram</div>
+        </div>
+        <div class="sub-menu height-40 df" (click)="openUrl('https://facebook.com')">
+          <div class="mr-10">
+            <img src="assets/icons/facebook.svg" height="18">
+          </div>
+          <div>Facebook</div>
+        </div>
+        <div class="sub-menu height-40 df" (click)="openUrl('https://www.youtube.com/')">
+          <div class="mr-10">
+            <img src="assets/icons/youtube.svg" height="18">
+          </div>
+          <div>YouTube</div>
+        </div>
+        <div class="sub-menu height-40 df" (click)="openUrl('https://ru.pinterest.com/')">
+          <div class="mr-10">
+            <img src="assets/icons/pinterest.svg" height="18">
+          </div>
+          <div>Pinterest</div>
+        </div>
+      </div>
+    </div>
+    <div class="menu-item ml-25 cy" (mouseenter)="hoverMenu('traver')" (mouseleave)="unHoverMenu('traver')">
+      <div class="menu cursor-pointer">{{t.tr('Путешествия')}}</div>
+      <div class="s-menu menu-overlay" *ngIf="isHover('traver')">
+        <div class="sub-menu height-40 df" (click)="openUrl('https://www.aviasales.ru/')">
+          <div class="mr-10">
+            <img src="assets/icons/aviasales.svg" height="18">
+          </div>
+          <div>Aviasales</div>
+        </div>
+        <div class="sub-menu height-40 df" (click)="openUrl('https://ru.skyscanner.com/')">
+          <div class="mr-10">
+            <img src="assets/icons/skyscanner.png" height="16">
+          </div>
+          <div>Skescanner</div>
+        </div>
+        <div class="sub-menu height-40 df" (click)="openUrl('https://www.onetwotrip.com/')">
+          <div class="mr-10">
+            <img src="assets/icons/onetwotrip.svg" height="18">
+          </div>
+          <div>OneTwoTrip</div>
+        </div>
+        <div class="sub-menu height-40 df" (click)="openUrl('https://www.rzd.ru/')">
+          <div class="mr-10">
+            <img src="assets/icons/rzd.png" height="18">
+          </div>
+          <div>РЖД</div>
+        </div>
+        <div class="sub-menu height-40 df" (click)="openUrl('https://www.booking.com/')">
+          <div class="mr-10">
+            <img src="assets/icons/booking.svg" height="18">
+          </div>
+          <div>Booking</div>
+        </div>
+      </div>
+    </div>
+    <div class="menu-item ml-25 cy" (mouseenter)="hoverMenu('news')" (mouseleave)="unHoverMenu('news')">
+      <div class="menu cursor-pointer">{{t.tr('Новости')}}</div>
+      <div class="s-menu menu-overlay" *ngIf="isHover('news')">
+        <div class="sub-menu height-40 df" (click)="openUrl('/articles/')">
+          <div class="mr-10">
+            <img src="assets/icons/news.svg" height="16">
+          </div>
+          <div>{{t.tr('Статьи')}}</div>
+        </div>
+        <div class="sub-menu height-40 df" (click)="openUrl('https://www.expoclub.ru/')">
+          <div class="mr-10">
+            <img src="assets/icons/ticket.svg" height="18">
+          </div>
+          <div>{{t.tr('Выставки')}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="menu-item ml-25 cy" (mouseenter)="hoverMenu('playlist')" (mouseleave)="unHoverMenu('playlist')">
+      <div class="menu cursor-pointer">{{t.tr('Плейлисты')}}</div>
+      <div class="s-menu menu-overlay" *ngIf="isHover('playlist')">
+        <div class="sub-menu height-40 df" (click)="openUrl('https://music.yandex.ru/tag/top')">
+          <div class="mr-10">
+            <img src="assets/icons/music.png" height="18">
+          </div>
+          <div>Яндекс. Музыка</div>
+        </div>
+        <div class="sub-menu height-40 df" (click)="openUrl('https://zvuk.com/playlists')">
+          <div class="mr-10">
+            <img src="assets/icons/zvuk.png" height="18">
+          </div>
+          <div>Звук</div>
+        </div>
+      </div>
+    </div>
+
+    <!--      <div class="menu-item ml-25 cy" (mouseenter)="hoverMenu('interior')" (mouseleave)="unHoverMenu('interior')">-->
+    <!--        <div class="menu cursor-pointer">{{t.tr('Интерьер')}}</div>-->
+    <!--        <div class="s-menu menu-overlay" *ngIf="isHover('interior')">-->
+    <!--          -->
+    <!--          <div class="sub-menu height-40 df" (click)="openUrl('https://hoff.ru/')">-->
+    <!--            <div class="mr-10">-->
+    <!--              <img src="assets/icons/hoff.svg" height="18">-->
+    <!--            </div>-->
+    <!--            <div>Hoff</div>-->
+    <!--          </div>-->
+    <!--        </div>-->
+    <!--      </div>-->
+
+
+    <div class="menu-item ml-25 cy" (mouseenter)="hoverMenu('realty')" (mouseleave)="unHoverMenu('realty')">
+      <div class="menu cursor-pointer">{{t.tr('Недвижимость')}}</div>
+      <div class="s-menu menu-overlay" *ngIf="isHover('realty')">
+        <div class="sub-menu height-40 df" (click)="openUrl('https://spb.cian.ru/')">
+          <div class="mr-10">
+            <img src="assets/icons/cian.png" height="18">
+          </div>
+          <div>Циан</div>
+        </div>
+        <div class="sub-menu height-40 df" (click)="openUrl('https://www.avito.ru/')">
+          <div class="mr-10">
+            <img src="assets/icons/avito.png" height="18">
+          </div>
+          <div>Авито</div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="menu-item ml-25 cy" (mouseenter)="hoverMenu('perfume')" (mouseleave)="unHoverMenu('perfume')">
+      <div class="menu cursor-pointer">{{t.tr('Per fumum')}}</div>
+      <div class="s-menu menu-overlay" *ngIf="isHover('perfume')">
+        <div class="sub-menu height-40 df" (click)="openUrl('https://goldapple.ru/')">
+          <div class="mr-10">
+            <img src="assets/icons/goldenapple.png" height="18">
+          </div>
+          <div>Золотое яблоко</div>
+        </div>
+        <div class="sub-menu height-40 df" (click)="openUrl('https://rivegauche.ru/')">
+          <div class="mr-10">
+            <img src="assets/icons/rivgos.png" height="18">
+          </div>
+          <div>Рив гош</div>
+        </div>
+        <div class="sub-menu height-40 df" (click)="openUrl('https://www.letu.ru/')">
+          <div class="mr-10">
+            <img src="assets/icons/letu.png" height="18">
+          </div>
+          <div>Л'этуаль</div>
+        </div>
+        <div class="sub-menu height-40 df" (click)="openUrl('https://iledebeaute.ru/')">
+          <div class="mr-10">
+            <img src="assets/icons/ile.png" height="18">
+          </div>
+          <div>Иль де ботэ</div>
+        </div>
+        <div class="sub-menu height-40 df" (click)="openUrl('https://www.yves-rocher.ru/')">
+          <div class="mr-10">
+            <img src="assets/icons/yves.png" height="18">
+          </div>
+          <div>Yves rocher</div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="menu-item ml-25 cy" (mouseenter)="hoverMenu('services')" (mouseleave)="unHoverMenu('services')">
+      <div class="menu cursor-pointer" >{{t.tr('Сервисы')}}</div>
+      <div class="s-menu menu-overlay" *ngIf="isHover('services')">
+        <div class="sub-menu height-40 df" (click)="openUrl('https://www.wireguard.com/')">
+          <div class="mr-10">
+            <img src="assets/icons/wireguard.png" height="18">
+          </div>
+          <div>VPN WireGuard</div>
+        </div>
+        <div class="sub-menu height-40 df" (click)="openUrl('https://freevpnplanet.com/ru/')">
+          <div class="mr-10">
+            <img src="assets/icons/planet.png" height="18">
+          </div>
+          <div>Planet VPN</div>
+        </div>
+        <div class="sub-menu height-40 df" (click)="openUrl('https://translate.google.com/')">
+          <div class="mr-10">
+            <img src="assets/icons/google-trans.png" height="18">
+          </div>
+          <div class="font-12">Google Translate</div>
+        </div>
+        <div class="sub-menu height-40 df" (click)="openUrl('https://translate.yandex.ru/')">
+          <div class="mr-10">
+            <img src="assets/icons/ya-trans.png" height="18">
+          </div>
+          <div class="font-12">Yandex Translate</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-item ml-25 cy" (mouseenter)="hoverMenu('office')" (mouseleave)="unHoverMenu('office')">
+      <div class="menu cursor-pointer">{{t.tr('Office')}}</div>
+      <div class="s-menu menu-overlay" *ngIf="isHover('office')">
+        <div class="sub-menu height-40 df" (click)="openUrl('https://www.office.com/launch/word')">
+          <div class="mr-10">
+            <img src="assets/icons/word.png" height="18">
+          </div>
+          <div>Word</div>
+        </div>
+        <div class="sub-menu height-40 df" (click)="openUrl('https://www.office.com/launch/excel')">
+          <div class="mr-10">
+            <img src="assets/icons/excel.png" height="18">
+          </div>
+          <div>Excel</div>
+        </div>
+        <div class="sub-menu height-40 df" (click)="openUrl('https://www.office.com/launch/powerpoint')">
+          <div class="mr-10">
+            <img src="assets/icons/powerpoint.png" height="18">
+          </div>
+          <div>PowerPoint</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="menu-item ml-25 cy" (mouseenter)="hoverMenu('rest')" (mouseleave)="unHoverMenu('rest')">
+      <div class="menu cursor-pointer">{{t.tr('Досуг')}}</div>
+      <div class="s-menu menu-overlay" *ngIf="isHover('rest')">
+        <div class="sub-menu height-40 df cy" (click)="openMaps()">
+          <div class="mr-10">
+            <img src="assets/icons/maps.png" height="24">
+          </div>
+        </div>
+        <div class="sub-menu height-40 df cy" (click)="openUrl('https://afisha.yandex.ru/')">
+          <div class="mr-10">
+            <img src="assets/icons/afisha1.png" height="16">
+          </div>
+        </div>
+        <div class="sub-menu height-40 df cy" (click)="openUrl('https://www.kassir.ru/')">
+          <div class="mr-10">
+            <img src="assets/icons/kassir.png" height="20">
+          </div>
+        </div>
+        <div class="sub-menu height-40 df cy" (click)="openUrl('https://www.bileter.ru/')">
+          <div class="mr-10">
+            <img src="assets/icons/bileter.png" height="20">
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="menu-item ml-25 cy" (mouseenter)="hoverMenu('kitchen')" (mouseleave)="unHoverMenu('kitchen')">
+      <div class="menu cursor-pointer">{{t.tr('Кухня')}}</div>
+      <div class="s-menu menu-overlay" *ngIf="isHover('kitchen')">
+        <div class="sub-menu height-40 df" (click)="openUrl('https://www.edimdoma.ru/')">
+          <div class="mr-10">
+            <img src="assets/icons/eating.png" height="18">
+          </div>
+        </div>
+        <div class="sub-menu height-40 df" (click)="openUrl('https://www.gastronom.ru/')">
+          <div class="mr-10">
+            <img src="assets/icons/gastronom.svg" height="18">
+          </div>
+        </div>
+        <div class="sub-menu height-40 df" (click)="openUrl('https://eda.ru/')">
+          <div class="mr-10">
+            <img src="assets/icons/eat.png" height="18">
+          </div>
+        </div>
+        <div class="sub-menu height-40 df" (click)="openUrl('https://www.chefmarket.ru/')">
+          <div class="mr-10">
+            <img src="assets/icons/chef.svg" height="18">
+          </div>
+        </div>
+        <div class="sub-menu height-40 df" (click)="openUrl('https://jaymi-oliver.ru/recepty')">
+          <div class="mr-10">
+            <img src="assets/icons/jamie.png" height="18">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-item ml-40 cy" (mouseenter)="hoverMenu('language')" (mouseleave)="unHoverMenu('language')">
+      <div class="cursor-pointer">
+        <img [src]="'assets/icons/' + t.lang + '.svg'" height="30">
+      </div>
+      <div class="s-menu menu-overlay" *ngIf="isHover('language')">
+        <div class="sub-menu height-40 df" (click)="t.setLang(l.code)" *ngFor="let l of getLangs()">
+          <div class="mr-10 cxy">
+            <img [src]="'assets/icons/' + l.icon" height="25">
+          </div>
+          <div>{{l.name}}</div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="cxy">
+      <div class="ml-100 cursor-pointer width-70 position-relative" (click)="openWeather()">
+        <div>
+          <img [src]="weatherImage" height="50">
+        </div>
+        <div class="df degrees">
+          <div *ngIf="weatherCelsius > '0'">+</div>
+          <div *ngIf="weatherCelsius < '0'">-</div>
+          <div>{{weatherCelsius}}</div>
+        </div>
+      </div>
+      <div class="df menu-search">
+        <div class="cursor-pointer">
+        </div>
+        <div class="ml-10 cursor-pointer">{{t.tr('Поиск')}}</div>
+      </div>
+      <!--        <div class="ml-25 df">-->
+      <!--          <div class="cursor-pointer">-->
+      <!--            <svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M9 20H7C5.89543 20 5 19.1046 5 18V10.9199C5 10.336 5.25513 9.78132 5.69842 9.40136L10.6984 5.11564C11.4474 4.47366 12.5526 4.47366 13.3016 5.11564L18.3016 9.40136C18.7449 9.78132 19 10.336 19 10.9199V18C19 19.1046 18.1046 20 17 20H15M9 20V14C9 13.4477 9.44772 13 10 13H14C14.5523 13 15 13.4477 15 14V20M9 20H15" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round"/></svg>-->
+      <!--          </div>-->
+      <!--        </div>-->
+      <div class="ml-15 df">
+        <div class="cursor-pointer">
+          <svg  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="Capa_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                width="16" height="16" viewBox="0 0 612 612" style="fill:#ffffff;" xml:space="preserve"><g><g id="_x31__39_"><g><path d="M459,18.075c-63.743,0-111.977,37.409-153,76.5c-39.091-41.482-89.256-76.5-153-76.5c-89.773,0-153,77.188-153,161.358
+              c0,45.154,18.494,77.686,38.747,108.228l237.781,285.077c26.699,28.248,31.729,28.248,58.427,0l238.316-285.077
+              C597.082,257.119,612,224.587,612,179.433C612,95.264,548.772,18.075,459,18.075z M535.5,279.744L306,553.575L76.5,278.615
+              c-27.444-38.154-38.25-63.896-38.25-99.182c0-65.752,46.952-124.944,114.75-125.499c55.769-0.459,118.977,56.495,153,99.431
+				      c33.125-41.444,97.231-99.431,153-99.431c66,0,114.75,59.747,114.75,125.499C573.75,214.719,565.201,242.373,535.5,279.744z"/></g></g></g>
+            </svg>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</p-sidebar>
+

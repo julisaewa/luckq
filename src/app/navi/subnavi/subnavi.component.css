@@ -7,7 +7,17 @@
 /deep/.p-menu .p-menuitem-link {
   font-size: 13px;
 }
-
+/deep/.p-button {
+  background: rgba(0, 0, 0, 0.38);
+  border: none;
+}
+.app-header{
+  height: 90px;
+  min-height: 90px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
 .header-body {
   background-image: url("../../../assets/back1.png");
   background-repeat: no-repeat;

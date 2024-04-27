@@ -1,4 +1,4 @@
-<div class="height-vh">
+<div class="height-vh" *ngIf="!device.isMobile()">
   <div class="df height-main-cont space-between">
     <div class="w-18 ml-30">
       <p-carousel class="cursor-pointer" [verticalViewPortHeight]="'calc(100vh - 228px)'" [circular]="true" [value]="leftSliderImages" [numVisible]="1" [showNavigators]="false" [showIndicators]="false" [autoplayInterval]="leftSliderImagesAutoplayInterval" orientation="vertical">
@@ -117,6 +117,176 @@
     <span *ngFor="let mark of marksArray" class="marquee-mark" [innerHTML]="marks"></span>
   </ng-marquee>
   <div class="footer">
+    <div class="position-relative">
+      <div class="footer-img">
+        <div class="df">
+          <div class="logos cursor-pointer">
+            <div class="logos-slide">
+              <img *ngFor="let cal of calendarPages" class="mx-120 calendar-page" [src]="cal.url" (mouseenter)="previewImage(cal.url, $event)" (mouseleave)="resetImagePreview()">
+            </div>
+            <div class="logos-slide">
+              <img *ngFor="let cal of calendarPages" class="mx-120 calendar-page" [src]="cal.url" (mouseenter)="previewImage(cal.url, $event)" (mouseleave)="resetImagePreview()">
+            </div>
+          </div>
+          <div [ngStyle]="getImagePreviewStyle()"  [@openClose]="selectedCalendarPageVisislbe ? 'open' : 'closed'">
+            <img [src]="selectedCalendarPage" height="500px">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="height-vh-m " *ngIf="device.isMobile()">
+  <div class="">
+    <div class="">
+      <p-carousel class="cursor-pointer" [verticalViewPortHeight]="'120px'" [circular]="true" [value]="leftSliderImagesMobile" [numVisible]="1" [showNavigators]="false" [showIndicators]="false" [autoplayInterval]="leftSliderImagesAutoplayInterval" orientation="vertical">
+        <ng-template let-image pTemplate="item">
+          <div class="df">
+            <img class="top-banner-m" (click)="openUrl(image.url)" [src]="image.src"/>
+          </div>
+        </ng-template>
+      </p-carousel>
+    </div>
+    <div class="df" *ngIf="showMenWomen">
+      <a href="https://svg.moda/womens" target="_blank" class="w-50 df justify-content-end cursor-pointer">
+        <div class="position-relative">
+          <img src="assets/woman.png" class="woman-img">
+          <div class="woman">{{t.tr('Для женщин')}}</div>
+        </div>
+      </a>
+      <a href="https://svg.moda/mens" target="_blank" class="w-50 df cursor-pointer">
+        <div class="position-relative">
+          <img src="assets/man.png" class="woman-img">
+          <div class="woman">{{t.tr('Для мужчин')}}</div>
+        </div>
+      </a>
+    </div>
+    <div class="df cx" *ngIf="!showMenWomen">
+      <div class="cx" [class.yt-player-m]="playingVideo == i" *ngFor="let video of newsVideos; let i = index">
+        <div class="cx" (mouseenter)="uiHover = true" (mouseleave)="uiHover = false" *ngIf="playingVideo == i">
+          <video class="yt-player-m" [autoplay]="true" [muted]="i == 0 && !touched" [volume]="volume" [src]="video" (timeupdate)="videoTime = videoPlayer.currentTime" #videoPlayer (canplay)="videoLoaded($event, videoPlayer)" (ended)="playNextClassic()">
+          </video>
+          <div class="player-ui" [@openClose]="uiHover ? 'open' : 'closed'">
+            <div class="video-list">
+              <div class="video-list-toggle" (click)="videoListShow = !videoListShow">
+                <!--                <i class="pi pi-bars" style="color: white; font-size: 2rem"></i>-->
+                <p-megaMenu [model]="moviesMenu"></p-megaMenu>
+              </div>
+              <div class="video-list-videos" *ngIf="videoListShow && false">
+                <p-virtualScroller [value]="newsVideos" scrollHeight="500px" style="width: 250px" [itemSize]="135">
+                  <ng-template pTemplate="item" let-v>
+                    <div class="cxy" (mouseenter)="thumb.play(); thumb.currentTime = thumb.currentTime + 20" (mouseleave)="thumb.pause()" (click)="playingVideo = newsVideos.indexOf(v)">
+                      <video [muted]="true" #thumb class="video-list-video" [src]="v"></video>
+                    </div>
+                  </ng-template>
+                </p-virtualScroller>
+              </div>
+            </div>
+            <div>
+              <div class="player-button play-pause-button cxy" *ngIf="!videoPlayer.paused" (click)="videoPlayer.pause()">
+                <i class="pi pi-pause" style="font-size: 2rem"></i>
+              </div>
+              <div class="player-button play-pause-button cxy" *ngIf="videoPlayer.paused" (click)="videoPlayer.play()">
+                <i class="pi pi-play" style="font-size: 2rem"></i>
+              </div>
+            </div>
+            <div class="player-background">
+              <div class="all-player">
+                <div class="video-progress w200px cp">
+                  <input [ngStyle]="getProgressSize(videoTime, videoPlayer.duration)" class="player-ui-seek ml-20" [(ngModel)]="videoTime" (ngModelChange)="videoPlayer.currentTime = videoTime" [max]="videoPlayer.duration" type="range" step="0.1" [min]="0">
+                </div>
+                <div class="df space-between px-10">
+                  <div class="df cxy w140px ml-10">
+                    <div class="seek-tooltip time-text">{{getVideoTime(videoTime) + ' ' + '/'}}</div><div class="seek-tooltip time-text">{{getVideoTime(videoPlayer.duration)}}</div>
+                  </div>
+                  <div class="df mr-20">
+                    <div class="sound-icon cxy mr-10">
+                      <div class="cp cxy" (click)="volume = 0" *ngIf="volume >= 0.5">
+                        <img src="assets/player/sound2.svg" height="24">
+                      </div>
+                      <div class="cp cxy" (click)="volume = 0" *ngIf="volume < 0.5 && volume != 0">
+                        <img src="assets/player/sound1.svg" height="24">
+                      </div>
+                      <div class="cp cxy" (click)="volume = 0.5" *ngIf="volume == 0">
+                        <img src="assets/player/sound0.svg" height="24">
+                      </div>
+                    </div>
+                    <div class="mr-10 cxy w100px">
+                      <input [ngStyle]="getProgressSize(volume, 1)" class="vol" id="vol-control"  type="range" min="0" max="1" step="0.05" [(ngModel)]="volume" (ngModelChange)="videoPlayer.muted = false"/>
+                    </div>
+                    <div class="player-pic cxy mx-2px" (click)="videoPlayer.requestPictureInPicture()">
+                      <img src="assets/player/pip.svg" height="24">
+                    </div>
+                    <div class="player-pic cxy mx-2px" (click)="videoPlayer.requestFullscreen()">
+                      <img src="assets/player/full.svg" height="24">
+                    </div>
+                    <div class="player-pic cxy mx-2px" (click)="playPrevClassic()">
+                      <img src="assets/player/prev-vi.svg" height="24">
+                    </div>
+                    <div class="player-pic cxy mx-2px" (click)="playNextClassic()">
+                      <img src="assets/player/next-vi.svg" height="24">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="">
+      <p-carousel class="cursor-pointer" [verticalViewPortHeight]="'120px'" [circular]="true" [value]="rightSliderImagesMobile" [numVisible]="1" [showNavigators]="false" [showIndicators]="false" [autoplayInterval]="rightSliderImagesAutoplayInterval" orientation="vertical">
+        <ng-template let-image pTemplate="item">
+          <div class="df">
+            <img class="bottom-banner-m" (click)="openUrl(image.url)" [src]="image.src"/>
+          </div>
+        </ng-template>
+      </p-carousel>
+
+
+      <p-carousel class="padding-articles" [verticalViewPortHeight]="'400px'" [circular]="true" [value]="rightSliderArticles" [numVisible]="1" [showNavigators]="false" [showIndicators]="false" [autoplayInterval]="rightSliderArticlesAutoplayInterval" orientation="vertical">
+        <ng-template let-image pTemplate="item">
+          <div class="cxy">
+            <img class="cursor-pointer" [style]="'width: 400px'" (click)="openUrl(image.url)" [src]="image.src"/>
+          </div>
+        </ng-template>
+      </p-carousel>
+    </div>
+  </div>
+  <ng-marquee duration="3000s" [stopOnHover]="true" class="marquee">
+    <span *ngFor="let mark of marksArray" class="marquee-mark-m" [innerHTML]="marks"></span>
+  </ng-marquee>
+  <div class="">
     <div class="position-relative">
       <div class="footer-img">
         <div class="df">

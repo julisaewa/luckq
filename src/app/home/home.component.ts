@@ -11,6 +11,7 @@ import * as _ from 'underscore';
 import {MegaMenuItem} from "primeng/api";
 import {LangManagerService} from "../lang-manager.service";
 import {GeoManagerService} from "../geo-manager.service";
+import {DeviceDetectorService} from "ngx-device-detector";
 
 @Component({
   selector: 'app-home',
@@ -115,6 +116,7 @@ export class HomeComponent implements OnInit {
   pipActive = false;
 
   leftSliderImages: any[] = [
+    {src: '/assets/banner/11.png', url: 'https://stockmann.ru/'},
     {src: '/assets/banner/1.png', url: 'https://thedubaimall.com/'},
     {src: '/assets/banner/2.png', url: 'https://dubaioutletmall.com/'},
     {src: '/assets/banner/3.png', url: 'https://vnukovo-outlet.com/'},
@@ -125,6 +127,19 @@ export class HomeComponent implements OnInit {
     {src: '/assets/banner/8.png', url: 'https://ovbelayadacha.com/'},
     {src: '/assets/banner/9.png', url: 'https://www.dubaimarinamall.com/'},
     {src: '/assets/banner/10.png', url: 'https://www.dubaihillsmall.ae/'},
+  ];
+  leftSliderImagesMobile: any[] = [
+    {src: '/assets/banner/11m.png', url: 'https://stockmann.ru/'},
+    {src: '/assets/banner/1m.png', url: 'https://thedubaimall.com/'},
+    {src: '/assets/banner/2m.png', url: 'https://dubaioutletmall.com/'},
+    {src: '/assets/banner/3m.png', url: 'https://vnukovo-outlet.com/'},
+    {src: '/assets/banner/5m.png', url: 'https://fashionweekonline.com/'},
+    {src: '/assets/banner/6m.png', url: 'https://vnukovo-outlet.com/post/mesyacz-lyubvi-vo-vnukovo-outlet-village.html'},
+    {src: '/assets/banner/7m.png', url: 'https://www.malloftheemirates.com/en'},
+    {src: '/assets/banner/8m.png', url: 'https://ovbelayadacha.com/'},
+    {src: '/assets/banner/9m.png', url: 'https://www.dubaimarinamall.com/'},
+    {src: '/assets/banner/10m.png', url: 'https://www.dubaihillsmall.ae/'},
+
   ];
   leftSliderImagesAutoplayInterval = 12 * 1000;
 
@@ -139,13 +154,24 @@ export class HomeComponent implements OnInit {
     {src: '/assets/exhibition/moda-fest.png', url: 'https://moda-fest.ru/ru-RU/'},
     {src: '/assets/exhibition/textile.png', url: 'https://www.internationalapparelandtextilefair.com/'},
   ];
+  rightSliderImagesMobile: any[] = [
+    {src: '/assets/exhibition/beauty-m.png', url: 'https://expoposition.com/beautyexpo/information-2/'},
+    {src: '/assets/exhibition/beautyexpo-m.png', url: 'https://www.probeauty.co.za/johannesburgexpo'},
+    {src: '/assets/exhibition/bridal-m.png', url: 'https://www.qatarbridalshow.com/en/home/'},
+    {src: '/assets/exhibition/bti-m.png', url: 'https://bti.by/'},
+    {src: '/assets/exhibition/lady-m.png', url: 'https://ladyexpo.by/'},
+    {src: '/assets/exhibition/leshow-m.png', url: 'https://leshow.ru/'},
+    {src: '/assets/exhibition/loveme-m.png', url: 'https://iloveme.messukeskus.com/'},
+    {src: '/assets/exhibition/moda-fest-m.png', url: 'https://moda-fest.ru/ru-RU/'},
+    {src: '/assets/exhibition/textile-m.png', url: 'https://www.internationalapparelandtextilefair.com/'},
+  ];
   rightSliderImagesAutoplayInterval = 16 * 1000;
 
   rightSliderArticles: any[] = [];
   rightSliderArticlesAutoplayInterval = 18 * 1000;
 
   //menWomenTimeout = 1;
-  menWomenTimeout = 17;
+  menWomenTimeout = 1;
   showMenWomen = true;
 
   videoListShow = false;
@@ -177,7 +203,7 @@ export class HomeComponent implements OnInit {
   weatherImage = '';
   weatherCelsius = '';
 
-  constructor(private router: Router, public eventsManager: EventManagerService, public t: LangManagerService, private geo: GeoManagerService) {
+  constructor(private router: Router, public eventsManager: EventManagerService, public t: LangManagerService, private geo: GeoManagerService, public device: DeviceDetectorService) {
     this.fillCalendarPages();
     this.fillMovies();
     setTimeout(() => {

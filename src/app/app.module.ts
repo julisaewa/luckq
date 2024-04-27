@@ -34,6 +34,7 @@ import {CalendarModule} from "primeng/calendar";
 import {InputTextModule} from "primeng/inputtext";
 import { BishkekComponent } from './articles/bishkek/bishkek.component';
 import { AiChinaComponent } from './articles/ai-china/ai-china.component';
+import {SidebarModule} from "primeng/sidebar";
 
 @NgModule({
   declarations: [
@@ -54,26 +55,27 @@ import { AiChinaComponent } from './articles/ai-china/ai-china.component';
     BishkekComponent,
     AiChinaComponent
   ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        AppRoutingModule,
-        GalleriaModule,
-        InfiniteScrollModule,
-        NgMarqueeModule,
-        HttpClientModule,
-        MenuModule,
-        ProgressSpinnerModule,
-        FormsModule,
-        CarouselModule,
-        MegaMenuModule,
-        MenubarModule,
-        PanelMenuModule,
-        VirtualScrollerModule,
-        DialogModule,
-        CalendarModule,
-        InputTextModule,
-    ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    GalleriaModule,
+    InfiniteScrollModule,
+    NgMarqueeModule,
+    HttpClientModule,
+    MenuModule,
+    ProgressSpinnerModule,
+    FormsModule,
+    CarouselModule,
+    MegaMenuModule,
+    MenubarModule,
+    PanelMenuModule,
+    VirtualScrollerModule,
+    DialogModule,
+    CalendarModule,
+    InputTextModule,
+    SidebarModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
