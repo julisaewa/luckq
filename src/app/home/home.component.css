@@ -97,6 +97,9 @@
   border-bottom: 1px solid;
   transition: 0.3s;
 }
+.menu-m{
+  color: black;
+}
 .article-header{
   font-size: 30px;
 }
