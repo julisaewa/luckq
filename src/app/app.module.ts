@@ -35,6 +35,7 @@ import {InputTextModule} from "primeng/inputtext";
 import { BishkekComponent } from './articles/bishkek/bishkek.component';
 import { AiChinaComponent } from './articles/ai-china/ai-china.component';
 import {SidebarModule} from "primeng/sidebar";
+import { MetGalaComponent } from './articles/met-gala/met-gala.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import {SidebarModule} from "primeng/sidebar";
     IntelligenceComponent,
     AdminComponent,
     BishkekComponent,
-    AiChinaComponent
+    AiChinaComponent,
+    MetGalaComponent
   ],
   imports: [
     BrowserModule,
