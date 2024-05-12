@@ -65,6 +65,7 @@
 }
 .menu-item{
   position: relative;
+  text-align: center;
 }
 .s-menu{
   position: absolute;
