@@ -253,6 +253,7 @@ export class HomeComponent implements OnInit {
   }
   setRightSliderArticles(){
     this.rightSliderArticles = [
+      {src: '/assets/articles/' + this.t.lang + '/cannes-fashion-thumb.jpg', url: '/articles?article=cannes-fashion'},
       {src: '/assets/articles/' + this.t.lang + '/met-gala-thumb.jpg', url: '/articles?article=met-gala'},
       {src: '/assets/articles/' + this.t.lang + '/bishkek-thumb.png', url: '/articles?article=bishkek'},
       {src: '/assets/articles/' + this.t.lang + '/ai-china-thumb.png', url: '/articles?article=ai-china'},

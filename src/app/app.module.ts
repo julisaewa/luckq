@@ -36,6 +36,8 @@ import { BishkekComponent } from './articles/bishkek/bishkek.component';
 import { AiChinaComponent } from './articles/ai-china/ai-china.component';
 import {SidebarModule} from "primeng/sidebar";
 import { MetGalaComponent } from './articles/met-gala/met-gala.component';
+import { CannesFilmComponent } from './articles/cannes-film/cannes-film.component';
+import { CannesFashionComponent } from './articles/cannes-fashion/cannes-fashion.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { MetGalaComponent } from './articles/met-gala/met-gala.component';
     AdminComponent,
     BishkekComponent,
     AiChinaComponent,
-    MetGalaComponent
+    MetGalaComponent,
+    CannesFilmComponent,
+    CannesFashionComponent
   ],
   imports: [
     BrowserModule,
