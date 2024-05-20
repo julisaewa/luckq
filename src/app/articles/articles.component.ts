@@ -12,6 +12,7 @@ import {BishkekComponent} from "./bishkek/bishkek.component";
 import {AiChinaComponent} from "./ai-china/ai-china.component";
 import {MetGalaComponent} from "./met-gala/met-gala.component";
 import {CannesFashionComponent} from "./cannes-fashion/cannes-fashion.component";
+import {ChinaWallComponent} from "./china-wall/china-wall.component";
 
 
 @Component({
@@ -33,6 +34,7 @@ export class ArticlesComponent implements OnInit {
     {name: 'bishkek', component: BishkekComponent},
     {name: 'met-gala', component: MetGalaComponent},
     {name: 'cannes-fashion', component: CannesFashionComponent},
+    {name: 'china-wall', component: ChinaWallComponent},
   ].reverse();
   articlesShown: any[] = [];
   latestShown = 0;

@@ -38,6 +38,8 @@ import {SidebarModule} from "primeng/sidebar";
 import { MetGalaComponent } from './articles/met-gala/met-gala.component';
 import { CannesFilmComponent } from './articles/cannes-film/cannes-film.component';
 import { CannesFashionComponent } from './articles/cannes-fashion/cannes-fashion.component';
+import {AccordionModule} from "primeng/accordion";
+import { ChinaWallComponent } from './articles/china-wall/china-wall.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,8 @@ import { CannesFashionComponent } from './articles/cannes-fashion/cannes-fashion
     AiChinaComponent,
     MetGalaComponent,
     CannesFilmComponent,
-    CannesFashionComponent
+    CannesFashionComponent,
+    ChinaWallComponent
   ],
   imports: [
     BrowserModule,
@@ -81,6 +84,7 @@ import { CannesFashionComponent } from './articles/cannes-fashion/cannes-fashion
     CalendarModule,
     InputTextModule,
     SidebarModule,
+    AccordionModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

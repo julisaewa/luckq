@@ -253,6 +253,7 @@ export class HomeComponent implements OnInit {
   }
   setRightSliderArticles(){
     this.rightSliderArticles = [
+      {src: '/assets/articles/' + this.t.lang + '/china-wall.jpg', url: '/articles?article=china-wall'},
       {src: '/assets/articles/' + this.t.lang + '/cannes-fashion-thumb.jpg', url: '/articles?article=cannes-fashion'},
       {src: '/assets/articles/' + this.t.lang + '/met-gala-thumb.jpg', url: '/articles?article=met-gala'},
       {src: '/assets/articles/' + this.t.lang + '/bishkek-thumb.png', url: '/articles?article=bishkek'},
@@ -442,9 +443,10 @@ export class HomeComponent implements OnInit {
       this.moviesMenu = this.fillMoviesMenu(res);
     });
   }
-  private fillMoviesMenu(videos: any[]) {
+  private fillMoviesMenu(videosSrc: any[]) {
     let res: MegaMenuItem[] = [];
     let groupOfGroups: any[] = [];
+    let videos = _.sortBy(videosSrc, x => x.id).reverse();
     let groups: any[] = [];
     _.forEach(_.groupBy(videos, x => x.kind), gr => {
       let videos = gr.map(x => ({
@@ -452,7 +454,8 @@ export class HomeComponent implements OnInit {
         command: () => {
           let findVideo = this.newsVideos.find(y => y == x.url);
           this.playingVideo = this.newsVideos.indexOf(findVideo);
-        }
+        },
+        id: x.id
       }));
       let newGroup: any[] = [];
       newGroup.push(({

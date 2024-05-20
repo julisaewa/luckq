@@ -96,21 +96,25 @@
         </div>
       </div>
     </div>
-    <div class="w-18 df space-between flex-column mr-30 height-619">
+    <div class="w-18 df space-between flex-column mr-30 right-content">
       <p-carousel [verticalViewPortHeight]="'300px'" [circular]="true" [value]="rightSliderImages" [numVisible]="1" [showNavigators]="false" [showIndicators]="false" [autoplayInterval]="rightSliderImagesAutoplayInterval" orientation="vertical">
         <ng-template let-image pTemplate="item">
           <div class="cxy">
-            <img class="cursor-pointer" [style]="'max-width: 300px'" width="100%" (click)="openUrl(image.url)" [src]="image.src"/>
+            <img class="cursor-pointer" width="100%" (click)="openUrl(image.url)" [src]="image.src"/>
           </div>
         </ng-template>
       </p-carousel>
-      <p-carousel class="padding-articles" [verticalViewPortHeight]="'400px'" [circular]="true" [value]="rightSliderArticles" [numVisible]="1" [showNavigators]="false" [showIndicators]="false" [autoplayInterval]="rightSliderArticlesAutoplayInterval" orientation="vertical">
+      <p-carousel class="" [verticalViewPortHeight]="'250px'" [circular]="true" [value]="rightSliderArticles" [numVisible]="1" [showNavigators]="false" [showIndicators]="false" [autoplayInterval]="rightSliderArticlesAutoplayInterval" orientation="vertical">
         <ng-template let-image pTemplate="item">
           <div class="cxy">
-            <img class="cursor-pointer" [style]="'width: 400px'" (click)="openUrl(image.url)" [src]="image.src"/>
+            <img class="cursor-pointer" width="250"  (click)="openUrl(image.url)" [src]="image.src"/>
           </div>
         </ng-template>
       </p-carousel>
+      <div>
+        <video src="assets/video/moda.mp4" width="300" type="video/mp4" controls autoplay loop [muted]="true">
+        </video>
+      </div>
     </div>
   </div>
   <ng-marquee duration="3000s" [stopOnHover]="true" class="marquee">

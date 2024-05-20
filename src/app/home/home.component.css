@@ -260,8 +260,14 @@
   height: 120px;
   object-fit: cover;
 }
-
-
+.right-content{
+  height: 619px;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+.img-right{
+  width: 230px;
+}
 
 
 
@@ -459,6 +465,10 @@
   .logos-slide img{
     height: 150px;
   }
+  .right-content{
+    height: 941px;
+  }
+  .img-right{}
 }
 .player-ui{
   position: absolute;

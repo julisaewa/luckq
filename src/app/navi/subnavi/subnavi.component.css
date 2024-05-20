@@ -11,6 +11,18 @@
   background: rgba(0, 0, 0, 0.38);
   border: none;
 }
+/deep/.p-accordion-header{
+  display: none;
+}
+/deep/.p-accordion-content{
+  padding: 0 !important;
+  border: 0 !important;
+  color: black!important;
+  font-family: Helvetica !important;
+}
+/deep/.p-sidebar-content {
+  height: 100%;
+}
 .app-header{
   height: 90px;
   min-height: 90px;
@@ -80,11 +92,28 @@
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
   width: 12rem;
 }
+.menu-overlay-m{
+  padding: 0.25rem 0;
+  background: #ffffff;
+  color: #495057;
+  border: 0 none;
+  width: 12rem;
+}
 .sub-menu{
   padding: 0.75rem 1.25rem;
   color: #495057;
   border-radius: 0;
   transition: box-shadow 0.2s;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+.sub-menu-m{
+  padding: 0.75rem 1.25rem;
+  color: #495057;
+  border-radius: 0;
   -webkit-user-select: none;
   user-select: none;
   cursor: pointer;
@@ -103,4 +132,9 @@
   left: 10px;
   color: white;
   font-weight: bold;
+}
+.menu-button-m{
+  width: 250px;
+  padding: 6px;
+  font-weight: 600;
 }
