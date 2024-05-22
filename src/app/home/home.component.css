@@ -712,4 +712,7 @@ body {
   }
 }
 
-
+.preview-art:hover{
+  transform: scale(1.5);
+  transition: 1s;
+}
