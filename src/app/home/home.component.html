@@ -9,22 +9,7 @@
         </ng-template>
       </p-carousel>
     </div>
-    <div class="df" *ngIf="showMenWomen">
-      <div class="cxy flex-wrap">
-        <div class="w-30 cx flex-column preview-art">
-          <div >
-            <img src="assets/maru.jpg" class="w-90 ">
-          </div>
-          <div>Интервью с владелицей дизайн-студии Maru Studio Коржовой Марией</div>
-        </div>
-        <div class="w-30 cx flex-column preview-art">
-          <a href="https://www.youtube.com/watch?v=3Hv9bFVktOY">
-            <img src="assets/moda.png" class="w-90 ">
-          </a>
-          <div>Рассекреченная история. Мода по плану. Документальный фильм</div>
-        </div>
 
-      </div>
 
 
 
@@ -40,8 +25,23 @@
 <!--          <div class="woman">{{t.tr('Для мужчин')}}</div>-->
 <!--        </div>-->
 <!--      </a>-->
-    </div>
-    <div class="df cx" *ngIf="!showMenWomen">
+    <div class="df cx position-relative">
+      <div class="df interview" *ngIf="showMenWomen">
+        <div class="cxy flex-wrap">
+          <div class="w-30 cx flex-column preview-art">
+            <div>
+              <img src="assets/maru.jpg" class="w-100">
+            </div>
+            <div class="padding-10">Интервью с владелицей дизайн-студии Maru Studio Коржовой Марией</div>
+          </div>
+          <div class="w-30 cx flex-column preview-art">
+            <a target="_blank" href="https://www.youtube.com/watch?v=3Hv9bFVktOY">
+              <img src="assets/moda.png" class="w-100">
+            </a>
+            <div class="padding-10">Рассекреченная история. Мода по плану. Документальный фильм</div>
+          </div>
+        </div>
+      </div>
       <div class="cx" [class.yt-player]="playingVideo == i" *ngFor="let video of newsVideos; let i = index">
         <div class="cx" (mouseenter)="uiHover = true" (mouseleave)="uiHover = false" *ngIf="playingVideo == i">
           <video class="yt-player" [autoplay]="true" [muted]="i == 0 && !touched" [volume]="volume" [src]="video" (timeupdate)="videoTime = videoPlayer.currentTime" #videoPlayer (canplay)="videoLoaded($event, videoPlayer)" (ended)="playNextClassic()">
