@@ -171,7 +171,7 @@ export class HomeComponent implements OnInit {
   rightSliderArticlesAutoplayInterval = 18 * 1000;
 
   //menWomenTimeout = 1;
-  menWomenTimeout = 17;
+  menWomenTimeout = 22;
   showMenWomen = true;
 
   videoListShow = false;
