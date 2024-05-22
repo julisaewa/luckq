@@ -687,12 +687,18 @@ video::cue {
 .calendar-page-preview{
   position: fixed;
   z-index: 20;
-  background-color: red;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   height: 400px;
   width: 200px;
+}
+.video-preview{
+  position: fixed;
+  z-index: 120;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 * {
   margin: 0;
@@ -711,6 +717,13 @@ body {
     transform: translateX(-100%);
   }
 }
+
+.new-art{
+  background-color: white;
+  margin: 10px;
+  transform: scale(1.5);
+}
+
 .preview-art{
   background-color: white;
   margin: 10px;
@@ -724,5 +737,14 @@ body {
   width: 100%;
   height: 100%;
   z-index: 100;
-
+}
+.pi-times{
+  color: white;
+  background-color: #3a3a3a;
+  padding: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
 }

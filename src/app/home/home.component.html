@@ -28,8 +28,8 @@
     <div class="df cx position-relative">
       <div class="df interview" *ngIf="showMenWomen">
         <div class="cxy flex-wrap">
-          <div class="w-30 cx flex-column preview-art">
-            <div>
+          <div class="w-30 cx flex-column new-art">
+            <div (click)="videoPreview = true">
               <img src="assets/maru.jpg" class="w-100">
             </div>
             <div class="padding-10">Интервью с владелицей дизайн-студии Maru Studio Коржовой Марией</div>
@@ -338,6 +338,12 @@
   <button (click)="selectedCalendarNews = null">CLOSE</button>
 </div>
 
+<div class="video-preview position-relative" *ngIf="videoPreview">
+  <video controls autoplay [src]="'https://xn--41a.tv/assets/video/maru.mp4'"></video>
+  <div (click)="videoPreview = false">
+    <i class="pi pi-times"></i>
+  </div>
+</div>
 <!--<p-dialog [(visible)]="selectedCalendarPageVisislbe" [modal]="true" [style]="{ width: 'auto' }" [draggable]="false" [resizable]="false">-->
 <!--  <img [src]="selectedCalendarPage" height="500px">-->
 <!--</p-dialog>-->

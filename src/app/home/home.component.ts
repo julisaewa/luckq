@@ -171,7 +171,7 @@ export class HomeComponent implements OnInit {
   rightSliderArticlesAutoplayInterval = 18 * 1000;
 
   //menWomenTimeout = 1;
-  menWomenTimeout = 2200;
+  menWomenTimeout = 22;
   showMenWomen = true;
 
   videoListShow = false;
@@ -190,6 +190,7 @@ export class HomeComponent implements OnInit {
     new CalendarEvent(0, 16, 4, 2024, 'Лунный', 'Название 6', 'Какое-то суперважное события для кого-то особенного 6')
   ];
   selectedCalendarNews: CalendarEvent | null = null;
+  videoPreview = false;
 
   calendarPages: any[] = [];
   calendarPagesSplit1: any[] = [];
