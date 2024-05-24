@@ -37,6 +37,7 @@
   height: 90px;
   padding-left: 20px;
   padding-right: 20px;
+  z-index: 20;
 }
 .logo{
   height: 90px;
@@ -58,7 +59,7 @@
 }
 .menu{
   text-transform: uppercase;
-  font-size: 13px;
+  font-size: 0.65vw;
   color: white;
 }
 .menu:hover{

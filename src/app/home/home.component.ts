@@ -109,13 +109,16 @@ export class HomeComponent implements OnInit {
   loading = true;
   videoTime = 0;
   newsVideos: any[] = [];
+  playingPromo = false;
   playingVideo = -1;
   volume = 0;
   uiHover = false;
   touched = false;
   pipActive = false;
+  rightBannerRatio = 2.6;
 
   leftSliderImages: any[] = [
+    {src: '/assets/banner/12.png', url: 'https://marustudio.ru/'},
     {src: '/assets/banner/11.png', url: 'https://stockmann.ru/'},
     {src: '/assets/banner/1.png', url: 'https://thedubaimall.com/'},
     {src: '/assets/banner/2.png', url: 'https://dubaioutletmall.com/'},
@@ -129,6 +132,7 @@ export class HomeComponent implements OnInit {
     {src: '/assets/banner/10.png', url: 'https://www.dubaihillsmall.ae/'},
   ];
   leftSliderImagesMobile: any[] = [
+    {src: '/assets/banner/12m.png', url: 'https://marustudio.ru/'},
     {src: '/assets/banner/11m.png', url: 'https://stockmann.ru/'},
     {src: '/assets/banner/1m.png', url: 'https://thedubaimall.com/'},
     {src: '/assets/banner/2m.png', url: 'https://dubaioutletmall.com/'},
@@ -171,7 +175,7 @@ export class HomeComponent implements OnInit {
   rightSliderArticlesAutoplayInterval = 18 * 1000;
 
   //menWomenTimeout = 1;
-  menWomenTimeout = 22;
+  menWomenTimeout = 2200;
   showMenWomen = true;
 
   videoListShow = false;
@@ -491,5 +495,68 @@ export class HomeComponent implements OnInit {
       this.weatherImage = 'https:' + weather.current.condition.icon;
       this.weatherCelsius = weather.current.temp_c;
     });
+  }
+
+  setPlayingVideo(video: string) {
+    this.newsVideos.push(video);
+    this.playingVideo = this.newsVideos.length - 1;
+    this.playingPromo = true;
+  }
+
+  getLeftBannerStyle() {
+    let videoHeight = 0;
+    let findVideo = document.getElementsByClassName("yt-player")[0];
+
+    if (findVideo != null){
+      videoHeight = findVideo.clientHeight;
+    }
+    return {
+      height: videoHeight + 'px',
+      width: (videoHeight / 1.7275) + 'px'
+    };
+  }
+  getLeftBannerHeight() {
+    let videoHeight = 0;
+    let findVideo = document.getElementsByClassName("yt-player")[0];
+    if (findVideo != null){
+      videoHeight = findVideo.clientHeight;
+    }
+    return videoHeight + 'px';
+  }
+
+
+  getRightCircleBannerHeight() {
+    let videoHeight = 0;
+    let findVideo = document.getElementsByClassName("yt-player")[0];
+    if (findVideo != null){
+      videoHeight = findVideo.clientHeight;
+    }
+    return videoHeight / this.rightBannerRatio + 'px';
+  }
+
+  getRightCircleBannerStyle() {
+    let videoHeight = 0;
+    let findVideo = document.getElementsByClassName("yt-player")[0];
+
+    if (findVideo != null){
+      videoHeight = findVideo.clientHeight;
+    }
+    return {
+      height: videoHeight / this.rightBannerRatio + 'px',
+      width: (videoHeight / this.rightBannerRatio) + 'px'
+    };
+  }
+
+  getRighVideoBannerStyle() {
+    let videoHeight = 0;
+    let findVideo = document.getElementsByClassName("yt-player")[0];
+
+    if (findVideo != null){
+      videoHeight = findVideo.clientHeight;
+    }
+    return {
+      height: 'auto',
+      width: (videoHeight / this.rightBannerRatio) + 'px'
+    };
   }
 }

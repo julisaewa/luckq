@@ -1,10 +1,11 @@
 <div class="height-vh" *ngIf="!device.isMobile()">
-  <div class="df height-main-cont space-between">
-    <div class="w-18 ml-30">
-      <p-carousel class="cursor-pointer" [verticalViewPortHeight]="'calc(100vh - 228px)'" [circular]="true" [value]="leftSliderImages" [numVisible]="1" [showNavigators]="false" [showIndicators]="false" [autoplayInterval]="leftSliderImagesAutoplayInterval" orientation="vertical">
+  <div class="df space-between">
+    <div class="w-18">
+<!--      <p-carousel class="cursor-pointer" [verticalViewPortHeight]="'calc(100vh - 228px)'" [circular]="true" [value]="leftSliderImages" [numVisible]="1" [showNavigators]="false" [showIndicators]="false" [autoplayInterval]="leftSliderImagesAutoplayInterval" orientation="vertical">-->
+      <p-carousel class="cursor-pointer" [verticalViewPortHeight]="getLeftBannerHeight()" [circular]="true" [value]="leftSliderImages" [numVisible]="1" [showNavigators]="false" [showIndicators]="false" [autoplayInterval]="leftSliderImagesAutoplayInterval" orientation="vertical">
         <ng-template let-image pTemplate="item">
           <div class="df">
-            <img class="left-banner" (click)="openUrl(image.url)" [src]="image.src"/>
+            <img class="left-banner" (click)="openUrl(image.url)" [src]="image.src" [ngStyle]="getLeftBannerStyle()"/>
           </div>
         </ng-template>
       </p-carousel>
@@ -26,13 +27,13 @@
 <!--        </div>-->
 <!--      </a>-->
     <div class="df cx position-relative">
-      <div class="df interview" *ngIf="showMenWomen">
+      <div class="df interview" *ngIf="newsVideos.length > 0 && showMenWomen && !playingPromo">
         <div class="cxy flex-wrap">
-          <div class="w-30 cx flex-column new-art">
-            <div (click)="videoPreview = true">
+          <div class="w-30 cx flex-column new-art cursor-pointer">
+            <div (click)="setPlayingVideo('https://xn--41a.tv/assets/video/maru.mp4')">
               <img src="assets/maru.jpg" class="w-100">
             </div>
-            <div class="padding-10">Интервью с владелицей дизайн-студии Maru Studio Коржовой Марией</div>
+            <div class="padding-10 min-text">Дизайнер и владелица интерьерной студии Maru  Мария Коржова рассказала: с чего начинался ее бизнес, и что сегодня делает для его развития. Показала, как детали могут преобразить любой интерьер и какие креативные подарки можно найти в её студии.</div>
           </div>
           <div class="w-30 cx flex-column preview-art">
             <a target="_blank" href="https://www.youtube.com/watch?v=3Hv9bFVktOY">
@@ -115,22 +116,22 @@
       </div>
     </div>
     <div class="w-18 df space-between flex-column mr-30 right-content">
-      <p-carousel [verticalViewPortHeight]="'300px'" [circular]="true" [value]="rightSliderImages" [numVisible]="1" [showNavigators]="false" [showIndicators]="false" [autoplayInterval]="rightSliderImagesAutoplayInterval" orientation="vertical">
+      <p-carousel [verticalViewPortHeight]="getRightCircleBannerHeight()" [circular]="true" [value]="rightSliderImages" [numVisible]="1" [showNavigators]="false" [showIndicators]="false" [autoplayInterval]="rightSliderImagesAutoplayInterval" orientation="vertical">
         <ng-template let-image pTemplate="item">
           <div class="cxy">
-            <img class="cursor-pointer" width="100%" (click)="openUrl(image.url)" [src]="image.src"/>
+            <img [ngStyle]="getRightCircleBannerStyle()" class="cursor-pointer" width="100%" (click)="openUrl(image.url)" [src]="image.src"/>
           </div>
         </ng-template>
       </p-carousel>
-      <p-carousel class="" [verticalViewPortHeight]="'250px'" [circular]="true" [value]="rightSliderArticles" [numVisible]="1" [showNavigators]="false" [showIndicators]="false" [autoplayInterval]="rightSliderArticlesAutoplayInterval" orientation="vertical">
+      <p-carousel class="" [verticalViewPortHeight]="getRightCircleBannerHeight()" [circular]="true" [value]="rightSliderArticles" [numVisible]="1" [showNavigators]="false" [showIndicators]="false" [autoplayInterval]="rightSliderArticlesAutoplayInterval" orientation="vertical">
         <ng-template let-image pTemplate="item">
           <div class="cxy">
-            <img class="cursor-pointer" width="250"  (click)="openUrl(image.url)" [src]="image.src"/>
+            <img [ngStyle]="getRightCircleBannerStyle()" class="cursor-pointer" width="250"  (click)="openUrl(image.url)" [src]="image.src"/>
           </div>
         </ng-template>
       </p-carousel>
       <div>
-        <video src="assets/video/moda.mp4" width="300" type="video/mp4" controls autoplay loop [muted]="true">
+        <video [ngStyle]="getRighVideoBannerStyle()" src="assets/video/moda.mp4" width="300" type="video/mp4" controls autoplay loop [muted]="true">
         </video>
       </div>
     </div>
@@ -150,7 +151,7 @@
               <img *ngFor="let cal of calendarPages" class="mx-120 calendar-page" [src]="cal.url" (mouseenter)="previewImage(cal.url, $event)" (mouseleave)="resetImagePreview()">
             </div>
           </div>
-          <div [ngStyle]="getImagePreviewStyle()" [@openClose]="selectedCalendarPageVisislbe ? 'open' : 'closed'">
+          <div class="image-preview" [ngStyle]="getImagePreviewStyle()" [@openClose]="selectedCalendarPageVisislbe ? 'open' : 'closed'">
             <img [src]="selectedCalendarPage" height="500px">
           </div>
         </div>
