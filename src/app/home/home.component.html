@@ -189,7 +189,7 @@
 
 
 
-<div class="height-vh-m " *ngIf="device.isMobile()">
+<div class="height-vh-m" *ngIf="device.isMobile()">
   <div class="">
     <div class="">
       <p-carousel class="cursor-pointer" [verticalViewPortHeight]="'120px'" [circular]="true" [value]="leftSliderImagesMobile" [numVisible]="1" [showNavigators]="false" [showIndicators]="false" [autoplayInterval]="leftSliderImagesAutoplayInterval" orientation="vertical">
@@ -200,22 +200,24 @@
         </ng-template>
       </p-carousel>
     </div>
-    <div class="df" *ngIf="showMenWomen">
-      <a href="https://svg.moda/womens" target="_blank" class="w-50 df justify-content-end cursor-pointer">
-        <div class="position-relative">
-          <img src="assets/woman.png" class="woman-img">
-          <div class="woman">{{t.tr('Для женщин')}}</div>
+    <div class="df cx position-relative">
+      <div class="df interview" *ngIf="newsVideos.length > 0 && showMenWomen && !playingPromo">
+        <div class="cxy flex-wrap">
+          <div class="w-30 cx flex-column new-art cursor-pointer">
+            <div (click)="setPlayingVideo('https://xn--41a.tv/assets/video/maru.mp4')">
+              <img src="assets/maru.jpg" class="w-100">
+            </div>
+            <div class="padding-10 min-text-m">Дизайнер и владелица интерьерной студии Maru  Мария Коржова рассказала: с чего начинался ее бизнес, и что сегодня делает для его развития. Показала, как детали могут преобразить любой интерьер и какие креативные подарки можно найти в её студии.</div>
+          </div>
+          <div class="w-30 cx flex-column preview-art">
+            <a target="_blank" href="https://www.youtube.com/watch?v=3Hv9bFVktOY">
+              <img src="assets/moda.png" class="w-100">
+            </a>
+            <div class="padding-10 min-text-m-max">Рассекреченная история. Мода по плану. Документальный фильм</div>
+          </div>
         </div>
-      </a>
-      <a href="https://svg.moda/mens" target="_blank" class="w-50 df cursor-pointer">
-        <div class="position-relative">
-          <img src="assets/man.png" class="woman-img">
-          <div class="woman">{{t.tr('Для мужчин')}}</div>
-        </div>
-      </a>
-    </div>
-    <div class="df cx" *ngIf="!showMenWomen">
-      <div class="cx" [class.yt-player-m]="playingVideo == i" *ngFor="let video of newsVideos; let i = index">
+      </div>
+      <div class="cx" [class.yt-player]="playingVideo == i" *ngFor="let video of newsVideos; let i = index">
         <div class="cx" (mouseenter)="uiHover = true" (mouseleave)="uiHover = false" *ngIf="playingVideo == i">
           <video class="yt-player-m" [autoplay]="true" [muted]="i == 0 && !touched" [volume]="volume" [src]="video" (timeupdate)="videoTime = videoPlayer.currentTime" #videoPlayer (canplay)="videoLoaded($event, videoPlayer)" (ended)="playNextClassic()">
           </video>

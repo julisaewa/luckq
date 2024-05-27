@@ -337,7 +337,7 @@
 .yt-player-m{
   z-index: 5;
   position: relative;
-  width: 100%;
+  width: 100vw;
 }
 .calendar-page{
   height: 150px;
@@ -706,4 +706,10 @@ body {
 }
 .image-preview{
   z-index: 200 !important;
+}
+.min-text-m{
+  font-size: 1.2vw;
+}
+.min-text-m-max{
+  font-size: 2.5vw;
 }
