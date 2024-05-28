@@ -338,6 +338,7 @@
   z-index: 5;
   position: relative;
   width: 100vw;
+  height: auto;
 }
 .calendar-page{
   height: 150px;

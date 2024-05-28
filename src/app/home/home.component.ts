@@ -175,7 +175,7 @@ export class HomeComponent implements OnInit {
   rightSliderArticlesAutoplayInterval = 18 * 1000;
 
   //menWomenTimeout = 1;
-  menWomenTimeout = 2200;
+  menWomenTimeout = 22;
   showMenWomen = true;
 
   videoListShow = false;
@@ -527,7 +527,7 @@ export class HomeComponent implements OnInit {
 
   getRightCircleBannerHeight() {
     let videoHeight = 0;
-    let findVideo = document.getElementsByClassName("yt-player")[0];
+    let findVideo = document.getElementsByClassName("yt-player-m")[0];
     if (findVideo != null){
       videoHeight = findVideo.clientHeight;
     }
